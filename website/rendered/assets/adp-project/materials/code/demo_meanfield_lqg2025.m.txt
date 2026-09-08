@@ -19,9 +19,27 @@ fprintf('Observed Monte Carlo data: %d paths, dt %.4g, %d independent training r
     cfg.train.paths,cfg.train.dt,cfg.train.repeats);
 started=tic;
 raw=mf_collect(cfg.plant,cfg.K0,cfg.train,cfg.seed);
+inputFile=fullfile(outputDirectory,'training-data.mat');
+save(inputFile,'cfg','raw','-v7.3');
 data=mf_build_data(raw,cfg.train);
-learned=mf_learn(data,cfg.cost,cfg.K0,cfg.learn);
-save(fullfile(outputDirectory,'training-data.mat'),'cfg','raw','data','learned','-v7.3');
+save(inputFile,'data','-append');
+try
+    learned=mf_learn(data,cfg.cost,cfg.K0,cfg.learn);
+catch failure
+    % Keep the actual learner rejection and the inputs needed to replay it.
+    try
+        record=struct('stage','primary_fit','identifier',failure.identifier, ...
+            'message',failure.message,'inputFile','training-data.mat', ...
+            'timeUTC',char(datetime('now','TimeZone','UTC', ...
+                'Format',"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")));
+        writelines(jsonencode(record,'PrettyPrint',true), ...
+            fullfile(outputDirectory,'failure.json'));
+    catch recordFailure
+        failure=addCause(failure,recordFailure);
+    end
+    rethrow(failure);
+end
+save(inputFile,'learned','-append');
 % Refit an independent dataset in every repeat; the first is the main run.
 replicateGains=nan(cfg.train.repeats,4);
 replicateGains(1,:)=[learned.K learned.Ks];

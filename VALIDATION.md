@@ -1,6 +1,6 @@
 # Validation record
 
-The v0.5.0 release source completed **102/102 local MATLAB tests**, with 0 failures and 0 incomplete tests, on 2026-09-08 at 00:59:51 UTC. Environment: 25.2.0.3312555 (R2025b) Update 6, macOS Apple silicon. The suite took 36.44 seconds and did not depend on historical MAT/FIG data, paper PDFs or author checkpoints.
+The v0.5.1 source completed **103/103 local MATLAB tests**, with 0 failures and 0 incomplete tests, starting on 2026-09-08 at 03:30:19 UTC. Environment: 25.2.0.3312555 (R2025b) Update 6, macOS Apple silicon. The individual test durations totaled 83.82 seconds and did not depend on historical MAT/FIG data, paper PDFs or author checkpoints.
 
 [Summary](docs/validation/matlab-tests.json) · [Per-test CSV](docs/validation/matlab-tests.csv) · [81 source hashes](docs/validation/matlab-source-hashes.json)
 
@@ -8,14 +8,16 @@ The v0.5.0 release source completed **102/102 local MATLAB tests**, with 0 failu
 |---|---:|
 | Baseline and repository entries | 46 |
 | Koopman L4DC 2025 | 8 |
-| Mean-field LQG | 7 |
+| Mean-field LQG | 8 |
 | Off-policy Q-learning TAC 2023 | 7 |
 | Infinite-horizon HJB PINN | 5 |
 | Safe PINN ICML 2025 | 9 |
 | Robust Koopman 2026 | 8 |
 | Bias-PI Automatica 2026 | 12 |
 
-One PINN replay test executes two single Adam updates to check determinism. They do not retrain the historical paper experiments. The 81 MATLAB files are byte-identical to the tested v0.4.1 source; v0.5.0 changes distribution metadata, documentation, publication assets and workflow configuration.
+One PINN replay test executes two single Adam updates to check determinism. They do not retrain the historical paper experiments. Only the mean-field demo and its test file changed among the 81 MATLAB files. The [original v0.5.0 test record](docs/validation/v0.5.0/matlab-tests.json) and [source hashes](docs/validation/v0.5.0/matlab-source-hashes.json) are preserved.
+
+The new regression exercises a real four-window rank-deficient primary fit: its configuration, raw observations and statistics survive the original `mf:RankDeficient` error and reproduce that rejection. A separate reduced success run matched the preceding source exactly for the saved inputs, fitted iterations, mean trajectory and evaluation, excluding elapsed time. See the [configuration and comparison record](docs/validation/meanfield-failure-replay.json). These are maintenance checks; the historical paper experiments were not rerun.
 
 ## Numerical reproduction scope
 

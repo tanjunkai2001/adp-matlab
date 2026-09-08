@@ -35,6 +35,19 @@ outcome = run_verified_meanfield;
 
 若默认100路径的首个拟合报错，完整入口会在精度阶段之前停止；精度子流程自身也会先拟合较小样本，可能在到达4000路径之前停止。上述命令沿用现有流程，不跳过拒绝的拟合，也不替换种子。
 
+主拟合失败后可直接重放：`demo_meanfield_lqg2025` 在采集后将 `cfg/raw` 保存到 `training-data.mat`，构造观测统计量后追加 `data`，仅在主拟合成功后追加 `learned`。主拟合报错时，`failure.json` 记录失败阶段、错误标识和消息，原异常继续向调用方抛出。
+
+将下面目录替换为失败的demo运行目录，即可使用保存的输入重新拟合，无需重新采集：
+
+~~~matlab
+addpath(fullfile(pwd,'reproductions','meanfield_lqg2025'));
+runDirectory = '/path/to/failed-demo-run'; % 替换为实际运行目录
+saved = load(fullfile(runDirectory,'training-data.mat'),'cfg','data');
+learned = mf_learn(saved.data,saved.cfg.cost,saved.cfg.K0,saved.cfg.learn);
+~~~
+
+输入和选项不变时，会重现原拒绝结果。该调用仅重跑主拟合，不恢复整个实验；`mf_precision_check` 没有因此增加检查点。本方法现含8项局部测试，包括主拟合失败输入的保存与重放，由 `run_all_tests` 统一运行。
+
 [历史记录](../../docs/fulltext/meanfield_lqg2025.md)中，100路径主实验增益误差为18.23% / 30.01%，8次训练有1次被拒绝；4000路径主实验误差约0.53% / 0.85%。这些是既有结果，不是本次重新运行所得。原始MAT/CSV属于单独保留的[历史归档](../../docs/ARTIFACTS.md)，公开源码保留摘要。上述命令明确了现有流程；要核对与某次历史实验的精确对应，还需其保存的配置和数据身份。未删除失败训练来形成无条件均值，也不据此宣称有限样本收敛定理。
 
 | 文件 | 数学职责 |

@@ -1,6 +1,6 @@
 # ADP-MATLAB
 
-[Project page](https://tanjunkai2001.github.io/projects/adp-matlab/) · [v0.5.0](https://github.com/tanjunkai2001/adp-matlab/releases/tag/v0.5.0) · [CI](https://github.com/tanjunkai2001/adp-matlab/actions/workflows/checks.yml) · [MIT](LICENSE)
+[Project page](https://tanjunkai2001.github.io/projects/adp-matlab/) · [v0.5.1](https://github.com/tanjunkai2001/adp-matlab/releases/tag/v0.5.1) · [CI](https://github.com/tanjunkai2001/adp-matlab/actions/workflows/checks.yml) · [MIT](LICENSE)
 
 **MATLAB reference implementations and reproducible experiments for adaptive dynamic programming control.**
 
@@ -9,7 +9,7 @@
 Learn from a small integral policy-iteration example, then explore Koopman models, neural HJB solvers, mean-field control and recent control-journal methods. Each implementation connects its equations, MATLAB functions, assumptions and recorded outcomes.
 
 <!-- SNAPSHOT:START -->
-**v0.5.0:** 8 runnable entries · 7 paper packages · 102/102 local tests passed · 6 research skills. Tested on 25.2.0.3312555 (R2025b) Update 6 (maca64).
+**v0.5.1:** 8 runnable entries · 7 paper packages · 103/103 local tests passed · 6 research skills. Tested on 25.2.0.3312555 (R2025b) Update 6 (MACA64).
 <!-- SNAPSHOT:END -->
 
 <p align="center"><img src="docs/assets/baseline-reference.svg" width="640" alt="Actual MATLAB baseline: policy iteration approaches the analytic LQR gain and the learned closed loop converges." /></p>
@@ -50,7 +50,7 @@ The full suite uses **Control System Toolbox** and **Deep Learning Toolbox**. On
 |---|---|---:|---|
 | [Integral policy iteration](docs/GETTING_STARTED.md) · Reference baseline | CT linear quadratic · known B | 46 | Analytic LQR comparator; two-state example. |
 | [Koopman generator + PI](reproductions/koopman_l4dc2025) · [L4DC 2025](https://proceedings.mlr.press/v283/zeng25a.html) | CT nonlinear · identified generator | 8 | Normalized pendulum variant; not every paper table. |
-| [Mean-field LQG](reproductions/meanfield_lqg2025) · [Automatica 2025](https://doi.org/10.1016/j.automatica.2024.111924) | Stochastic CT · two-gain PI | 7 | Finite-sample social optimization; low-sample failures retained. |
+| [Mean-field LQG](reproductions/meanfield_lqg2025) · [Automatica 2025](https://doi.org/10.1016/j.automatica.2024.111924) | Stochastic CT · two-gain PI | 8 | Finite-sample social optimization; low-sample failures retained. |
 | [Off-policy Q-learning](reproductions/qlearning_tac2023) · [IEEE TAC 2023](https://doi.org/10.1109/TAC.2023.3235967) | DT LQR · matrix Bellman equation | 7 | Data-based LQR; explicit MIMO initialization variant. |
 | [Infinite-horizon HJB PINN](reproductions/pinn_infinite_horizon2025) · [IJRNC 2025](https://doi.org/10.1002/rnc.70028) | Neural HJB · horizon continuation | 5 | Reduced LQR/pendulum training; corrected quartic cost identified. |
 | [Safe epigraph PINN](reproductions/safe_pinn_icml2025) · [ICML 2025](https://proceedings.mlr.press/v267/tayal25a.html) | Epigraph HJB · neural value | 9 | Boat example; collision and budget violations remain. |

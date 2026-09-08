@@ -1,12 +1,7 @@
 {
-  "source_version": "0.5.1",
-  "project_version": "0.5.1",
-  "scope": "81 active MATLAB sources tested before and after hash verification; only the mean-field demo and its test file differ from v0.5.0.",
-  "previous_manifest": "v0.5.0/matlab-source-hashes.json",
-  "changed_from_v050": [
-    "reproductions/meanfield_lqg2025/demo_meanfield_lqg2025.m",
-    "reproductions/meanfield_lqg2025/test_meanfield_lqg2025.m"
-  ],
+  "source_version": "0.4.1",
+  "project_version": "0.5.0",
+  "scope": "81 active MATLAB sources; byte-identical to v0.4.1 and tested in this prepared source directory",
   "files": [
     {
       "path": "adp_catalog.m",
@@ -125,8 +120,8 @@
     },
     {
       "path": "reproductions/meanfield_lqg2025/demo_meanfield_lqg2025.m",
-      "bytes": 7722,
-      "sha256": "9b500606f328bd4ff3a215f3474acd244068763badf46168e96e2017d87bb973"
+      "bytes": 7037,
+      "sha256": "22e83ba70c125e3a2433e4ce5b0e9b8d9d43a445c1c8a5de2d4bfc8633e7b155"
     },
     {
       "path": "reproductions/meanfield_lqg2025/mf_build_data.m",
@@ -180,8 +175,8 @@
     },
     {
       "path": "reproductions/meanfield_lqg2025/test_meanfield_lqg2025.m",
-      "bytes": 4318,
-      "sha256": "cf0bf609fb07e1c30277eeb76a3a9cd0a0fd2153a66daaab23274f60f0d8f1ae"
+      "bytes": 3246,
+      "sha256": "418d8368bec5297df78f3f3a6420dadef38adf46f3837e4f81527651afa6b54c"
     },
     {
       "path": "reproductions/pinn_infinite_horizon2025/analyze_pinn_run.m",
@@ -413,5 +408,6 @@
       "bytes": 2194,
       "sha256": "51bd214ea72e7fae2903547cdfd8a37819f9b2aaa0c575a8228fad47b2f6b08c"
     }
-  ]
+  ],
+  "tested_on": "2026-09-08T00:59:51.989Z"
 }

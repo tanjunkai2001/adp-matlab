@@ -1,0 +1,129 @@
+{
+  "passed": true,
+  "trainingVariablesEqual": true,
+  "resultsEqualExceptElapsedSeconds": true,
+  "K": [
+    8.355307371406736,
+    -3.0058945725289767
+  ],
+  "Ks": [
+    -0.6538182156037838,
+    0.6224958889395905
+  ],
+  "configuration": {
+    "plant": {
+      "A": [
+        [
+          0.3,
+          0.7
+        ],
+        [
+          -0.9,
+          0.5
+        ]
+      ],
+      "B": [
+        0.2,
+        0
+      ],
+      "C": [
+        [
+          0.05,
+          0.03
+        ],
+        [
+          0.05,
+          0.02
+        ]
+      ],
+      "D": [
+        0.05,
+        0.06
+      ]
+    },
+    "cost": {
+      "Q": [
+        [
+          3,
+          0
+        ],
+        [
+          0,
+          2
+        ]
+      ],
+      "R": 1.25,
+      "Gamma": [
+        [
+          0.9,
+          0
+        ],
+        [
+          0,
+          0.9
+        ]
+      ]
+    },
+    "K0": [
+      6,
+      -3
+    ],
+    "initialMean": [
+      2,
+      2
+    ],
+    "initialRange": [
+      0,
+      4
+    ],
+    "seed": 20260907.0,
+    "train": {
+      "dt": 0.001,
+      "window": 0.9,
+      "lastStart": 10,
+      "startStride": 1,
+      "paths": 100,
+      "nFrequencies": 100,
+      "frequencyRange": [
+        -100,
+        100
+      ],
+      "repeats": 1
+    },
+    "learn": {
+      "tolerance": 0.0001,
+      "maxIterations": 100,
+      "rankRelativeTolerance": 1e-10,
+      "maxScaledCondition": 10000000000.0
+    },
+    "eval": {
+      "dt": 0.002,
+      "horizon": 0.1,
+      "population": 4,
+      "repeats": 2,
+      "meanPaths": 5,
+      "seed": 20270907.0
+    },
+    "meanSeed": 20280907.0,
+    "paper": {
+      "doi": "10.1016/j.automatica.2024.111924",
+      "arxiv": "2410.15119v1",
+      "pdfSha256": "a50e13845db320f9a8575b8cead71ac9be3f3a1004fa120ccbcc06a44947db6f"
+    }
+  },
+  "scope": "Reduced finite-horizon regression; not a paper experiment.",
+  "before_commit": "ecde5b292c92b796cc42067a8256357c7b50325c",
+  "after_source_manifest": "matlab-source-hashes.json",
+  "test_name": "test_meanfield_lqg2025/testPrimaryFitFailurePreservesReplayData",
+  "regression_before": "Failed: mf:RankDeficient was thrown but training-data.mat was absent.",
+  "regression_after": "Passed: saved cfg/raw/data verified, learned/results absent, failure.json identifier/stage/input verified, replay throws mf:RankDeficient.",
+  "failure_fixture": {
+    "paths": 5,
+    "dt": 0.001,
+    "window": 0.002,
+    "lastStart": 0.003,
+    "startStride": 1,
+    "windows": 4
+  },
+  "secondary_record_write_failure": "Original exception preservation reviewed statically; not fault-injected at runtime."
+}

@@ -38,6 +38,6 @@ Do not commit `runs/`, paper PDFs, upstream source archives, personal paths, acc
 
 ## Respect the source
 
-Credit the paper and code sources. Confirm redistribution terms before copying third-party code or weights. A public download is not a software license. Contributions to this repository are provided under its [MIT License](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/LICENSE); preserve any applicable third-party notices.
+Credit the paper and code sources. Confirm redistribution terms before copying third-party code or weights. A public download is not a software license. Contributions to this repository are provided under its [MIT License](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/LICENSE); preserve any applicable third-party notices.
 
 Discuss technical disagreements with equations and reproducible examples. Review the implementation and evidence, not the contributor.

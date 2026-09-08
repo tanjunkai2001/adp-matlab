@@ -8,6 +8,8 @@ The GitHub source checkout contains MATLAB implementations, tests, method notes 
 |---|---|
 | [Local test summary](validation/matlab-tests.json) and [per-test CSV](validation/matlab-tests.csv) | Actual test outcomes from the prepared source directory |
 | [Source hashes](validation/matlab-source-hashes.json) | Identity of the active MATLAB files used in that run |
+| [v0.5.0 test record](validation/v0.5.0/matlab-tests.json) and [source hashes](validation/v0.5.0/matlab-source-hashes.json) | Preserved validation for the preceding release |
+| [Mean-field patch checks](validation/meanfield-failure-replay.json) | Failure replay and successful-run comparison for v0.5.1 |
 | [Baseline data](assets/data/baseline-summary.json) | Settings, metrics and CSV data for the README/project-page figure |
 | [Paper implementation cards](fulltext) | Equation mappings, reading scope and differences from the papers |
 

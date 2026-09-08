@@ -1,14 +1,15 @@
 {
-  "tested_on": "2026-09-08T00:59:51.989Z",
-  "source_version": "0.4.1",
-  "project_packaging_version": "0.5.0",
+  "tested_on": "2026-09-08T03:30:19.145Z",
   "matlab": "25.2.0.3312555 (R2025b) Update 6",
   "release": "2025b",
-  "platform": "maca64",
-  "total": 102,
-  "passed": 102,
+  "platform": "MACA64",
+  "total": 103,
+  "passed": 103,
   "failed": 0,
   "incomplete": 0,
-  "seconds": 36.442896833333336,
-  "scope": "Current local MATLAB tests without historical MAT/FIG data or author checkpoints. One PINN replay test performs two single Adam updates. Full neural training is separate."
+  "seconds": 83.81549558333333,
+  "scope": "Current local tests, including primary mean-field failure-data replay. One PINN test performs two single Adam updates; no complete neural training.",
+  "source_version": "0.5.1",
+  "project_packaging_version": "0.5.1",
+  "source_manifest": "matlab-source-hashes.json"
 }

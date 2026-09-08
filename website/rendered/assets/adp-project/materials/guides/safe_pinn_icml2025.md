@@ -25,7 +25,7 @@ Required products: MATLAB, Deep Learning Toolbox. The native entry is `demo_safe
 
 This path loads weights for inference without retraining the author's network. It needs two files obtained or created separately:
 
-- A converted MATLAB weight file. The loader expects `W1`–`W5`, `b1`–`b5`, `checkpoint_epoch` and independent reference value/gradient arrays; see [`load_author_boat.m`](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/reproductions/safe_pinn_icml2025/load_author_boat.m) for the exact fields. [`SOURCE.json`](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/reproductions/safe_pinn_icml2025/SOURCE.json) records the historical checkpoint and normalization. Weights and conversion tools are not bundled, and a raw PyTorch `.pth` file cannot be passed directly to the loader.
+- A converted MATLAB weight file. The loader expects `W1`–`W5`, `b1`–`b5`, `checkpoint_epoch` and independent reference value/gradient arrays; see [`load_author_boat.m`](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/safe_pinn_icml2025/load_author_boat.m) for the exact fields. [`SOURCE.json`](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/safe_pinn_icml2025/SOURCE.json) records the historical checkpoint and normalization. Weights and conversion tools are not bundled, and a raw PyTorch `.pth` file cannot be passed directly to the loader.
 - A `result.mat` saved by `demo_safe_pinn`, containing `result.heldoutInputs` and `result.testInitial`. `evaluate_boat_model` reuses these inputs, but selects the budgets again with the supplied network. An existing compatible run can be used without retraining; the snippet uses the run from step 1. Its `comparisonFile` cannot be replaced with the weight file or the evaluator's `evaluation.mat`.
 
 Replace `weightFile` with your converted file. The evaluation writes into a new directory:
@@ -46,7 +46,7 @@ The loader checks MATLAB values and physical-input gradients against the referen
 
 ## Read the recorded counts
 
-The [September 7 record](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/evidence/v0.3/safe-pinn/RESULTS.md) reports the following fixed-input evaluations with the current cost integrator:
+The [September 7 record](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/evidence/v0.3/safe-pinn/RESULTS.md) reports the following fixed-input evaluations with the current cost integrator:
 
 | Network | Candidate initial states | Predicted feasible and executed | Collisions among executed | Budget violations among executed |
 |---|---:|---:|---:|---:|

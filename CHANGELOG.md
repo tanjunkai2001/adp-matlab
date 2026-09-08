@@ -1,3 +1,11 @@
+# v0.5.1 — mean-field failure-data preservation, 2026-09-08
+
+- Save the primary mean-field configuration and raw observations after collection, and its statistics before fitting. Append the learned result on success.
+- Record primary-fit failures in `failure.json` and rethrow the original exception; its saved inputs can be replayed without collecting new data.
+- Added one deterministic failure/replay regression. All 103 local MATLAB tests passed; a reduced success comparison matched all saved numerical results except elapsed time.
+- Preserved the v0.5.0 tag, test/source records, learner formulas, default settings and historical experiments.
+- Included the preceding baseline note and experiment-command documentation improvements.
+
 # v0.5.0 — first public source release, 2026-09-08
 
 - Added the MIT license, consistent release metadata and a reproducible source package.

@@ -41,8 +41,23 @@ This sequence runs method tests, the default 100-path experiment, the precision 
 
 An error in the first 100-path fit stops the complete sequence before the precision stage. The precision procedure also fits its smaller pooled samples before reaching 4,000 paths, so it can stop at one of those fits. These commands preserve the existing procedure; they do not skip rejected fits or substitute seeds.
 
+## Replay a rejected primary fit
+
+`demo_meanfield_lqg2025` saves `cfg` and `raw` to `training-data.mat` after collection, appends `data` after building the observed statistics, and appends `learned` only after a successful primary fit. If that fit fails, `failure.json` records its stage, error identifier and message; the original error is still thrown.
+
+Set `runDirectory` to the failed demo's directory to replay the fit without collecting new data:
+
+```matlab
+addpath(fullfile(pwd,'reproductions','meanfield_lqg2025'));
+runDirectory = '/path/to/failed-demo-run'; % Replace with your run directory
+saved = load(fullfile(runDirectory,'training-data.mat'),'cfg','data');
+learned = mf_learn(saved.data,saved.cfg.cost,saved.cfg.K0,saved.cfg.learn);
+```
+
+With the same inputs and options, the rejection is reproduced. This reruns only the primary fit; it does not resume the complete experiment or add checkpoints to `mf_precision_check`.
+
 ## Validation and results
 
-The current suite records **7 local tests** for this method. Run `run_all_tests('list')` to inspect discovery, then `run_all_tests` for the combined suite. Independent equations and comparators are documented in the test functions and full-text notes.
+The current suite contains **8 local tests** for this method, including preservation and replay of rejected primary-fit inputs. Run `run_all_tests('list')` to inspect discovery, then `run_all_tests` for the combined suite. Independent equations and comparators are documented in the test functions and full-text notes.
 
 The [paper card](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/fulltext/meanfield_lqg2025.md) records the earlier 100-path gain errors of 18.23% / 30.01%, one rejected fit among eight repeats, and the 4,000-path result above. These are historical results, not new measurements from the commands shown here. Their original MAT/CSV records are in the separately retained [artifact collection](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md); the public source contains the summary. The current procedure is specified above, while an exact match to the historical run requires its saved configuration and data identities. The test count does not imply that every original figure or theoretical guarantee has been reproduced.

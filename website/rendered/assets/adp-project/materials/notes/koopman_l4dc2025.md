@@ -2,7 +2,7 @@
 
 文献：Zhexuan Zeng, Ruikun Zhou, Yiming Meng, Jun Liu, *Data-driven optimal control of unknown nonlinear dynamical systems using the Koopman operator*，PMLR 283:1127–1139，2025。[正式出版页](https://proceedings.mlr.press/v283/zeng25a.html)，[证明预印本 arXiv:2412.01085v1](https://arxiv.org/abs/2412.01085v1)。检查日期：2026-09-07。
 
-阅读范围为正式版 PDF 全13页、预印本方法/实验部分及附录A全部证明。以下页码均为 PDF 内页码，而非 proceedings 连续页码。PDF 哈希已固定在 [sources.json](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/reproductions/koopman_l4dc2025/sources.json)。PMLR 页未给独立 DOI，本笔记不编造 DOI。PMLR/arXiv 中未找到本篇直接代码链接；尝试作者相关 LyZNet GitLab 时 git 端要求身份认证，没有下载或执行该代码。
+阅读范围为正式版 PDF 全13页、预印本方法/实验部分及附录A全部证明。以下页码均为 PDF 内页码，而非 proceedings 连续页码。PDF 哈希已固定在 [sources.json](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/koopman_l4dc2025/sources.json)。PMLR 页未给独立 DOI，本笔记不编造 DOI。PMLR/arXiv 中未找到本篇直接代码链接；尝试作者相关 LyZNet GitLab 时 git 端要求身份认证，没有下载或执行该代码。
 
 ## 逐页阅读记录
 

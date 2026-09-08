@@ -31,6 +31,29 @@ c.learn.maxScaledCondition=1.01;
 verifyError(t,@()mf_learn(d,c.cost,c.K0,c.learn),'mf:IllConditioned');
 end
 
+function testPrimaryFitFailurePreservesReplayData(t)
+c=mf_config;
+c.train.paths=5; c.train.window=0.002; c.train.lastStart=0.003;
+c.train.repeats=1; % Four windows cannot identify six excitation columns.
+folder=tempname;
+t.addTeardown(@()rmdir(folder,'s'));
+verifyError(t,@()demo_meanfield_lqg2025(folder,c),'mf:RankDeficient');
+inputFile=fullfile(folder,'training-data.mat');
+assertTrue(t,isfile(inputFile),'A rejected primary fit must retain its inputs.');
+saved=load(inputFile);
+verifyEqual(t,saved.cfg,c);
+verifyEqual(t,saved.raw,mf_collect(c.plant,c.K0,c.train,c.seed));
+verifyEqual(t,saved.data,mf_build_data(saved.raw,saved.cfg.train));
+verifyFalse(t,isfield(saved,'learned'));
+verifyError(t,@()mf_learn(saved.data,saved.cfg.cost,saved.cfg.K0, ...
+    saved.cfg.learn),'mf:RankDeficient');
+failure=jsondecode(fileread(fullfile(folder,'failure.json')));
+verifyEqual(t,failure.stage,'primary_fit');
+verifyEqual(t,failure.identifier,'mf:RankDeficient');
+verifyEqual(t,failure.inputFile,'training-data.mat');
+verifyFalse(t,isfile(fullfile(folder,'results.mat')));
+end
+
 function testReferenceSolvesBothRiccatiEquations(t)
 c=mf_config; r=mf_reference(c.plant,c.cost,c.K0);
 verifyLessThan(t,r.stochasticAREresidual,1e-9);
