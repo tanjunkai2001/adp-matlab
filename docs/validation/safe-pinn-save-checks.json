@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "trainedLearnablesEqual": true,
+  "initialLearnablesEqual": true,
+  "resultEqualExceptTimingAndNetworkObjects": true,
+  "configuration": {
+    "seed": 25051,
+    "iterations": 1,
+    "width": 64,
+    "depth": 2,
+    "batchSize": 512,
+    "totalHorizon": 2,
+    "hardTerminal": true,
+    "activation": "tanh",
+    "cost": "distance to goal plus terminal distance",
+    "domain": [
+      [
+        -3,
+        2
+      ],
+      [
+        -2,
+        2
+      ],
+      [
+        -0.1,
+        14.86
+      ]
+    ],
+    "curriculumIterations": 1
+  },
+  "metrics": {
+    "initialHeldoutHjbMSE": 0.5228968199744958,
+    "finalHeldoutHjbMSE": 0.5068822619075566,
+    "terminalMaxError": 0,
+    "candidateCount": 64,
+    "predictedFeasibleCount": 63,
+    "fineRolloutCollisionCount": 14,
+    "fineBudgetViolationCount": 46,
+    "leftTrainingDomainCount": 61,
+    "costStepDifferenceMax": 0.013028433939180406,
+    "maxGStepDifferenceMax": 0.00459920617875359,
+    "conformalCalibrationExecuted": false
+  },
+  "scope": "One-update I/O regression with its own curriculum; not the first update of the 5000-update experiment or a paper reproduction.",
+  "before_commit": "12e68fc1240d249a638fe342c9c09bf60f292604",
+  "after_source_manifest": "matlab-source-hashes.json",
+  "test_name": "testSafePinn/testRejectedDemoPreservesEvaluation",
+  "regression_before": "Zero-update demo reached boat:Training / No heldout improvement.; no result.mat was saved, so the new regression failed.",
+  "regression_after": "Same exception identifier and message; one new result directory contains readable result.mat, metrics.json and training.csv, with unchanged initial/trained weights, zero-row history and retained fixed-set evaluation.",
+  "failure_fixture": {
+    "iterations": 0,
+    "seed": 25051,
+    "heldout_samples": 4096,
+    "candidate_states": 64,
+    "coarse_dt": 0.01,
+    "fine_dt": 0.005
+  },
+  "terminal_rejection": "Original condition, identifier and message preserved after all three writes; the distinct terminal-error branch was reviewed statically, not fault-injected.",
+  "mid_training_recovery": "Not implemented by this patch."
+}

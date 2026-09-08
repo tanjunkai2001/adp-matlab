@@ -1,6 +1,6 @@
 # 实际运行结果
 
-最终运行目录：[validated-v03-20260907](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/robust_koopman2026/results/validated-v03-20260907/metrics.json)。MATLAB R2025b Update 6，maca64，进程 exit=0；8/8 自动测试通过。测试后实际运行并保存原始数据、模型、配点、迭代、控制轨迹、配置、环境及图，源码固定为该目录 `source_hashes.json` 的 8 个文件。图已人工查看。
+最终运行目录：[validated-v03-20260907](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/reproductions/robust_koopman2026/results/validated-v03-20260907/metrics.json)。MATLAB R2025b Update 6，maca64，进程 exit=0；8/8 自动测试通过。测试后实际运行并保存原始数据、模型、配点、迭代、控制轨迹、配置、环境及图，源码固定为该目录 `source_hashes.json` 的 8 个文件。图已人工查看。
 
 | 指标 | 实测 |
 |---|---:|
@@ -25,7 +25,7 @@
 | (0.2,-1.4) | 0.990000 | 0.990020454 | 0.990608732 | 0.061488% |
 | (-1.2,0.6) | 0.540000 | 0.540002844 | 0.540554266 | 0.102642% |
 
-![冻结策略评估](https://github.com/tanjunkai2001/adp-matlab/raw/v0.5.1/reproductions/robust_koopman2026/results/validated-v03-20260907/control_comparison.png)
+![冻结策略评估](https://github.com/tanjunkai2001/adp-matlab/raw/v0.5.2/reproductions/robust_koopman2026/results/validated-v03-20260907/control_comparison.png)
 
 ## 测试范围
 
@@ -46,8 +46,8 @@
 
 ## 调试和保留的负结果
 
-首个协议采用较弱的输入偏置，训练拟合 c=0.399508202147528；30 次外迭代未收敛，PDE RMS=0.358742357931903，六点额外成本约 4.06%–25.12%。原始结果完整保存在 [debug-first-20260907](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/robust_koopman2026/results/debug-first-20260907/metrics.json)。保留该例可看到：秩充足和闭环终态很小都不能证明 PI 已收敛或成本可靠。
+首个协议采用较弱的输入偏置，训练拟合 c=0.399508202147528；30 次外迭代未收敛，PDE RMS=0.358742357931903，六点额外成本约 4.06%–25.12%。原始结果完整保存在 [debug-first-20260907](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/reproductions/robust_koopman2026/results/debug-first-20260907/metrics.json)。保留该例可看到：秩充足和闭环终态很小都不能证明 PI 已收敛或成本可靠。
 
-改进采集输入后第一次 7 项测试为 6/7：NaN 导数未被主动拒绝；随后增加有限性校验，最终 8/8 通过。该失败日志和 CSV 仍保留。中间 [recalibrated-input-20260907](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/robust_koopman2026/results/recalibrated-input-20260907/metrics.json) 结果是开发快照，不与最终源码哈希混用。最终版本还改为通用二次价值初猜、独立样本检查和固定 5000 配点。
+改进采集输入后第一次 7 项测试为 6/7：NaN 导数未被主动拒绝；随后增加有限性校验，最终 8/8 通过。该失败日志和 CSV 仍保留。中间 [recalibrated-input-20260907](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/reproductions/robust_koopman2026/results/recalibrated-input-20260907/metrics.json) 结果是开发快照，不与最终源码哈希混用。最终版本还改为通用二次价值初猜、独立样本检查和固定 5000 配点。
 
-证据：[测试 CSV](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/robust_koopman2026/evidence/final-test-results.csv)、[完整日志](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md)、[静态检查](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/robust_koopman2026/evidence/final-checkcode.json)、[依赖环境](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/robust_koopman2026/evidence/final-dependencies.json)。最终运行结果和源码哈希均可由这些文件追溯。历史失败快照只有当时原始数据和日志，未伪称绑定当前源码。
+证据：[测试 CSV](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/reproductions/robust_koopman2026/evidence/final-test-results.csv)、[完整日志](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md)、[静态检查](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/reproductions/robust_koopman2026/evidence/final-checkcode.json)、[依赖环境](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/reproductions/robust_koopman2026/evidence/final-dependencies.json)。最终运行结果和源码哈希均可由这些文件追溯。历史失败快照只有当时原始数据和日志，未伪称绑定当前源码。

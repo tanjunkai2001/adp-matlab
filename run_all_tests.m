@@ -1,5 +1,5 @@
 function results = run_all_tests(mode)
-%RUN_ALL_TESTS Existing local tests, with no PINN training entry invoked.
+%RUN_ALL_TESTS Local tests, including zero-update Safe PINN evaluation.
 %   catalog=run_all_tests('list') discovers/counts tests without running them.
 %   results=run_all_tests() executes the discovered suites and rejects any
 %   failed/incomplete result. A method with no test file is explicitly listed.
@@ -42,7 +42,7 @@ if strcmp(mode,'list')
     results=catalog;
     return
 end
-fprintf('Running %d discovered tests. No PINN training entry is called.\n',numel(suite));
+fprintf('Running %d discovered tests. Full PINN training is not run.\n',numel(suite));
 results=run(suite);
 disp(table(results));
 assert(all([results.Passed]),'adp:test:Failure', ...

@@ -8,10 +8,14 @@ The GitHub source checkout contains MATLAB implementations, tests, method notes 
 |---|---|
 | [Local test summary](validation/matlab-tests.json) and [per-test CSV](validation/matlab-tests.csv) | Actual test outcomes from the prepared source directory |
 | [Source hashes](validation/matlab-source-hashes.json) | Identity of the active MATLAB files used in that run |
-| [v0.5.0 test record](validation/v0.5.0/matlab-tests.json) and [source hashes](validation/v0.5.0/matlab-source-hashes.json) | Preserved validation for the preceding release |
+| [v0.5.0 test record](validation/v0.5.0/matlab-tests.json) and [source hashes](validation/v0.5.0/matlab-source-hashes.json) | Preserved validation for the original public release |
 | [Mean-field patch checks](validation/meanfield-failure-replay.json) | Failure replay and successful-run comparison for v0.5.1 |
+| [v0.5.1 test record](validation/v0.5.1/matlab-tests.json) and [source hashes](validation/v0.5.1/matlab-source-hashes.json) | Preserved validation for the mean-field patch |
+| [Safe PINN patch checks](validation/safe-pinn-save-checks.json) | Rejected-evaluation persistence and one-update I/O comparison for v0.5.2 |
 | [Baseline data](assets/data/baseline-summary.json) | Settings, metrics and CSV data for the README/project-page figure |
 | [Paper implementation cards](fulltext) | Equation mappings, reading scope and differences from the papers |
+
+Archived JSON files retain their original bytes and path context. Use the explicit versioned links above for the tested sources; an old manifest’s `previous_manifest` was recorded relative to its original `docs/validation/` location.
 
 ## Editable figures and source data
 

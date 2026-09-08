@@ -21,6 +21,16 @@ This runs 5,000 neural-training updates and saves a new directory under `outputR
 
 Required products: MATLAB, Deep Learning Toolbox. The native entry is `demo_safe_pinn`. The full API page lists its inputs and outputs; the shared selector forwards them directly.
 
+After completing evaluation, the demo saves `result.mat`, `metrics.json` and `training.csv`, then checks held-out loss improvement and terminal error. If a final check fails, these files remain and the original assertion still throws. The console prints `Saved Safe PINN evaluation:` followed by the directory. A call that throws does not return new `result` or `runDir` values; use the printed directory to inspect it:
+
+```matlab
+savedDirectory = '/path/printed/by/the/demo'; % Replace with the printed directory
+S = load(fullfile(savedDirectory,'result.mat'),'result');
+S.result.metrics
+```
+
+The presence of these files does not mean the final checks passed. This saves completed evaluations; it does not provide recovery from nonfinite losses during training or from earlier evaluation errors.
+
 ## 2. Evaluate an external author checkpoint
 
 This path loads weights for inference without retraining the author's network. It needs two files obtained or created separately:
@@ -80,6 +90,6 @@ The recorded reduced/author audits had 15/300 and 2/300 joint violations, with r
 
 ## Validation and results
 
-The current suite records **9 local tests** for this method. Run `run_all_tests('list')` to inspect discovery, then `run_all_tests` for the combined suite. Independent equations and comparators are documented in the test functions and full-text notes.
+The current suite contains **10 local tests** for this method, including a zero-update demo that evaluates the fixed inputs and checks that a rejected final result remains saved. Run `run_all_tests('list')` to inspect discovery, then `run_all_tests` for the combined suite. Independent equations and comparators are documented in the test functions and full-text notes.
 
 The detailed experiment record and numerical differences are preserved in the [Chinese implementation notes](README.zh-CN.md) and [paper card](../../docs/fulltext/safe_pinn_icml2025.md). Larger historical data belong to the [artifact collection](../../docs/ARTIFACTS.md). The test count does not imply that every original figure or theoretical guarantee has been reproduced.

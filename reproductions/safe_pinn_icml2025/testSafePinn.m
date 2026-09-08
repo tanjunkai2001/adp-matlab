@@ -49,6 +49,34 @@ function testNonfiniteRolloutIsInvalid(t)
 out=boat_rollout(t.TestData.net,[NaN;0],0,.5);
 verifyFalse(t,out.numericalValid);
 end
+function testRejectedDemoPreservesEvaluation(t)
+oldRng=rng;t.addTeardown(@()rng(oldRng));
+root=tempname;mkdir(root);t.addTeardown(@()rmdir(root,'s'));
+% No updates: the same network and heldout set must fail strict improvement.
+failure=[];
+try
+    demo_safe_pinn(root,0);
+catch failure
+end
+assertClass(t,failure,'MException');
+verifyEqual(t,failure.identifier,'boat:Training');
+verifyEqual(t,failure.message,'No heldout improvement.');
+files=dir(fullfile(root,'*','result.mat'));
+assertEqual(t,numel(files),1,'A rejected completed evaluation must be saved.');
+saved=load(fullfile(files.folder,files.name),'result');r=saved.result;
+verifyEqual(t,r.config.iterations,0);
+verifySize(t,r.trainingHistory,[0 3]);
+verifyEqual(t,r.network.Learnables,r.initialNetwork.Learnables);
+verifyEqual(t,r.metrics.finalHeldoutHjbMSE,r.metrics.initialHeldoutHjbMSE);
+verifySize(t,r.heldoutInputs,[4 4096]);
+verifySize(t,r.testInitial,[2 64]);
+verifyEqual(t,r.fineRollout.initial,r.testInitial(:,isfinite(r.budgets)));
+metrics=jsondecode(fileread(fullfile(files.folder,'metrics.json')));
+verifyEqual(t,metrics,r.metrics);
+history=readtable(fullfile(files.folder,'training.csv'));
+verifySize(t,history,[0 3]);
+verifyFalse(t,isfile(fullfile(files.folder,'safe-pinn.png')));
+end
 function testAugmentedRK4AgainstHeldInputOracle(t)
 % For held u the boat path is a cubic polynomial, independent of the solver.
 % This detects the old Euler-midpoint Simpson cost (error about 3.6e-4).

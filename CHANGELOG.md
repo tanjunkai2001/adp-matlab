@@ -1,3 +1,10 @@
+# v0.5.2 — retain rejected Safe PINN evaluations, 2026-09-08
+
+- Save the completed Safe PINN network, history, fixed inputs, trajectories and metrics before applying the existing heldout/terminal assertions. Print the saved directory before a rejection.
+- Added a real zero-update demo regression; all 104 local tests passed. A one-update success comparison preserved network parameters and numerical results, excluding timing.
+- Corrected the test-runner description: the suite now includes zero-update Safe PINN evaluation, while full training remains separate.
+- Preserved v0.5.1 validation/source records and bound the mean-field comparison to its original source identity. Network formulas, default settings, acceptance criteria and historical experiments are unchanged.
+
 # v0.5.1 — mean-field failure-data preservation, 2026-09-08
 
 - Save the primary mean-field configuration and raw observations after collection, and its statistics before fitting. Append the learned result on success.

@@ -1,12 +1,11 @@
 {
-  "source_version": "0.5.2",
-  "project_version": "0.5.2",
-  "scope": "81 active MATLAB sources verified before and after testing; the Safe PINN demo, its test and the test-runner description differ from v0.5.1.",
-  "previous_manifest": "v0.5.1/matlab-source-hashes.json",
-  "changed_from_v051": [
-    "reproductions/safe_pinn_icml2025/demo_safe_pinn.m",
-    "reproductions/safe_pinn_icml2025/testSafePinn.m",
-    "run_all_tests.m"
+  "source_version": "0.5.1",
+  "project_version": "0.5.1",
+  "scope": "81 active MATLAB sources tested before and after hash verification; only the mean-field demo and its test file differ from v0.5.0.",
+  "previous_manifest": "v0.5.0/matlab-source-hashes.json",
+  "changed_from_v050": [
+    "reproductions/meanfield_lqg2025/demo_meanfield_lqg2025.m",
+    "reproductions/meanfield_lqg2025/test_meanfield_lqg2025.m"
   ],
   "files": [
     {
@@ -311,8 +310,8 @@
     },
     {
       "path": "reproductions/safe_pinn_icml2025/demo_safe_pinn.m",
-      "bytes": 4791,
-      "sha256": "d6c141fb13f1023bf54e7602b4359f339a765fe61b9d27001a0db4f78b05a805"
+      "bytes": 4739,
+      "sha256": "f4ae0ea0f82b1a43175722bbfdf4d85b0c574fc55bf75cbecbeb712b03117b69"
     },
     {
       "path": "reproductions/safe_pinn_icml2025/evaluate_boat_model.m",
@@ -326,13 +325,13 @@
     },
     {
       "path": "reproductions/safe_pinn_icml2025/testSafePinn.m",
-      "bytes": 4711,
-      "sha256": "04a7bf16ee05b4758b8ecbc460167034c630c0ad4610634f9725590cda452e9a"
+      "bytes": 3454,
+      "sha256": "87f38fcc139712a3e5ef61ab49d7c2edb3162290554137d63fc44591caf1f318"
     },
     {
       "path": "run_all_tests.m",
-      "bytes": 2203,
-      "sha256": "735273d46b9efd5baa8b21bfbe0d8725258956bea15017ac9a54a47c9725a4f9"
+      "bytes": 2208,
+      "sha256": "db7fbe901b3a52cb7661f0c1d7aa93bb35afda4d34a28f1399440ac0878e198c"
     },
     {
       "path": "run_tests.m",

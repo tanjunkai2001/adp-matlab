@@ -1,0 +1,15 @@
+{
+  "tested_on": "2026-09-08T03:30:19.145Z",
+  "matlab": "25.2.0.3312555 (R2025b) Update 6",
+  "release": "2025b",
+  "platform": "MACA64",
+  "total": 103,
+  "passed": 103,
+  "failed": 0,
+  "incomplete": 0,
+  "seconds": 83.81549558333333,
+  "scope": "Current local tests, including primary mean-field failure-data replay. One PINN test performs two single Adam updates; no complete neural training.",
+  "source_version": "0.5.1",
+  "project_packaging_version": "0.5.1",
+  "source_manifest": "matlab-source-hashes.json"
+}

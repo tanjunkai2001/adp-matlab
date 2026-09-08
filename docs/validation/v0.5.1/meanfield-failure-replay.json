@@ -113,7 +113,7 @@
   },
   "scope": "Reduced finite-horizon regression; not a paper experiment.",
   "before_commit": "ecde5b292c92b796cc42067a8256357c7b50325c",
-  "after_source_manifest": "v0.5.1/matlab-source-hashes.json",
+  "after_source_manifest": "matlab-source-hashes.json",
   "test_name": "test_meanfield_lqg2025/testPrimaryFitFailurePreservesReplayData",
   "regression_before": "Failed: mf:RankDeficient was thrown but training-data.mat was absent.",
   "regression_after": "Passed: saved cfg/raw/data verified, learned/results absent, failure.json identifier/stage/input verified, replay throws mf:RankDeficient.",

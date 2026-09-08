@@ -15,6 +15,16 @@ S.result.metrics
 
 `runDir` 是本次新建的运行目录，包含训练网络、固定评价输入、轨迹和指标。此流程不需要历史实验文件或作者检查点。
 
+评价完成后，程序先保存 `result.mat`、`metrics.json` 和 `training.csv`，再检查留出损失改善与终端误差。若末尾检查失败，三个文件仍保留，原断言继续抛出。控制台会在 `Saved Safe PINN evaluation:` 后打印目录；抛错时调用不会返回新的 `result/runDir`，应按打印目录读取：
+
+```matlab
+savedDirectory = '/path/printed/by/the/demo'; % 替换为控制台打印的目录
+S = load(fullfile(savedDirectory,'result.mat'),'result');
+S.result.metrics
+```
+
+文件存在不表示末尾检查已经通过。本次保存的是已完成的评价，不支持训练中非有限损失或更早评价异常的恢复。
+
 ## 2. 评价外置作者检查点
 
 这条路径读取权重并做推理，不重训作者网络。需要两份单独准备的文件：
@@ -72,4 +82,4 @@ audit = calibrate_boat(netForAudit,calibrationDir);
 
 已记录的自训/作者网络条件审计分别为 15/300、2/300 联合违例，95% 单侧上界为 7.5949%、2.0836%。这些数字对应选定集合中的数值轨迹标签；采样与步长加密结果见[方程说明](../../docs/fulltext/safe_pinn_icml2025.md)。
 
-9个测试覆盖HJB导数、边界、单位圆极小化、RK4独立积分参照以及校准样本有效性。已有训练与检查点评估都保存了违例，查看[运行结果](../../evidence/v0.3/safe-pinn/RESULTS.md)后再选择后续训练配置。
+10个局部测试覆盖HJB导数、边界、单位圆极小化、RK4独立积分参照、校准样本有效性，以及零更新demo完成固定输入评价后、末尾检查失败时的结果保存。由 `run_all_tests` 统一运行。已有训练与检查点评估都保存了违例，查看[运行结果](../../evidence/v0.3/safe-pinn/RESULTS.md)后再选择后续训练配置。

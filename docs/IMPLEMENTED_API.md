@@ -10,7 +10,7 @@ v0.4.1 has a preserved two-state LQ baseline and seven standalone paper-method p
 | demo_reproductions(method,varargin) | Calls exactly the selected native function below, forwarding inputs and outputs; restores path/RNG/working directory on success or error. |
 | run_tests() | Original 43 baseline tests plus 3 repository entry/environment tests. |
 | run_all_tests('list') | Discovers direct test*.m files in the baseline tests folder and the seven method folders; does not execute test setup or training. |
-| run_all_tests() | Runs all discovered local suites; fails if any result is failed/incomplete. No full PINN training entry is called. Two single-update PINN unit checks and small non-neural simulations are included. |
+| run_all_tests() | Runs all discovered local suites; fails if any result is failed/incomplete. No full neural training is run. One PINN replay test performs two single Adam updates; a Safe PINN zero-update demo evaluates the fixed inputs and checks saved results after final rejection. Small non-neural simulations are also included. |
 
 | ID | Native signature | Dependency / current boundary |
 |---|---|---|
@@ -24,6 +24,8 @@ v0.4.1 has a preserved two-state LQ baseline and seven standalone paper-method p
 | bias_pi_automatica2026 | [result,runDir]=demo_bias_pi(outputDirectory,cfg) | Defaults to local-multistart pendulum with discounted bootstrap; cfg.example='arm' selects arm. Omitted output directory creates a new runs/ folder. Base MATLAB learner; arm LQR comparison uses Control System Toolbox. |
 
 The native functions remain directly callable after adding their own method folder. The unified entry does not change their data layouts, cost half factors, checkpoint formats, model knowledge, or output locations. See registry/reproductions.json and each full-text card. No default method is chosen, preventing an accidental training run from a bare discovery call.
+
+`demo_safe_pinn` saves a completed evaluation to `result.mat`, `metrics.json` and `training.csv` before asserting held-out improvement and terminal accuracy. If either check fails, it prints the saved directory and throws the original assertion; no new `[result,runDir]` values are returned. Load `result.mat` from the printed directory to inspect it. Files being present does not establish acceptance. This does not provide recovery from nonfinite training losses or earlier evaluation errors.
 
 The safe-PINN author weights are an external asset. `[net,parity]=load_author_boat(weightFile)` loads a converted MATLAB file and checks independent reference values/gradients; raw `.pth` files, author weights and conversion tools are not bundled. `result=evaluate_boat_model(net,outputDirectory,comparisonFile)` requires a saved `demo_safe_pinn` result with `result.heldoutInputs` and `result.testInitial`. It reuses those candidates and chooses budgets with the supplied network. Use `fullfile(runDir,'result.mat')` from a new run or an existing compatible result, and a fresh `tempname` output directory for every evaluation. `audit=calibrate_boat(net,outputDirectory)` instead draws a separate threshold-selection and conditional-audit sample; create its new directory before calling. Both paths require Deep Learning Toolbox. The [Safe-PINN guide](../reproductions/safe_pinn_icml2025/README.md) gives the two runnable workflows and separates candidate, executed-trajectory and conditional-audit counts. `demo_reproductions('safe_pinn_icml2025',...)` calls the reduced trainer.
 

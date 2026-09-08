@@ -1,5 +1,5 @@
 {
-  "version": "0.5.1",
+  "version": "0.5.2",
   "updated_on": "2026-09-08",
   "baseline": {
     "id": "baseline",
@@ -99,7 +99,7 @@
       "entry_point": "demo_safe_pinn",
       "implementation_status": "implemented_reduced_variant",
       "validation_status": "executed_with_safety_violations",
-      "recorded_tests": 9,
+      "recorded_tests": 10,
       "dependency": "Deep Learning Toolbox",
       "evidence": "docs/fulltext/safe_pinn_icml2025.md",
       "scope": "Reduced training and author checkpoint both evaluated; finite-rollout safety/budget violations retained; conditional numerical calibration bounds only",
@@ -161,14 +161,14 @@
       ]
     }
   ],
-  "integration_validation": "passed_103_of_103_in_source_checkout",
+  "integration_validation": "passed_104_of_104_in_source_checkout",
   "note": "Seven method packages; exact paper tables and finite-data theoretical guarantees are separately assessed.",
-  "expected_current_test_count": 103,
-  "expected_test_count_note": "102 preserved tests + 1 primary mean-field failure-data replay regression; MATLAB discovered and passed all 103 on 2026-09-08.",
+  "expected_current_test_count": 104,
+  "expected_test_count_note": "103 preserved tests + 1 zero-update Safe PINN save-before-rejection regression; MATLAB discovered and passed all 104 on 2026-09-08.",
   "integration_evidence": "docs/validation/matlab-tests.json",
   "integration_source_hashes": "docs/validation/matlab-source-hashes.json",
-  "integration_training_included": "two_single_update_PINN_unit_checks_only",
-  "integration_passed_tests": 103,
+  "integration_training_included": "two_single_update_PINN_unit_checks_and_zero_update_safe_PINN_evaluation",
+  "integration_passed_tests": 104,
   "entry_validation_evidence": [
     "docs/validation/quickstart-baseline.json"
   ]

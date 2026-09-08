@@ -21,11 +21,21 @@ This runs 5,000 neural-training updates and saves a new directory under `outputR
 
 Required products: MATLAB, Deep Learning Toolbox. The native entry is `demo_safe_pinn`. The full API page lists its inputs and outputs; the shared selector forwards them directly.
 
+After completing evaluation, the demo saves `result.mat`, `metrics.json` and `training.csv`, then checks held-out loss improvement and terminal error. If a final check fails, these files remain and the original assertion still throws. The console prints `Saved Safe PINN evaluation:` followed by the directory. A call that throws does not return new `result` or `runDir` values; use the printed directory to inspect it:
+
+```matlab
+savedDirectory = '/path/printed/by/the/demo'; % Replace with the printed directory
+S = load(fullfile(savedDirectory,'result.mat'),'result');
+S.result.metrics
+```
+
+The presence of these files does not mean the final checks passed. This saves completed evaluations; it does not provide recovery from nonfinite losses during training or from earlier evaluation errors.
+
 ## 2. Evaluate an external author checkpoint
 
 This path loads weights for inference without retraining the author's network. It needs two files obtained or created separately:
 
-- A converted MATLAB weight file. The loader expects `W1`–`W5`, `b1`–`b5`, `checkpoint_epoch` and independent reference value/gradient arrays; see [`load_author_boat.m`](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/safe_pinn_icml2025/load_author_boat.m) for the exact fields. [`SOURCE.json`](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/reproductions/safe_pinn_icml2025/SOURCE.json) records the historical checkpoint and normalization. Weights and conversion tools are not bundled, and a raw PyTorch `.pth` file cannot be passed directly to the loader.
+- A converted MATLAB weight file. The loader expects `W1`–`W5`, `b1`–`b5`, `checkpoint_epoch` and independent reference value/gradient arrays; see [`load_author_boat.m`](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/reproductions/safe_pinn_icml2025/load_author_boat.m) for the exact fields. [`SOURCE.json`](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/reproductions/safe_pinn_icml2025/SOURCE.json) records the historical checkpoint and normalization. Weights and conversion tools are not bundled, and a raw PyTorch `.pth` file cannot be passed directly to the loader.
 - A `result.mat` saved by `demo_safe_pinn`, containing `result.heldoutInputs` and `result.testInitial`. `evaluate_boat_model` reuses these inputs, but selects the budgets again with the supplied network. An existing compatible run can be used without retraining; the snippet uses the run from step 1. Its `comparisonFile` cannot be replaced with the weight file or the evaluator's `evaluation.mat`.
 
 Replace `weightFile` with your converted file. The evaluation writes into a new directory:
@@ -46,7 +56,7 @@ The loader checks MATLAB values and physical-input gradients against the referen
 
 ## Read the recorded counts
 
-The [September 7 record](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.1/evidence/v0.3/safe-pinn/RESULTS.md) reports the following fixed-input evaluations with the current cost integrator:
+The [September 7 record](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/evidence/v0.3/safe-pinn/RESULTS.md) reports the following fixed-input evaluations with the current cost integrator:
 
 | Network | Candidate initial states | Predicted feasible and executed | Collisions among executed | Budget violations among executed |
 |---|---:|---:|---:|---:|
@@ -80,6 +90,6 @@ The recorded reduced/author audits had 15/300 and 2/300 joint violations, with r
 
 ## Validation and results
 
-The current suite records **9 local tests** for this method. Run `run_all_tests('list')` to inspect discovery, then `run_all_tests` for the combined suite. Independent equations and comparators are documented in the test functions and full-text notes.
+The current suite contains **10 local tests** for this method, including a zero-update demo that evaluates the fixed inputs and checks that a rejected final result remains saved. Run `run_all_tests('list')` to inspect discovery, then `run_all_tests` for the combined suite. Independent equations and comparators are documented in the test functions and full-text notes.
 
 The detailed experiment record and numerical differences are preserved in the [Chinese implementation notes](https://github.com/tanjunkai2001/adp-matlab/blob/main/reproductions/safe_pinn_icml2025/README.zh-CN.md) and [paper card](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/fulltext/safe_pinn_icml2025.md). Larger historical data belong to the [artifact collection](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md). The test count does not imply that every original figure or theoretical guarantee has been reproduced.

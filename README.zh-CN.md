@@ -1,6 +1,6 @@
 # ADP-MATLAB
 
-[项目主页](https://tanjunkai2001.github.io/projects/adp-matlab/) · [v0.5.1](https://github.com/tanjunkai2001/adp-matlab/releases/tag/v0.5.1) · [CI](https://github.com/tanjunkai2001/adp-matlab/actions/workflows/checks.yml) · [MIT](LICENSE)
+[项目主页](https://tanjunkai2001.github.io/projects/adp-matlab/) · [v0.5.2](https://github.com/tanjunkai2001/adp-matlab/releases/tag/v0.5.2) · [CI](https://github.com/tanjunkai2001/adp-matlab/actions/workflows/checks.yml) · [MIT](LICENSE)
 
 **用于自适应动态规划控制的 MATLAB 参考实现与可复现实验。**
 
@@ -9,7 +9,7 @@
 从一个积分策略迭代例子开始，逐步学习 Koopman、神经 HJB、平均场控制和控制期刊中的相关方法。每个实现都对应原始方程、MATLAB 函数、适用条件和实际结果。
 
 <!-- SNAPSHOT:START -->
-**v0.5.1：** 8个可运行入口 · 7个论文实现包 · 本地测试103/103通过 · 6个研究skill。实际环境：25.2.0.3312555 (R2025b) Update 6（MACA64）。
+**v0.5.2：** 8个可运行入口 · 7个论文实现包 · 本地测试104/104通过 · 6个研究skill。实际环境：25.2.0.3312555 (R2025b) Update 6（MACA64）。
 <!-- SNAPSHOT:END -->
 
 <p align="center"><img src="docs/assets/baseline-reference.svg" width="640" alt="实际MATLAB基线：策略迭代逼近解析LQR增益，闭环状态收敛。" /></p>
@@ -33,7 +33,7 @@ result.learning.K                % 解析参照：[1, sqrt(3)]
 run_tests;
 ```
 
-基线只需基础MATLAB及标准JVM。全套测试另外需要Control System Toolbox与Deep Learning Toolbox。`run_all_tests('list')`列出测试；`run_all_tests`实际执行，其中一个PINN重放测试执行两次单次Adam更新，完整神经训练另行启动。
+基线只需基础MATLAB及标准JVM。全套测试另外需要Control System Toolbox与Deep Learning Toolbox。`run_all_tests('list')`列出测试；`run_all_tests`实际执行，其中一个PINN重放测试执行两次单次Adam更新，Safe PINN保存测试以零次更新运行入口并执行评价；完整神经训练另行启动。
 
 ## 已实现方法
 
@@ -45,7 +45,7 @@ run_tests;
 | [平均场LQG](reproductions/meanfield_lqg2025) · [Automatica 2025](https://doi.org/10.1016/j.automatica.2024.111924) | 连续随机系统，双增益PI | 8 | 有限样本社会优化，保留小样本失败。 |
 | [离策略Q-learning](reproductions/qlearning_tac2023) · [IEEE TAC 2023](https://doi.org/10.1109/TAC.2023.3235967) | 离散LQR，矩阵Bellman方程 | 7 | 数据驱动LQR，MIMO初始化为明确变体。 |
 | [无限时域HJB PINN](reproductions/pinn_infinite_horizon2025) · [IJRNC 2025](https://doi.org/10.1002/rnc.70028) | 神经HJB，逐步延长时域 | 5 | 缩小网络的LQR/摆训练，标明四次代价修正。 |
-| [安全epigraph PINN](reproductions/safe_pinn_icml2025) · [ICML 2025](https://proceedings.mlr.press/v267/tayal25a.html) | Epigraph HJB神经值函数 | 9 | 船舶场景，仍存在碰撞和预算违例。 |
+| [安全epigraph PINN](reproductions/safe_pinn_icml2025) · [ICML 2025](https://proceedings.mlr.press/v267/tayal25a.html) | Epigraph HJB神经值函数 | 10 | 船舶场景，仍存在碰撞和预算违例。 |
 | [鲁棒Koopman PI](reproductions/robust_koopman2026) · [Preprint 2026](https://arxiv.org/abs/2604.05633) | 提升双线性模型，鲁棒PI | 8 | 留出点中25.55%违反拟合误差界。 |
 | [偏置策略迭代](reproductions/bias_pi_automatica2026) · [Automatica 2026](https://doi.org/10.1016/j.automatica.2026.112821) | 未知连续非线性系统，固定数据 | 12 | 摆/机械臂变体，臂成本比局部LQR高8.84%。 |
 <!-- METHODS:END -->
