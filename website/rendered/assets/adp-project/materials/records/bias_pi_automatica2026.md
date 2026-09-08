@@ -15,11 +15,11 @@
 
 成功运行的γ没有降到0，但每轮都含γ*Vprevious，固定点仍针对无折扣HJB。降γ和内层更新路径由独立解析测试实际覆盖。
 
-摆的完整多初值、原单轨迹失败、γ=0拒绝、4→8积分子步对照与留出残差见 [摆结果](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/evidence/v0.4/bias-pi/PENDULUM_RESULTS.md)。积分加密后的actor差约1.32e−6；在[−3,3]²的HJB RMS仍为21.695，35个稳定闭环不代表该整个范围的值函数已准确。
+摆的完整多初值、原单轨迹失败、γ=0拒绝、4→8积分子步对照与留出残差见 [摆结果](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.3/evidence/v0.4/bias-pi/PENDULUM_RESULTS.md)。积分加密后的actor差约1.32e−6；在[−3,3]²的HJB RMS仍为21.695，35个稳定闭环不代表该整个范围的值函数已准确。
 
 ## 机械臂：配置与闭环应一起读
 
-两条机械臂记录使用同一模型、代价、字典、总10秒采集/200窗和折扣 bootstrap。下表的诊断数值来自 [独立审计](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/evidence/v0.4/bias-pi/independent-tests/arm-audit.json)，与 [单初值摘要](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/evidence/v0.4/bias-pi/arm-bootstrap/summary.json)、[多初值摘要](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/evidence/v0.4/bias-pi/arm-local-multistart/summary.json) 对应；模式/半径行说明当前入口如何选择配置，不能代替历史MAT中的完整cfg。
+两条机械臂记录使用同一模型、代价、字典、总10秒采集/200窗和折扣 bootstrap。下表的诊断数值来自 [独立审计](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.3/evidence/v0.4/bias-pi/independent-tests/arm-audit.json)，与 [单初值摘要](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.3/evidence/v0.4/bias-pi/arm-bootstrap/summary.json)、[多初值摘要](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.3/evidence/v0.4/bias-pi/arm-local-multistart/summary.json) 对应；模式/半径行说明当前入口如何选择配置，不能代替历史MAT中的完整cfg。
 
 | 配置/诊断 | 单初值反复重置 | 局部多初值（当前 arm 默认） |
 |---|---:|---:|
@@ -36,7 +36,7 @@
 
 两条记录的学习器状态均为 `converged`，表示系数变化满足停止阈值；第一条的负 critic 方向、正闭环极点实部及提前终止仍必须保留。不能把回归满秩或停止条件满足读成闭环成功。
 
-局部多初值变体从目标附近20个初值各采集0.5秒，初值尺度为[.15,.15,.2,.2]；两输入各用独立50频率正弦，频率种子20260907。当前 [配置函数](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.2/reproductions/bias_pi_automatica2026/bp_arm_config.m) 在选择 `paper_initial` 且未显式给出半径时，会将 `resetRadius` 从0.8改为2。按此入口切换模式会同时改变初值安排和重置边界；现有记录不能把条件数或闭环差异单独归因于“多初值”。局部多初值记录的成本仍高于局部 LQR，未显示论文所述最优性优势。大型MAT/FIG保留方式见 [历史归档说明](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md)。
+局部多初值变体从目标附近20个初值各采集0.5秒，初值尺度为[.15,.15,.2,.2]；两输入各用独立50频率正弦，频率种子20260907。当前 [配置函数](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.3/reproductions/bias_pi_automatica2026/bp_arm_config.m) 在选择 `paper_initial` 且未显式给出半径时，会将 `resetRadius` 从0.8改为2。按此入口切换模式会同时改变初值安排和重置边界；现有记录不能把条件数或闭环差异单独归因于“多初值”。局部多初值记录的成本仍高于局部 LQR，未显示论文所述最优性优势。大型MAT/FIG保留方式见 [历史归档说明](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md)。
 
 方法测试覆盖具体方程、数值接口和运行分支。两个默认变体可作为后续研究起点；原文未公开的采样/检测域参数仍阻止逐数字的完整复刻。
 

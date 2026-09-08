@@ -1,6 +1,6 @@
 # ADP-MATLAB
 
-[Project page](https://tanjunkai2001.github.io/projects/adp-matlab/) · [v0.5.2](https://github.com/tanjunkai2001/adp-matlab/releases/tag/v0.5.2) · [CI](https://github.com/tanjunkai2001/adp-matlab/actions/workflows/checks.yml) · [MIT](LICENSE)
+[Project page](https://tanjunkai2001.github.io/projects/adp-matlab/) · [v0.5.3](https://github.com/tanjunkai2001/adp-matlab/releases/tag/v0.5.3) · [CI](https://github.com/tanjunkai2001/adp-matlab/actions/workflows/checks.yml) · [MIT](LICENSE)
 
 **MATLAB reference implementations and reproducible experiments for adaptive dynamic programming control.**
 
@@ -9,7 +9,7 @@
 Learn from a small integral policy-iteration example, then explore Koopman models, neural HJB solvers, mean-field control and recent control-journal methods. Each implementation connects its equations, MATLAB functions, assumptions and recorded outcomes.
 
 <!-- SNAPSHOT:START -->
-**v0.5.2:** 8 runnable entries · 7 paper packages · 104/104 local tests passed · 6 research skills. Tested on 25.2.0.3312555 (R2025b) Update 6 (MACA64).
+**v0.5.3:** 8 runnable entries · 7 paper packages · 107/107 local tests passed · 6 research skills. Tested on 25.2.0.3312555 (R2025b) Update 6 (MACA64).
 <!-- SNAPSHOT:END -->
 
 <p align="center"><img src="docs/assets/baseline-reference.svg" width="640" alt="Actual MATLAB baseline: policy iteration approaches the analytic LQR gain and the learned closed loop converges." /></p>
@@ -41,7 +41,7 @@ run_all_tests('list');
 results = run_all_tests;
 ```
 
-The full suite uses **Control System Toolbox** and **Deep Learning Toolbox**. One PINN replay test performs two single Adam updates; a Safe PINN persistence test evaluates its demo with zero updates. Complete neural training is invoked separately. See [installation and examples](docs/GETTING_STARTED.md) for the full workflow.
+The full suite uses **Control System Toolbox** and **Deep Learning Toolbox**. One PINN replay test performs two single Adam updates; Safe PINN tests include zero-update evaluation and three controlled failures on the second attempted training update. Complete neural training is invoked separately. See [installation and examples](docs/GETTING_STARTED.md) for the full workflow.
 
 ## Implemented methods
 
@@ -53,7 +53,7 @@ The full suite uses **Control System Toolbox** and **Deep Learning Toolbox**. On
 | [Mean-field LQG](reproductions/meanfield_lqg2025) · [Automatica 2025](https://doi.org/10.1016/j.automatica.2024.111924) | Stochastic CT · two-gain PI | 8 | Finite-sample social optimization; low-sample failures retained. |
 | [Off-policy Q-learning](reproductions/qlearning_tac2023) · [IEEE TAC 2023](https://doi.org/10.1109/TAC.2023.3235967) | DT LQR · matrix Bellman equation | 7 | Data-based LQR; explicit MIMO initialization variant. |
 | [Infinite-horizon HJB PINN](reproductions/pinn_infinite_horizon2025) · [IJRNC 2025](https://doi.org/10.1002/rnc.70028) | Neural HJB · horizon continuation | 5 | Reduced LQR/pendulum training; corrected quartic cost identified. |
-| [Safe epigraph PINN](reproductions/safe_pinn_icml2025) · [ICML 2025](https://proceedings.mlr.press/v267/tayal25a.html) | Epigraph HJB · neural value | 10 | Boat example; collision and budget violations remain. |
+| [Safe epigraph PINN](reproductions/safe_pinn_icml2025) · [ICML 2025](https://proceedings.mlr.press/v267/tayal25a.html) | Epigraph HJB · neural value | 13 | Boat example; collision and budget violations remain. |
 | [Robust Koopman PI](reproductions/robust_koopman2026) · [Preprint 2026](https://arxiv.org/abs/2604.05633) | Lifted bilinear · robust PI | 8 | Held-out error bound fails on 25.55% of points. |
 | [Bias-policy iteration](reproductions/bias_pi_automatica2026) · [Automatica 2026](https://doi.org/10.1016/j.automatica.2026.112821) | Unknown CT nonlinear · fixed data | 12 | Pendulum/arm variants; arm cost is 8.84% above local LQR. |
 <!-- METHODS:END -->

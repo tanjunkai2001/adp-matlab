@@ -1,6 +1,6 @@
 # Validation record
 
-The v0.5.2 source completed **104/104 local MATLAB tests**, with 0 failures and 0 incomplete tests, starting on 2026-09-08 at 03:54:35 UTC. Environment: 25.2.0.3312555 (R2025b) Update 6, macOS Apple silicon. Individual test durations totaled 44.35 seconds. The suite did not depend on historical MAT/FIG data, paper PDFs or author checkpoints.
+The v0.5.3 source completed **107/107 local MATLAB tests**, with 0 failures and 0 incomplete tests, starting on 2026-09-08 at 06:31:49 UTC. Environment: 25.2.0.3312555 (R2025b) Update 6, macOS Apple silicon. Individual test durations totaled 49.10 seconds. The suite did not depend on historical MAT/FIG data, paper PDFs or author checkpoints.
 
 [Summary](docs/validation/matlab-tests.json) · [Per-test CSV](docs/validation/matlab-tests.csv) · [81 source hashes](docs/validation/matlab-source-hashes.json)
 
@@ -11,15 +11,15 @@ The v0.5.2 source completed **104/104 local MATLAB tests**, with 0 failures and 
 | Mean-field LQG | 8 |
 | Off-policy Q-learning TAC 2023 | 7 |
 | Infinite-horizon HJB PINN | 5 |
-| Safe PINN ICML 2025 | 10 |
+| Safe PINN ICML 2025 | 13 |
 | Robust Koopman 2026 | 8 |
 | Bias-PI Automatica 2026 | 12 |
 
-One PINN replay test executes two single Adam updates. The new Safe PINN persistence regression invokes the actual demo with zero updates and executes its fixed-set HJB evaluation, budget search and coarse/fine rollouts. Complete neural training is separate. Three MATLAB files changed from v0.5.1: the Safe PINN demo, its test, and the test runner's description; its test-discovery logic is unchanged.
+One PINN replay test executes two single Adam updates. Safe PINN tests include zero-update fixed-set evaluation and three controlled failures on the second attempted update: nonfinite loss, nonfinite gradient, and overflow in the real Adam second moment. Each confirms that the saved network, nonempty finite moments and one-row history equal the first completed step. The temporary fixtures use the actual loss and Adam functions; production has no fault-injection option.
 
-The zero-update demo still throws `boat:Training` with `No heldout improvement.` while preserving `result.mat`, `metrics.json` and `training.csv`. A separate one-update success comparison matched both networks' learned parameters and all other result fields, excluding timing and network object identity. Its explicit curriculum differs from the default 5,000-update experiment. See the [configuration and comparison record](docs/validation/safe-pinn-save-checks.json). These maintenance checks do not rerun or replace historical paper results.
+A separate two-update run matched v0.5.2's network parameters and all other numerical result fields, excluding timing and network object identity. This short run has its own curriculum, distinct from the default 5,000-update experiment. See the [training-state checks](docs/validation/safe-pinn-training-state.json). Only the Safe PINN demo and its test changed among the 81 MATLAB files. Complete training and historical paper results were not rerun.
 
-The [v0.5.1 test record](docs/validation/v0.5.1/matlab-tests.json), [source hashes](docs/validation/v0.5.1/matlab-source-hashes.json) and [mean-field regression](docs/validation/v0.5.1/meanfield-failure-replay.json) are preserved, as are the [v0.5.0 records](docs/validation/v0.5.0/matlab-tests.json).
+The existing zero-update regression still verifies `boat:Training` / `No heldout improvement.` after preserving `result.mat`, `metrics.json` and `training.csv`. Its original [v0.5.2 record](docs/validation/v0.5.2/safe-pinn-save-checks.json), [test record](docs/validation/v0.5.2/matlab-tests.json) and [source hashes](docs/validation/v0.5.2/matlab-source-hashes.json) are preserved byte for byte, alongside the [v0.5.1](docs/validation/v0.5.1/matlab-tests.json) and [v0.5.0](docs/validation/v0.5.0/matlab-tests.json) records.
 
 ## Numerical reproduction scope
 

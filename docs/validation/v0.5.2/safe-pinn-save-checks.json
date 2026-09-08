@@ -44,7 +44,7 @@
   },
   "scope": "One-update I/O regression with its own curriculum; not the first update of the 5000-update experiment or a paper reproduction.",
   "before_commit": "12e68fc1240d249a638fe342c9c09bf60f292604",
-  "after_source_manifest": "v0.5.2/matlab-source-hashes.json",
+  "after_source_manifest": "matlab-source-hashes.json",
   "test_name": "testSafePinn/testRejectedDemoPreservesEvaluation",
   "regression_before": "Zero-update demo reached boat:Training / No heldout improvement.; no result.mat was saved, so the new regression failed.",
   "regression_after": "Same exception identifier and message; one new result directory contains readable result.mat, metrics.json and training.csv, with unchanged initial/trained weights, zero-row history and retained fixed-set evaluation.",

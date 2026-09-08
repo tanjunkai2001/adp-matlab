@@ -1,11 +1,12 @@
 {
-  "source_version": "0.5.3",
-  "project_version": "0.5.3",
-  "scope": "81 active MATLAB sources verified before and after testing; only the Safe PINN demo and its test differ from v0.5.2.",
-  "previous_manifest": "v0.5.2/matlab-source-hashes.json",
-  "changed_from_v052": [
+  "source_version": "0.5.2",
+  "project_version": "0.5.2",
+  "scope": "81 active MATLAB sources verified before and after testing; the Safe PINN demo, its test and the test-runner description differ from v0.5.1.",
+  "previous_manifest": "v0.5.1/matlab-source-hashes.json",
+  "changed_from_v051": [
     "reproductions/safe_pinn_icml2025/demo_safe_pinn.m",
-    "reproductions/safe_pinn_icml2025/testSafePinn.m"
+    "reproductions/safe_pinn_icml2025/testSafePinn.m",
+    "run_all_tests.m"
   ],
   "files": [
     {
@@ -310,8 +311,8 @@
     },
     {
       "path": "reproductions/safe_pinn_icml2025/demo_safe_pinn.m",
-      "bytes": 6580,
-      "sha256": "82e101783330278e64e563b01bf7effabb71191be469adf369e836b3b5d19ea3"
+      "bytes": 4791,
+      "sha256": "d6c141fb13f1023bf54e7602b4359f339a765fe61b9d27001a0db4f78b05a805"
     },
     {
       "path": "reproductions/safe_pinn_icml2025/evaluate_boat_model.m",
@@ -325,8 +326,8 @@
     },
     {
       "path": "reproductions/safe_pinn_icml2025/testSafePinn.m",
-      "bytes": 8660,
-      "sha256": "e1643c6e577e5048eb359a71e6f0b43a1619ba29a500ce12873a0104b353097b"
+      "bytes": 4711,
+      "sha256": "04a7bf16ee05b4758b8ecbc460167034c630c0ad4610634f9725590cda452e9a"
     },
     {
       "path": "run_all_tests.m",

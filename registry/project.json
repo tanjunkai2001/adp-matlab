@@ -9,8 +9,8 @@
     "orcid": "https://orcid.org/0009-0002-0558-6357",
     "homepage": "https://tanjunkai2001.github.io/"
   },
-  "version": "0.5.2",
-  "matlab_source_version": "0.5.2",
+  "version": "0.5.3",
+  "matlab_source_version": "0.5.3",
   "description": "MATLAB reference implementations and reproducible experiments for adaptive dynamic programming control.",
   "repository_url": "https://github.com/tanjunkai2001/adp-matlab",
   "project_url": "https://tanjunkai2001.github.io/projects/adp-matlab/",

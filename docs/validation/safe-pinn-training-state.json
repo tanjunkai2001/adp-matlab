@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "trainedLearnablesEqual": true,
+  "initialLearnablesEqual": true,
+  "resultEqualExceptTimingAndNetworkObjects": true,
+  "configuration": {
+    "seed": 25051,
+    "iterations": 2,
+    "width": 64,
+    "depth": 2,
+    "batchSize": 512,
+    "totalHorizon": 2,
+    "hardTerminal": true,
+    "activation": "tanh",
+    "cost": "distance to goal plus terminal distance",
+    "domain": [
+      [
+        -3,
+        2
+      ],
+      [
+        -2,
+        2
+      ],
+      [
+        -0.1,
+        14.86
+      ]
+    ],
+    "curriculumIterations": 2
+  },
+  "metrics": {
+    "initialHeldoutHjbMSE": 0.5228968199744958,
+    "finalHeldoutHjbMSE": 0.4829964885823215,
+    "terminalMaxError": 0,
+    "candidateCount": 64,
+    "predictedFeasibleCount": 63,
+    "fineRolloutCollisionCount": 13,
+    "fineBudgetViolationCount": 43,
+    "leftTrainingDomainCount": 59,
+    "costStepDifferenceMax": 0.012732177552736701,
+    "maxGStepDifferenceMax": 0.004946351185592002,
+    "conformalCalibrationExecuted": false
+  },
+  "scope": "Two-update success regression with its own curriculum; not the first two updates of the 5000-update experiment or a paper reproduction.",
+  "before_commit": "4769a3847ec112318620ea22e6bf64a3489771f3",
+  "after_source_manifest": "matlab-source-hashes.json",
+  "regression_before": "The second-step NaN batch reached boat:Training / Nonfinite training loss.; no training-failure.mat was saved, so the new loss regression failed.",
+  "regression_after": "All three controlled second-step failures retain the exact first completed network, two finite nonempty Adam moments, one-row history, RNG states, fixed validation inputs and failed batch; the original failure propagates.",
+  "test_names": [
+    "testSafePinn/testNonfiniteLossKeepsLastTrainingState",
+    "testSafePinn/testNonfiniteGradientKeepsLastTrainingState",
+    "testSafePinn/testAdamOverflowKeepsLastTrainingState"
+  ],
+  "failure_fixtures": [
+    {
+      "stage": "loss",
+      "injection": "Second batch S(2,1)=NaN before the real loss evaluation.",
+      "message": "Nonfinite training loss."
+    },
+    {
+      "stage": "gradient",
+      "injection": "Second returned gradient Value{1}(1)=NaN; finite real loss.",
+      "message": "Nonfinite training gradient."
+    },
+    {
+      "stage": "adam_update",
+      "injection": "Second gradient Value{1}(1)=1e200; finite gradient overflows the real Adam second moment.",
+      "message": "Nonfinite Adam update."
+    }
+  ],
+  "fixture_scope": "Temporary instrumented demo copies with distinct entry names; actual boat_loss and adamupdate execute. No production fault hooks. These are controlled failures, not observed failures of default training.",
+  "preservation_scope": "Checks after loss/gradient return and the Adam update. Save failureState in training-failure.mat and rethrow the original error; secondary save errors are attached as causes. No automatic resume or periodic checkpoints.",
+  "scientific_scope": "Numerical finiteness is not heldout acceptance, convergence or safety. Historical experiments are unchanged."
+}

@@ -9,7 +9,7 @@ This table is generated from the implemented-method registry.
 | [Mean-field LQG](../reproductions/meanfield_lqg2025) · [Automatica 2025](https://doi.org/10.1016/j.automatica.2024.111924) | Stochastic CT · two-gain PI | 8 | Finite-sample social optimization; low-sample failures retained. |
 | [Off-policy Q-learning](../reproductions/qlearning_tac2023) · [IEEE TAC 2023](https://doi.org/10.1109/TAC.2023.3235967) | DT LQR · matrix Bellman equation | 7 | Data-based LQR; explicit MIMO initialization variant. |
 | [Infinite-horizon HJB PINN](../reproductions/pinn_infinite_horizon2025) · [IJRNC 2025](https://doi.org/10.1002/rnc.70028) | Neural HJB · horizon continuation | 5 | Reduced LQR/pendulum training; corrected quartic cost identified. |
-| [Safe epigraph PINN](../reproductions/safe_pinn_icml2025) · [ICML 2025](https://proceedings.mlr.press/v267/tayal25a.html) | Epigraph HJB · neural value | 10 | Boat example; collision and budget violations remain. |
+| [Safe epigraph PINN](../reproductions/safe_pinn_icml2025) · [ICML 2025](https://proceedings.mlr.press/v267/tayal25a.html) | Epigraph HJB · neural value | 13 | Boat example; collision and budget violations remain. |
 | [Robust Koopman PI](../reproductions/robust_koopman2026) · [Preprint 2026](https://arxiv.org/abs/2604.05633) | Lifted bilinear · robust PI | 8 | Held-out error bound fails on 25.55% of points. |
 | [Bias-policy iteration](../reproductions/bias_pi_automatica2026) · [Automatica 2026](https://doi.org/10.1016/j.automatica.2026.112821) | Unknown CT nonlinear · fixed data | 12 | Pendulum/arm variants; arm cost is 8.84% above local LQR. |
 

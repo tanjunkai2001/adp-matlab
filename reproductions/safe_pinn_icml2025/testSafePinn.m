@@ -96,6 +96,83 @@ verifyLessThanOrEqual(t,max(vecnorm(squeeze(out.u_applied(:,:,1)),2,2)),1+1e-12)
 [~,terminal]=boat_geometry(squeeze(out.x(end,:,1))');
 verifyEqual(t,out.cost,budget-out.budget(end)+terminal,'AbsTol',1e-12);
 end
+function testNonfiniteLossKeepsLastTrainingState(t)
+checkTrainingFailure(t,'loss','Nonfinite training loss.');
+end
+function testNonfiniteGradientKeepsLastTrainingState(t)
+checkTrainingFailure(t,'gradient','Nonfinite training gradient.');
+end
+function testAdamOverflowKeepsLastTrainingState(t)
+checkTrainingFailure(t,'adam_update','Nonfinite Adam update.');
+end
+function checkTrainingFailure(t,stage,message)
+% Instrument a temporary copy at two explicit boundaries. The real loss and
+% Adam still run; production has no fault-injection argument or test hook.
+oldPath=path;oldRng=rng;
+cleanup=onCleanup(@()restoreDemo(oldPath,oldRng)); %#ok<NASGU>
+workspace=tempname;mkdir(workspace);t.addTeardown(@()rmdir(workspace,'s'));
+shadow=fullfile(workspace,'injected');mkdir(shadow);
+root=fullfile(workspace,'run');mkdir(root);
+source=fileread(which('demo_safe_pinn'));
+lossLine="    [loss,gradient]=dlfeval(accelerated,net,dlarray(S,'CB'));";
+if strcmp(stage,'loss')
+    injected="    if k==2,S(2,1)=NaN;end"+newline+lossLine;
+elseif strcmp(stage,'gradient')
+    injected=lossLine+newline+"    if k==2,gradient.Value{1}(1)=NaN;end";
+else
+    % A finite gradient whose square overflows the real Adam second moment.
+    injected=lossLine+newline+"    if k==2,gradient.Value{1}(1)=1e200;end";
+end
+assertEqual(t,count(source,lossLine),1);
+source=replace(source,lossLine,injected);
+historyLine="    history(k,:)=[k,double(extractdata(loss)),toc(timer)];";
+capture=[historyLine;"    if k==1"; ...
+    "        reference=struct('network',net,'average',average,'averageSq',averageSq,'history',history(1,:),'rngState',rng);"; ...
+    "        save(fullfile(outputRoot,'step-reference.mat'),'reference');";"    end"];
+assertEqual(t,count(source,historyLine),1);
+source=replace(source,historyLine,join(capture,newline));
+source=replace(source,'function [result,runDir]=demo_safe_pinn(', ...
+    'function [result,runDir]=demo_safe_pinn_failure_fixture(');
+writelines(source,fullfile(shadow,'demo_safe_pinn_failure_fixture.m'));
+addpath(shadow,'-begin');clear demo_safe_pinn_failure_fixture;
+assertEqual(t,which('demo_safe_pinn_failure_fixture'),fullfile(shadow,'demo_safe_pinn_failure_fixture.m'));
+failure=[];
+try
+    demo_safe_pinn_failure_fixture(root,2);
+catch failure
+end
+assertClass(t,failure,'MException');
+verifyEqual(t,failure.identifier,'boat:Training');
+verifyEqual(t,failure.message,message);
+files=dir(fullfile(root,'*','training-failure.mat'));
+assertEqual(t,numel(files),1,'The last completed training state must survive.');
+saved=load(fullfile(files.folder,files.name),'failureState');f=saved.failureState;
+ref=load(fullfile(root,'step-reference.mat'),'reference');ref=ref.reference;
+verifyEqual(t,f.stage,stage);verifyEqual(t,f.lastCompletedIteration,1);
+verifyEqual(t,f.attemptedIteration,2);
+verifyEqual(t,f.network.Learnables,ref.network.Learnables);
+verifyEqual(t,f.average,ref.average);verifyEqual(t,f.averageSq,ref.averageSq);
+verifyEqual(t,f.trainingHistory,ref.history);
+verifyEqual(t,f.rngBeforeBatch,ref.rngState);
+verifySize(t,f.batch,[4 512]);verifySize(t,f.heldoutInputs,[4 4096]);
+verifySize(t,f.testInitial,[2 64]);
+verifyFalse(t,isfile(fullfile(files.folder,'result.mat')));
+verifyTrue(t,all(cellfun(@(v)all(isfinite(extractdata(v)),'all'),f.network.Learnables.Value)));
+verifyNotEmpty(t,f.average);verifyNotEmpty(t,f.averageSq);
+verifyTrue(t,all(cellfun(@(v)all(isfinite(extractdata(v)),'all'),f.average.Value)));
+verifyTrue(t,all(cellfun(@(v)all(isfinite(extractdata(v)),'all'),f.averageSq.Value)));
+if strcmp(stage,'loss')
+    verifyFalse(t,isfinite(f.loss));verifyTrue(t,isnan(f.batch(2,1)));
+elseif strcmp(stage,'gradient')
+    verifyTrue(t,isfinite(f.loss));verifyTrue(t,isnan(extractdata(f.gradient.Value{1}(1))));
+else
+    verifyTrue(t,isfinite(f.loss));verifyEqual(t,extractdata(f.gradient.Value{1}(1)),1e200);
+end
+end
+function restoreDemo(oldPath,oldRng)
+clear demo_safe_pinn_failure_fixture;
+path(oldPath);rng(oldRng);
+end
 function net=constantCorrection(bias)
 net=dlnetwork([featureInputLayer(4,Normalization='none'); ...
     fullyConnectedLayer(1,Weights=zeros(1,4),Bias=double(bias))]);

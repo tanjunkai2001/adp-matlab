@@ -1,15 +1,15 @@
 {
-  "tested_on": "2026-09-08T03:54:35.212Z",
+  "tested_on": "2026-09-08T06:31:49.663Z",
   "matlab": "25.2.0.3312555 (R2025b) Update 6",
   "release": "2025b",
   "platform": "MACA64",
-  "total": 104,
-  "passed": 104,
+  "total": 107,
+  "passed": 107,
   "failed": 0,
   "incomplete": 0,
-  "seconds": 44.35394166666667,
-  "scope": "Current local tests. One PINN test performs two single Adam updates; the Safe PINN persistence test invokes its demo with zero updates and executes fixed-set evaluation. No complete neural training.",
-  "source_version": "0.5.2",
-  "project_packaging_version": "0.5.2",
+  "seconds": 49.09635366666667,
+  "scope": "Current local tests: two single Adam updates in one PINN replay test; zero-update Safe PINN evaluation; three controlled Safe PINN failures on the second attempted update, with three accepted first updates and one rejected Adam candidate in total. No complete neural training.",
+  "source_version": "0.5.3",
+  "project_packaging_version": "0.5.3",
   "source_manifest": "matlab-source-hashes.json"
 }

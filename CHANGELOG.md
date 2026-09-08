@@ -1,3 +1,10 @@
+# v0.5.3 — retain the last finite Safe PINN training state, 2026-09-08
+
+- Check the returned loss and gradients before Adam; accept candidate parameters and both moments only when all are finite.
+- Save the last completed network, moments, history and failed batch in `training-failure.mat`; rethrow the original error. No automatic resume or new public API.
+- Added three controlled second-step failure regressions. All 107 local tests passed; a separate two-update comparison preserved weights and numerical results, excluding timing.
+- Preserved v0.5.2 validation/source records. Normal training formulas, defaults, completed-evaluation checks and historical experiments are unchanged.
+
 # v0.5.2 — retain rejected Safe PINN evaluations, 2026-09-08
 
 - Save the completed Safe PINN network, history, fixed inputs, trajectories and metrics before applying the existing heldout/terminal assertions. Print the saved directory before a rejection.

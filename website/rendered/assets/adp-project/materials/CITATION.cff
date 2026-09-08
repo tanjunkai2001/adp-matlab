@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "Cite this software version and the original paper for each method used."
 type: software
 title: "ADP-MATLAB: Reference Implementations for Adaptive Dynamic Programming Control"
-version: 0.5.2
+version: 0.5.3
 date-released: 2026-09-08
 abstract: "MATLAB reference implementations, mathematical contracts and numerical reproduction records for adaptive dynamic programming control."
 authors:

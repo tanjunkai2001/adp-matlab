@@ -12,6 +12,8 @@ The GitHub source checkout contains MATLAB implementations, tests, method notes 
 | [Mean-field patch checks](validation/meanfield-failure-replay.json) | Failure replay and successful-run comparison for v0.5.1 |
 | [v0.5.1 test record](validation/v0.5.1/matlab-tests.json) and [source hashes](validation/v0.5.1/matlab-source-hashes.json) | Preserved validation for the mean-field patch |
 | [Safe PINN patch checks](validation/safe-pinn-save-checks.json) | Rejected-evaluation persistence and one-update I/O comparison for v0.5.2 |
+| [v0.5.2 test record](validation/v0.5.2/matlab-tests.json) and [source hashes](validation/v0.5.2/matlab-source-hashes.json) | Preserved validation for completed-evaluation persistence |
+| [Safe PINN training-state checks](validation/safe-pinn-training-state.json) | Three controlled second-step failures and a two-update numerical comparison for v0.5.3 |
 | [Baseline data](assets/data/baseline-summary.json) | Settings, metrics and CSV data for the README/project-page figure |
 | [Paper implementation cards](fulltext) | Equation mappings, reading scope and differences from the papers |
 

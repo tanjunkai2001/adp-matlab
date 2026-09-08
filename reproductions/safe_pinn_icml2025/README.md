@@ -29,7 +29,19 @@ S = load(fullfile(savedDirectory,'result.mat'),'result');
 S.result.metrics
 ```
 
-The presence of these files does not mean the final checks passed. This saves completed evaluations; it does not provide recovery from nonfinite losses during training or from earlier evaluation errors.
+The presence of these files does not mean the final checks passed.
+
+During training, after `dlfeval` returns the batch loss and gradient, a guarded block checks their finiteness and performs the Adam update, checking the proposed parameters and moments before accepting them. A failure in this block saves `training-failure.mat` and rethrows the original error. The console prints `Saved Safe PINN training failure:` followed by the directory.
+
+The saved `failureState` retains the last numerically finite completed state: the network, Adam moments and training history. It also records the failed batch, loss, gradient, iteration counters, fixed evaluation inputs and random-number state. This is a training diagnostic; automatic continuation is not provided.
+
+```matlab
+savedDirectory = '/path/printed/by/the/demo'; % Replace with the printed directory
+S = load(fullfile(savedDirectory,'training-failure.mat'),'failureState');
+S.failureState.stage
+S.failureState.lastCompletedIteration
+S.failureState.attemptedIteration
+```
 
 ## 2. Evaluate an external author checkpoint
 
@@ -90,6 +102,6 @@ The recorded reduced/author audits had 15/300 and 2/300 joint violations, with r
 
 ## Validation and results
 
-The current suite contains **10 local tests** for this method, including a zero-update demo that evaluates the fixed inputs and checks that a rejected final result remains saved. Run `run_all_tests('list')` to inspect discovery, then `run_all_tests` for the combined suite. Independent equations and comparators are documented in the test functions and full-text notes.
+The current suite contains **13 local tests** for this method. They include zero-update evaluation persistence and three controlled training-failure fixtures: nonfinite loss, gradient and Adam update. Each failure fixture completes one update before attempting the second and compares the saved state with that completed update. Run `run_all_tests('list')` to inspect discovery, then `run_all_tests` for the combined suite. Independent equations and comparators are documented in the test functions and full-text notes.
 
 The detailed experiment record and numerical differences are preserved in the [Chinese implementation notes](README.zh-CN.md) and [paper card](../../docs/fulltext/safe_pinn_icml2025.md). Larger historical data belong to the [artifact collection](../../docs/ARTIFACTS.md). The test count does not imply that every original figure or theoretical guarantee has been reproduced.

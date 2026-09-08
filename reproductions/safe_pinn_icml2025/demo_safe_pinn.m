@@ -17,12 +17,41 @@ accelerated=dlaccelerate(@boat_loss);average=[];averageSq=[];history=zeros(itera
 [initialLoss,~,~]=dlfeval(accelerated,net,dlarray(testS,'CB'));
 timer=tic;
 for k=1:iterations
+    rngBeforeBatch=rng;
     tauMax=2*min(1,k/max(1,cfg.curriculumIterations));S=sample(cfg.batchSize,tauMax);
     [loss,gradient]=dlfeval(accelerated,net,dlarray(S,'CB'));
     rate=1e-3/(1+4*k/iterations);
-    [net,average,averageSq]=adamupdate(net,gradient,average,averageSq,k,rate);
+    stage='loss';
+    try
+        assert(isfinite(extractdata(loss)),'boat:Training','Nonfinite training loss.');
+        stage='gradient';
+        assert(finiteParameters(gradient),'boat:Training','Nonfinite training gradient.');
+        stage='adam_update';
+        [nextNet,nextAverage,nextAverageSq]=adamupdate(net,gradient,average,averageSq,k,rate);
+        assert(finiteParameters(nextNet.Learnables) && finiteParameters(nextAverage) && ...
+            finiteParameters(nextAverageSq),'boat:Training','Nonfinite Adam update.');
+    catch failure
+        try
+            % These are the last accepted parameters; the failed batch is diagnostic data.
+            failureState=struct('config',cfg,'network',net,'initialNetwork',initialNet, ...
+                'average',average,'averageSq',averageSq,'lastCompletedIteration',k-1, ...
+                'attemptedIteration',k,'trainingHistory',history(1:k-1,:), ...
+                'batch',S,'loss',double(extractdata(loss)),'gradient',gradient, ...
+                'stage',stage,'identifier',failure.identifier,'message',failure.message, ...
+                'heldoutInputs',testS,'testInitial',testX, ...
+                'initialHeldoutHjbMSE',double(extractdata(initialLoss)), ...
+                'rngBeforeBatch',rngBeforeBatch,'rngState',rng,'environment',version);
+            if ~isfolder(outputRoot),mkdir(outputRoot);end
+            runDir=tempname(outputRoot);mkdir(runDir);
+            save(fullfile(runDir,'training-failure.mat'),'failureState','-v7.3');
+            fprintf('Saved Safe PINN training failure: %s\n',runDir);
+        catch saveFailure
+            failure=addCause(failure,saveFailure);
+        end
+        rethrow(failure);
+    end
+    net=nextNet;average=nextAverage;averageSq=nextAverageSq;
     history(k,:)=[k,double(extractdata(loss)),toc(timer)];
-    assert(isfinite(history(k,2)),'boat:Training','Nonfinite training loss.');
     if mod(k,500)==0 || k==1,fprintf('Safe PINN %d/%d loss=%.4g time=%.1fs\n',k,iterations,history(k,2:3));end
 end
 [heldout,~,residual]=dlfeval(accelerated,net,dlarray(testS,'CB'));
@@ -66,4 +95,10 @@ fprintf('Safe PINN metrics: %s\n',jsonencode(metrics));
 end
 function S=sample(N,tauMax)
 S=[tauMax*rand(1,N);-3+5*rand(1,N);-2+4*rand(1,N);-.1+14.96*rand(1,N)];
+end
+function ok=finiteParameters(parameters)
+ok=true;
+for j=1:height(parameters)
+    ok=ok && all(isfinite(extractdata(parameters.Value{j})),'all');
+end
 end
