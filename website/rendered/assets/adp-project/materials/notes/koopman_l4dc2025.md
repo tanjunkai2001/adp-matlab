@@ -2,7 +2,7 @@
 
 文献：Zhexuan Zeng, Ruikun Zhou, Yiming Meng, Jun Liu, *Data-driven optimal control of unknown nonlinear dynamical systems using the Koopman operator*，PMLR 283:1127–1139，2025。[正式出版页](https://proceedings.mlr.press/v283/zeng25a.html)，[证明预印本 arXiv:2412.01085v1](https://arxiv.org/abs/2412.01085v1)。检查日期：2026-09-07。
 
-阅读范围为正式版 PDF 全13页、预印本方法/实验部分及附录A全部证明。以下页码均为 PDF 内页码，而非 proceedings 连续页码。PDF 哈希已固定在 [sources.json](https://github.com/tanjunkai2001/adp-matlab/blob/main/reproductions/koopman_l4dc2025/sources.json)。PMLR 页未给独立 DOI，本笔记不编造 DOI。PMLR/arXiv 中未找到本篇直接代码链接；尝试作者相关 LyZNet GitLab 时 git 端要求身份认证，没有下载或执行该代码。
+阅读范围为正式版 PDF 全13页、预印本方法/实验部分及附录A全部证明。以下页码均为 PDF 内页码，而非 proceedings 连续页码。PDF 哈希已固定在 [sources.json](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/reproductions/koopman_l4dc2025/sources.json)。PMLR 页未给独立 DOI，本笔记不编造 DOI。PMLR/arXiv 中未找到本篇直接代码链接；尝试作者相关 LyZNet GitLab 时 git 端要求身份认证，没有下载或执行该代码。
 
 ## 逐页阅读记录
 
@@ -34,7 +34,7 @@
 | Eq(16)贪心控制 | `koopman_policy.m` | `-0.5/R*(g1*dVdx1+g2*dVdx2)` |
 | §6.2冻结策略成本对比 | `koopman_rollout.m`、`demo_koopman.m` | 在真实摆上比较数据策略、truth-model PI和初始K；同50个初值 |
 
-随机特征是明确修改版：原文200个纯tanh隐单元，本实现使用3个二次特征和197个减去零点值/一阶项的tanh特征，令V及梯度在原点严格为零。原文未公开Q/R、摆参数、lambda、随机特征抽样分布和初始K；本实现补充为规范化摆与可追溯配置，详见 [METHOD.md](https://github.com/tanjunkai2001/adp-matlab/blob/main/reproductions/koopman_l4dc2025/METHOD.md)。因此状态是“原创方法级实现并数值检查”，而不是“原论文表图数值完整复现”。
+随机特征是明确修改版：原文200个纯tanh隐单元，本实现使用3个二次特征和197个减去零点值/一阶项的tanh特征，令V及梯度在原点严格为零。原文未公开Q/R、摆参数、lambda、随机特征抽样分布和初始K；本实现补充为规范化摆与可追溯配置，详见 [METHOD.md](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/reproductions/koopman_l4dc2025/METHOD.md)。因此状态是“原创方法级实现并数值检查”，而不是“原论文表图数值完整复现”。
 
 ## 理论阅读后需要保留的问题
 

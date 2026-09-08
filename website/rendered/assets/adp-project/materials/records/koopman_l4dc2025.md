@@ -18,9 +18,9 @@
 | 真实动力学HJB残差RMS | 0.0033272774791102025 |
 | 第10轮策略变化RMS | 2.4586447412875464e-14 |
 
-曲线和50初值轨迹见 [实际生成图](https://github.com/tanjunkai2001/adp-matlab/blob/main/reproductions/koopman_l4dc2025/results/validated-v03-isolated-20260907/trajectories_cost.png)。逐条原始轨迹、随机特征、配点、完整生成元与每轮奇异值均位于同目录 `result.mat`。终点成本差比整条曲线最大差小得多；上述两个指标分别报告，不能只选择终点数值解释论文图。
+曲线和50初值轨迹见 [实际生成图](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/reproductions/koopman_l4dc2025/results/validated-v03-isolated-20260907/trajectories_cost.png)。逐条原始轨迹、随机特征、配点、完整生成元与每轮奇异值均位于同目录 `result.mat`。终点成本差比整条曲线最大差小得多；上述两个指标分别报告，不能只选择终点数值解释论文图。
 
-8项测试涵盖：留出辨识与闭环；锚定特征梯度；解析Yosida矩阵与求积收敛；真实状态-输入耦合项；秩/NaN/执行标签拒绝；独立ode45；真值字段隔离；lambda及初始策略/迭代预算敏感性。最终状态和原始日志见 [CSV](https://github.com/tanjunkai2001/adp-matlab/blob/main/reproductions/koopman_l4dc2025/evidence/isolated-test-results.csv)、[完整日志](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md)。
+8项测试涵盖：留出辨识与闭环；锚定特征梯度；解析Yosida矩阵与求积收敛；真实状态-输入耦合项；秩/NaN/执行标签拒绝；独立ode45；真值字段隔离；lambda及初始策略/迭代预算敏感性。最终状态和原始日志见 [CSV](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/reproductions/koopman_l4dc2025/evidence/isolated-test-results.csv)、[完整日志](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/ARTIFACTS.md)。
 
 独立线性解析Yosida对照：采样间隔0.02秒时最大误差1.3351705240971512e-5，0.01秒时1.4114852233682029e-6。识别参数敏感性如下；同一批轨迹重复使用，未重新抽样：
 
@@ -36,4 +36,4 @@
 
 `results/validated-v03-20260907` 是配置隔离前的中间运行，保留用于追溯。它与当前源码版本不能混作最终身份验证；最终证据以名称含 `isolated` 的运行和测试文件为准。
 
-这次完成方法级数值实现，尚未完成原文Table3/4对象全实验的精确参数复现；truth-model PI也只是同一近似解法的参照，非解析最优证书。物理参数、特征修改及原文缺失项见 [METHOD.md](https://github.com/tanjunkai2001/adp-matlab/blob/main/reproductions/koopman_l4dc2025/METHOD.md)。
+这次完成方法级数值实现，尚未完成原文Table3/4对象全实验的精确参数复现；truth-model PI也只是同一近似解法的参照，非解析最优证书。物理参数、特征修改及原文缺失项见 [METHOD.md](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/reproductions/koopman_l4dc2025/METHOD.md)。

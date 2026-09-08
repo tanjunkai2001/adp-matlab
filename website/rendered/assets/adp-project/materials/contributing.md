@@ -21,7 +21,7 @@ python3 tools/build_project_docs.py --check
 
 ## Add one method
 
-1. Copy [`templates/method-intake.md`](https://github.com/tanjunkai2001/adp-matlab/blob/main/templates/method-intake.md) and record the paper version, model, known quantities, time convention, cost, initialization and expected outcome.
+1. Copy [`templates/method-intake.md`](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/templates/method-intake.md) and record the paper version, model, known quantities, time convention, cost, initialization and expected outcome.
 2. Put direct MATLAB functions in `reproductions/<method-id>/`. Keep simulation truth out of learner inputs when the method is data-based. Reuse `src/+adp` only when the mathematical contract is the same.
 3. Map each implemented equation to a function. State any smaller networks, changed costs, different initialization or modified experiment settings.
 4. Add a native demo, README and `test*.m`. Use an independent equation or analytic comparator; do not create tests that only repeat the implementation.
@@ -34,10 +34,10 @@ The display file contains labels only. Entry points, dependencies, training flag
 
 Explain the problem, the resulting behavior and the actual validation. For a scientific implementation include the equation map, comparator, numerical scope and known mismatches. Keep an existing baseline available when changing its scientific meaning.
 
-Do not commit `runs/`, paper PDFs, upstream source archives, personal paths, access tokens or author checkpoints. Small source-generated figures and their CSV data may live in `docs/assets/`. Larger experiment records belong in the versioned artifact bundle described in [ARTIFACTS](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md).
+Do not commit `runs/`, paper PDFs, upstream source archives, personal paths, access tokens or author checkpoints. Small source-generated figures and their CSV data may live in `docs/assets/`. Larger experiment records belong in the versioned artifact bundle described in [ARTIFACTS](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/ARTIFACTS.md).
 
 ## Respect the source
 
-Credit the paper and code sources. Confirm redistribution terms before copying third-party code or weights. A public download is not a software license. Contributions to this repository are provided under its [MIT License](https://github.com/tanjunkai2001/adp-matlab/blob/main/LICENSE); preserve any applicable third-party notices.
+Credit the paper and code sources. Confirm redistribution terms before copying third-party code or weights. A public download is not a software license. Contributions to this repository are provided under its [MIT License](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/LICENSE); preserve any applicable third-party notices.
 
 Discuss technical disagreements with equations and reproducible examples. Review the implementation and evidence, not the contributor.

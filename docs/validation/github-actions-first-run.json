@@ -1,0 +1,39 @@
+{
+  "run_url": "https://github.com/tanjunkai2001/adp-matlab/actions/runs/34177624955",
+  "run_id": 34177624955,
+  "tested_commit": "b5f104d86662cd9c80c7751f43ff46c5ef9e9a2a",
+  "completed_at": "2026-09-08T01:46:09Z",
+  "platform": "Ubuntu 24.04 x86_64",
+  "matlab_release": "R2025b Update 6",
+  "required_products": [
+    "Control System Toolbox",
+    "Deep Learning Toolbox"
+  ],
+  "jobs": [
+    {
+      "id": 101910081509,
+      "name": "matlab",
+      "conclusion": "success"
+    },
+    {
+      "id": 101910081677,
+      "name": "repository",
+      "conclusion": "success"
+    }
+  ],
+  "tests": {
+    "discovered": 102,
+    "passed": 102,
+    "failed": 0,
+    "incomplete": 0,
+    "count_source": "The completed MATLAB job log contains 102 result-table rows, each Passed=true, Failed=false and Incomplete=false.",
+    "rows": "github-actions-tests.csv"
+  },
+  "artifact": {
+    "id": 10037828427,
+    "name": "matlab-test-results",
+    "digest": "sha256:d9f3139259eb6ec46182dfe46f11546afea8b4ea7aac647d6a2486a0ba00576b",
+    "expires_at": "2026-12-07T01:43:55Z"
+  },
+  "scope": "Full code-level test suite; no full neural training or full-paper reproduction run."
+}

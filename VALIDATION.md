@@ -34,6 +34,6 @@ See the [method cards](docs/fulltext) for source versions, equations, configurat
 
 ## Publication infrastructure
 
-The GitHub Actions workflow is prepared but has not run on GitHub. It targets Linux and MATLAB R2025bU6 with Control System Toolbox and Deep Learning Toolbox. Its first cloud run and a second-machine reproduction remain separate checks. No CI-passing badge is shown.
+The [first GitHub Actions run](https://github.com/tanjunkai2001/adp-matlab/actions/runs/34177624955) passed both repository checks and **102/102 MATLAB tests** on Ubuntu 24.04 with MATLAB R2025b Update 6, Control System Toolbox and Deep Learning Toolbox. It tested commit `b5f104d86662cd9c80c7751f43ff46c5ef9e9a2a`. The [cloud run record](docs/validation/github-actions-first-run.json) and [per-test CSV](docs/validation/github-actions-tests.csv) preserve that result; subsequent runs appear in [Actions](https://github.com/tanjunkai2001/adp-matlab/actions/workflows/checks.yml). Full paper experiments on another machine remain a separate check.
 
 The project page and README use the same registry-driven method table. Local document/build checks establish their consistency; they do not prove scientific completeness, original-paper equivalence or hardware safety.

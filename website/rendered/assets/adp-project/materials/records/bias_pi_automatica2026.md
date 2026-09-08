@@ -15,11 +15,11 @@
 
 成功运行的γ没有降到0，但每轮都含γ*Vprevious，固定点仍针对无折扣HJB。降γ和内层更新路径由独立解析测试实际覆盖。
 
-摆的完整多初值、原单轨迹失败、γ=0拒绝、4→8积分子步对照与留出残差见 [摆结果](https://github.com/tanjunkai2001/adp-matlab/blob/main/evidence/v0.4/bias-pi/PENDULUM_RESULTS.md)。积分加密后的actor差约1.32e−6；在[−3,3]²的HJB RMS仍为21.695，35个稳定闭环不代表该整个范围的值函数已准确。
+摆的完整多初值、原单轨迹失败、γ=0拒绝、4→8积分子步对照与留出残差见 [摆结果](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/evidence/v0.4/bias-pi/PENDULUM_RESULTS.md)。积分加密后的actor差约1.32e−6；在[−3,3]²的HJB RMS仍为21.695，35个稳定闭环不代表该整个范围的值函数已准确。
 
-机械臂原单初值反复重置的数据虽有26列秩，条件数约1.40e8，47轮后critic出现负方向，闭环在0.07435s达到状态上限100。其27069.29是提前终止的部分成本，不能和5s LQR作同期限比较。原数据、权重、轨迹与图仍在 [失败运行](https://github.com/tanjunkai2001/adp-matlab/blob/main/evidence/v0.4/bias-pi/arm-bootstrap/summary.json)，终止时刻和完整谱数据见 [独立审计](https://github.com/tanjunkai2001/adp-matlab/blob/main/evidence/v0.4/bias-pi/independent-tests/arm-audit.json)。
+机械臂原单初值反复重置的数据虽有26列秩，条件数约1.40e8，47轮后critic出现负方向，闭环在0.07435s达到状态上限100。其27069.29是提前终止的部分成本，不能和5s LQR作同期限比较。原数据、权重、轨迹与图仍在 [失败运行](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/evidence/v0.4/bias-pi/arm-bootstrap/summary.json)，终止时刻和完整谱数据见 [独立审计](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/evidence/v0.4/bias-pi/independent-tests/arm-audit.json)。
 
-保持模型、代价和字典不变，改用目标附近20个初值各0.5s后，得到上表的稳定机械臂变体；数据初值尺度为[.15,.15,.2,.2]，两输入各用独立50频率正弦，频率种子20260907，resetRadius=.8。默认critic最小特征值.126815，局部闭环最大极点实部−12.9589。它改善了数据覆盖和条件数，但成本仍差于局部LQR，不能写成已重现论文的最优性优势。[成功运行](https://github.com/tanjunkai2001/adp-matlab/blob/main/evidence/v0.4/bias-pi/arm-local-multistart/summary.json)保存完整MAT、PNG和可编辑FIG。
+保持模型、代价和字典不变，改用目标附近20个初值各0.5s后，得到上表的稳定机械臂变体；数据初值尺度为[.15,.15,.2,.2]，两输入各用独立50频率正弦，频率种子20260907，resetRadius=.8。默认critic最小特征值.126815，局部闭环最大极点实部−12.9589。它改善了数据覆盖和条件数，但成本仍差于局部LQR，不能写成已重现论文的最优性优势。[成功运行](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/evidence/v0.4/bias-pi/arm-local-multistart/summary.json)保存完整MAT、PNG和可编辑FIG。
 
 全平台测试验证了具体方程、数值接口和运行分支。两个默认变体是可用的后续研究起点；原文未公开的采样/检测域参数仍阻止逐数字的完整复刻。
 
@@ -42,4 +42,4 @@ demo_reproductions('bias_pi_automatica2026','new-paper-arm', ...
     struct('example','arm','dataMode','paper_initial'));
 ```
 
-原始全文章节/公式映射见 [METHOD](https://github.com/tanjunkai2001/adp-matlab/blob/main/reproductions/bias_pi_automatica2026/METHOD.md) 和 [全文卡](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/fulltext/bias_pi_automatica2026.md)。默认方法学习只用基础MATLAB；机械臂演示中的独立LQR参照需要Control System Toolbox。
+原始全文章节/公式映射见 [METHOD](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/reproductions/bias_pi_automatica2026/METHOD.md) 和 [全文卡](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/fulltext/bias_pi_automatica2026.md)。默认方法学习只用基础MATLAB；机械臂演示中的独立LQR参照需要Control System Toolbox。

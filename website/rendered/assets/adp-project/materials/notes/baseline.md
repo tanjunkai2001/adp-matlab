@@ -1,6 +1,6 @@
 # 新方法接入：必须写清的数学契约
 
-版本 0.2；2026-09-07。本文件规定未来扩展的接口含义，不代表列出的算子已经实现。当前可调用接口仍以 [IMPLEMENTED_API.md](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/IMPLEMENTED_API.md) 为准。
+版本 0.2；2026-09-07。本文件规定未来扩展的接口含义，不代表列出的算子已经实现。当前可调用接口仍以 [IMPLEMENTED_API.md](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/IMPLEMENTED_API.md) 为准。
 
 ## 1. 一个算法名不足以确定实现
 

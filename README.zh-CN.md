@@ -1,5 +1,7 @@
 # ADP-MATLAB
 
+[项目主页](https://tanjunkai2001.github.io/projects/adp-matlab/) · [v0.5.0](https://github.com/tanjunkai2001/adp-matlab/releases/tag/v0.5.0) · [CI](https://github.com/tanjunkai2001/adp-matlab/actions/workflows/checks.yml) · [MIT](LICENSE)
+
 **用于自适应动态规划控制的 MATLAB 参考实现与可复现实验。**
 
 [English](README.md) · [快速开始](docs/QUICKSTART.zh-CN.md) · [方法表](docs/METHODS.md) · [验证记录](VALIDATION.md) · [发展路线](docs/ROADMAP.md)
@@ -7,7 +9,7 @@
 从一个积分策略迭代例子开始，逐步学习 Koopman、神经 HJB、平均场控制和控制期刊中的相关方法。每个实现都对应原始方程、MATLAB 函数、适用条件和实际结果。
 
 <!-- SNAPSHOT:START -->
-**v0.5.0：** 8个可运行入口 · 7个论文实现包 · 本地测试102/102通过 · 6个研究skill。实际环境：25.2.0.3312555 (R2025b) Update 6（maca64）。公开源码发布仍在准备中。
+**v0.5.0：** 8个可运行入口 · 7个论文实现包 · 本地测试102/102通过 · 6个研究skill。实际环境：25.2.0.3312555 (R2025b) Update 6（maca64）。
 <!-- SNAPSHOT:END -->
 
 <p align="center"><img src="docs/assets/baseline-reference.svg" width="640" alt="实际MATLAB基线：策略迭代逼近解析LQR增益，闭环状态收敛。" /></p>

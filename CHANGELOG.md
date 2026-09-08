@@ -2,6 +2,7 @@
 
 - Added the MIT license, consistent release metadata and a reproducible source package.
 - Re-ran all 102 local MATLAB tests and the baseline quickstart; the 81 MATLAB sources remain byte-identical to v0.4.1.
+- Passed all 102 tests and repository checks on GitHub Actions with MATLAB R2025b Update 6 on Ubuntu 24.04.
 - Repaired external-checkpoint instructions, archived evidence links and the links inside downloadable project notes.
 - Included the two project-generated figure bundles in Git; preserved their original data and checksums.
 - Added complete CI failure logs and connected release-aware code/download links to the independent project page.

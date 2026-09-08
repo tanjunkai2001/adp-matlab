@@ -14,8 +14,8 @@
   "description": "MATLAB reference implementations and reproducible experiments for adaptive dynamic programming control.",
   "repository_url": "https://github.com/tanjunkai2001/adp-matlab",
   "project_url": "https://tanjunkai2001.github.io/projects/adp-matlab/",
-  "repository_published": false,
+  "repository_published": true,
   "license": "MIT",
-  "release_stage": "candidate",
+  "release_stage": "published",
   "checked_on": "2026-09-08"
 }

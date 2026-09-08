@@ -1,5 +1,7 @@
 # ADP-MATLAB
 
+[Project page](https://tanjunkai2001.github.io/projects/adp-matlab/) · [v0.5.0](https://github.com/tanjunkai2001/adp-matlab/releases/tag/v0.5.0) · [CI](https://github.com/tanjunkai2001/adp-matlab/actions/workflows/checks.yml) · [MIT](LICENSE)
+
 **MATLAB reference implementations and reproducible experiments for adaptive dynamic programming control.**
 
 [中文说明](README.zh-CN.md) · [Quick start](docs/GETTING_STARTED.md) · [Methods](docs/METHODS.md) · [Validation](VALIDATION.md) · [Roadmap](docs/ROADMAP.md)
@@ -7,7 +9,7 @@
 Learn from a small integral policy-iteration example, then explore Koopman models, neural HJB solvers, mean-field control and recent control-journal methods. Each implementation connects its equations, MATLAB functions, assumptions and recorded outcomes.
 
 <!-- SNAPSHOT:START -->
-**v0.5.0:** 8 runnable entries · 7 paper packages · 102/102 local tests passed · 6 research skills. Tested on 25.2.0.3312555 (R2025b) Update 6 (maca64). Public source release is in preparation.
+**v0.5.0:** 8 runnable entries · 7 paper packages · 102/102 local tests passed · 6 research skills. Tested on 25.2.0.3312555 (R2025b) Update 6 (maca64).
 <!-- SNAPSHOT:END -->
 
 <p align="center"><img src="docs/assets/baseline-reference.svg" width="640" alt="Actual MATLAB baseline: policy iteration approaches the analytic LQR gain and the learned closed loop converges." /></p>

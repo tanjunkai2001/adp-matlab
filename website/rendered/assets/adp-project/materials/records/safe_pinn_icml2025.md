@@ -20,4 +20,4 @@
 
 图中的轨迹只显示前20条，标题计数对应全部预测可行初值。已人工检查生成PNG的坐标、障碍、目标和文字；对应FIG可继续编辑。
 
-两条路径都尚未达到零违例。作者公开代码与论文的训练VI项、状态裁剪和校准事件存在差异，详见[逐行核对](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/fulltext/safe_pinn_author_code_audit.md)。当前源码、权重和实际数据足以继续定位差异，未将论文报告的99.9%安全率移植为本次结论。
+两条路径都尚未达到零违例。作者公开代码与论文的训练VI项、状态裁剪和校准事件存在差异，详见[逐行核对](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/fulltext/safe_pinn_author_code_audit.md)。当前源码、权重和实际数据足以继续定位差异，未将论文报告的99.9%安全率移植为本次结论。
