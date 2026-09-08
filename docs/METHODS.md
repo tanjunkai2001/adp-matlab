@@ -17,7 +17,7 @@ This table is generated from the implemented-method registry.
 
 | ID | Entry | Required products | Equation map |
 |---|---|---|---|
-| `baseline` | `demo_integral_pi` | MATLAB | [Method card](../docs/METHOD_CONTRACTS.zh-CN.md) |
+| `baseline` | `demo_integral_pi` | MATLAB | [Method card](../docs/BASELINE.md) |
 | `koopman_l4dc2025` | `demo_koopman` | MATLAB | [Method card](../docs/fulltext/koopman_l4dc2025.md) |
 | `meanfield_lqg2025` | `demo_meanfield_lqg2025` | MATLAB | [Method card](../docs/fulltext/meanfield_lqg2025.md) |
 | `qlearning_tac2023` | `demo_qlearning_tac2023` | MATLAB, Control System Toolbox | [Method card](../docs/fulltext/qlearning_tac2023.md) |

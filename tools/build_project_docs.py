@@ -59,7 +59,7 @@ def build(check=False, preview=None, personal=None):
     labels = read_json('registry/method-display.json')
     papers = {p['id']: p for p in read_json('registry/papers.json')['papers']}
     validation = read_json('docs/validation/matlab-tests.json')
-    baseline = dict(registry['baseline'], directory='', fulltext_card='docs/METHOD_CONTRACTS.zh-CN.md')
+    baseline = dict(registry['baseline'], directory='', fulltext_card='docs/BASELINE.md')
     methods = [baseline] + registry['methods']
     if {m['id'] for m in methods} != set(labels):
         raise ValueError('Display labels must match the implemented method registry')

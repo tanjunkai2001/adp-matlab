@@ -1,6 +1,6 @@
 # Domain context
 
-This v0.5.0 release keeps the 81 MATLAB sources from v0.4.1 and organizes their public distribution, documentation and validation records. Previous method runs remain as history; earlier experiments live under evidence/v0.4 and current repository checks under evidence/v0.4.1. New user runs are stored under runs/.
+This v0.5.0 release keeps the 81 MATLAB sources from v0.4.1 and organizes their public distribution, documentation and validation records. Current public validation records are in [docs/validation/](docs/validation/); compact historical evidence is in [evidence/](evidence/), with full historical bundles described in [ARTIFACTS](docs/ARTIFACTS.md). New user runs are stored under runs/.
 
 The repository contains the preserved original CT integral-PI baseline and seven independent paper-method implementations under reproductions/. Each method declares its exact variant and validation status in registry/reproductions.json. A full-text reading, an implementation, a completed run, and a validated paper metric are separate facts. The standalone methods are not a universal ADP API.
 

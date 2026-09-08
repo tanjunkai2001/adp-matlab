@@ -1,10 +1,10 @@
 # Integral policy iteration: the baseline
 
-This note follows the original two-state example in [demo_integral_pi.m](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/demo_integral_pi.m): collect trajectories with a fixed feedback gain, fit its quadratic value function, then improve the gain. It uses base MATLAB and the standard JVM for saving source hashes.
+This note follows the original two-state example in [demo_integral_pi.m](../demo_integral_pi.m): collect trajectories with a fixed feedback gain, fit its quadratic value function, then improve the gain. It uses base MATLAB and the standard JVM for saving source hashes.
 
 ## 1. Problem and initial policy
 
-The [double integrator](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/src/%2Badp/%2Bmodels/doubleIntegrator.m) is
+The [double integrator](../src/+adp/+models/doubleIntegrator.m) is
 
 $$
 \dot x=Ax+Bu,\qquad
@@ -44,7 +44,7 @@ V_i(x(a))-V_i(x(b))=
 \int_a^b \left(x(t)^\top Qx(t)+u(t)^\top Ru(t)\right)\,dt.
 $$
 
-[collectBatch](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/src/%2Badp/%2Bsim/collectBatch.m) collects six independent, resettable segments per policy. Each lasts 0.25 seconds and starts from one column of
+[collectBatch](../src/+adp/+sim/collectBatch.m) collects six independent, resettable segments per policy. Each lasts 0.25 seconds and starts from one column of
 
 ```matlab
 initialStates = [1,0,1,-1,0.5,-1; 0,1,1,1,-1,0.5];
@@ -54,7 +54,7 @@ The gain stays fixed throughout the entire batch; improvement happens after coll
 
 ## 3. Turn the identity into a value fit
 
-The [quadratic basis](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/src/%2Badp/%2Bbasis/quadratic2.m) and coefficient convention are
+The [quadratic basis](../src/+adp/+basis/quadratic2.m) and coefficient convention are
 
 $$
 \phi(x)=\begin{bmatrix}x_1^2\\2x_1x_2\\x_2^2\end{bmatrix},\qquad
@@ -71,7 +71,7 @@ $$
 y_j=\int_{a_j}^{b_j}(x^\top Qx+u^\top Ru)\,dt.
 $$
 
-Thus each round fits the six-by-three system $\Phi w_i=y$. [fitValue](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/src/%2Badp/%2Blearn/fitValue.m) uses an economy SVD $\Phi=U\Sigma W^\top$ to obtain the least-squares estimate
+Thus each round fits the six-by-three system $\Phi w_i=y$. [fitValue](../src/+adp/+learn/fitValue.m) uses an economy SVD $\Phi=U\Sigma W^\top$ to obtain the least-squares estimate
 
 $$
 \widehat w_i=W\Sigma^{-1}U^\top y,\qquad
@@ -89,7 +89,7 @@ $$
 u_{i+1}(x)=-R^{-1}B^\top P_i x.
 $$
 
-[integralPI](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/src/%2Badp/%2Blearn/integralPI.m) applies this map to the fitted matrix:
+[integralPI](../src/+adp/+learn/integralPI.m) applies this map to the fitted matrix:
 
 ```matlab
 improvedK = R\(B'*value.P);
@@ -115,7 +115,7 @@ P^\star=\begin{bmatrix}\sqrt{3}&1\\1&\sqrt{3}\end{bmatrix},\qquad
 K^\star=\begin{bmatrix}1&\sqrt{3}\end{bmatrix}.
 $$
 
-These matrices are defined in the demo after the learner returns. The learner uses known B in the greedy step; the example is not an unknown-B method. The complete function and data contracts are in the [implemented API](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/IMPLEMENTED_API.md#preserved-ct-integral-pi-baseline). For adding a different method, use the separate [method-extension contracts](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/METHOD_CONTRACTS.zh-CN.md).
+These matrices are defined in the demo after the learner returns. The learner uses known B in the greedy step; the example is not an unknown-B method. The complete function and data contracts are in the [implemented API](IMPLEMENTED_API.md#preserved-ct-integral-pi-baseline). For adding a different method, use the separate [method-extension contracts](METHOD_CONTRACTS.zh-CN.md).
 
 ## 6. Run and inspect the result
 
@@ -128,7 +128,7 @@ result.learning.P
 result.metrics
 ```
 
-See [Getting started](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/GETTING_STARTED.md) for setup. The default run creates a new folder under `runs/`; the saved files come from this execution.
+See [Getting started](GETTING_STARTED.md) for setup. The default run creates a new folder under `runs/`; the saved files come from this execution.
 
 | Inspect | Contents |
 |---|---|
@@ -147,6 +147,6 @@ $$
 
 The demo checks the numerical counterpart with its fitted P: `learnedFinitePlusTail` adds `learnedFiniteHorizonCost` and `learnedTailValue`, and `valueIdentityError` compares the sum with `learnedValueAtInitialState`.
 
-The saved [September 8 quickstart record](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/validation/quickstart-baseline.json) reports five rounds, gain error about $8.37\times10^{-14}$, eight-second cost $1.46410079898$ and tail value $8.16\times10^{-7}$. Their sum agrees numerically with the analytic initial value $2\sqrt{3}-2\approx1.46410161514$. These are recorded results, not prescribed values for every future environment.
+The saved [September 8 quickstart record](validation/quickstart-baseline.json) reports five rounds, gain error about $8.37\times10^{-14}$, eight-second cost $1.46410079898$ and tail value $8.16\times10^{-7}$. Their sum agrees numerically with the analytic initial value $2\sqrt{3}-2\approx1.46410161514$. These are recorded results, not prescribed values for every future environment.
 
-The project figure retains the earlier September 7 run: [summary](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/assets/data/baseline-summary.json), [trajectory CSV](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/assets/data/baseline-trajectory.csv) and [convergence CSV](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/assets/data/baseline-convergence.csv). Those CSVs are figure data already included in the repository; the baseline run itself saves MAT/JSON files. [Validation](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/VALIDATION.md) links the test records and source hashes, while [Artifacts](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/ARTIFACTS.md) describes figure bundles and separately preserved historical runs.
+The project figure retains the earlier September 7 run: [summary](assets/data/baseline-summary.json), [trajectory CSV](assets/data/baseline-trajectory.csv) and [convergence CSV](assets/data/baseline-convergence.csv). Those CSVs are figure data already included in the repository; the baseline run itself saves MAT/JSON files. [Validation](../VALIDATION.md) links the test records and source hashes, while [Artifacts](ARTIFACTS.md) describes figure bundles and separately preserved historical runs.
