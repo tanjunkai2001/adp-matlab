@@ -7,21 +7,35 @@
 在仓库根目录运行：
 
 ~~~matlab
-addpath('reproductions/meanfield_lqg2025');
-report = demo_meanfield_lqg2025;
+report = demo_reproductions('meanfield_lqg2025');
 ~~~
 
-这会运行论文规模的 100 路径学习、8 次独立训练和 40 个体的群体评估，保存原始训练轨迹、输入、Brownian 增量、配置、观测矩、每次迭代、图和成本。
+默认实验使用 **100 条训练路径**、种子 `20260907`、8 次独立训练，以及 48 组各含 40 个体的群体评估；成本积分到 20 秒。完成后在 `runs/meanfield_lqg2025/` 下的新目录保存原始训练轨迹、输入、Brownian 增量、配置、观测矩、迭代、图和成本。
+
+项目页约 **0.53% / 0.85%** 的两组增益误差来自历史 **4000 路径**实验，默认100路径命令不对应这组数字。现有精度子流程在同一探索输入下池化 **40 批、每批100路径**，依次在100/400/1000/4000路径拟合：
+
+~~~matlab
+addpath(fullfile(pwd,'reproductions','meanfield_lqg2025'));
+cfg = mf_config;
+outputDirectory = fullfile(pwd,'runs', ...
+    ['meanfield-precision-' char(datetime('now','Format','yyyyMMdd-HHmmss-SSS'))]);
+precision = mf_precision_check(outputDirectory,cfg,40);
+~~~
+
+完成后，`precision.mat` 保存配置、批次种子、共享频率、池化观测矩和拟合结果；`mc-precision.csv` 保存增益及误差，`cost-comparison.csv` 保存有限时域成本对照。主实验批次种子为 `cfg.seed + (0:39)`。仅将 `cfg.train.paths` 改成4000会改变随机数抽样和分批方式，不能视为同一随机实验。
 
 完整验证及更高 Monte Carlo 精度对照：
 
 ~~~matlab
+addpath(fullfile(pwd,'reproductions','meanfield_lqg2025'));
 outcome = run_verified_meanfield;
 ~~~
 
-完整入口先运行局部测试，再保留 100 路径结果、同一探索输入下的 100/400/1000/4000 路径对照，以及 4 次独立 4000 路径拟合的增益标准误。增加路径数是显式数值精度实验，不是改种子挑选结果。
+完整入口先运行局部测试、默认100路径实验和精度子流程，再执行另外3次4000路径拟合。`gain-uncertainty-4000.csv` 给出总计4次独立拟合的增益标准误；成本标准误则以主拟合策略和一次采样均值曲线为条件，来自48个独立群体。
 
-已运行证据在 [verified-20260907](../../docs/ARTIFACTS.md)。实际结果表明 100 路径的新随机数据有明显拟合波动，8 次中 1 次被拒绝；没有删去失败后把剩余结果当作无条件均值。4000 路径主实验的两组增益相对完整模型参考误差约 0.53% 和 0.85%。这不等价于有限样本收敛定理。
+若默认100路径的首个拟合报错，完整入口会在精度阶段之前停止；精度子流程自身也会先拟合较小样本，可能在到达4000路径之前停止。上述命令沿用现有流程，不跳过拒绝的拟合，也不替换种子。
+
+[历史记录](../../docs/fulltext/meanfield_lqg2025.md)中，100路径主实验增益误差为18.23% / 30.01%，8次训练有1次被拒绝；4000路径主实验误差约0.53% / 0.85%。这些是既有结果，不是本次重新运行所得。原始MAT/CSV属于单独保留的[历史归档](../../docs/ARTIFACTS.md)，公开源码保留摘要。上述命令明确了现有流程；要核对与某次历史实验的精确对应，还需其保存的配置和数据身份。未删除失败训练来形成无条件均值，也不据此宣称有限样本收敛定理。
 
 | 文件 | 数学职责 |
 |---|---|

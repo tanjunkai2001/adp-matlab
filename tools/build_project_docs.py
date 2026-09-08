@@ -40,7 +40,9 @@ def web_markdown(text, source, project):
         if not path.exists():
             raise ValueError(f'Missing link in {source.relative_to(ROOT)}: {target}')
         kind = 'raw' if image else ('tree' if path.is_dir() else 'blob')
-        url = f"{project['repository_url']}/{kind}/{ref}/{quote(relative, safe='/')}"
+        # Maintained prose follows main; code, data and historical evidence stay pinned.
+        target_ref = 'main' if path.suffix == '.md' and not relative.startswith('evidence/') else ref
+        url = f"{project['repository_url']}/{kind}/{target_ref}/{quote(relative, safe='/')}"
         return url + ('#' + parts.fragment if parts.fragment else '')
     chunks = re.split(r'(```.*?```|~~~.*?~~~)', text, flags=re.S)
     for i in range(0, len(chunks), 2):
@@ -93,14 +95,20 @@ def build(check=False, preview=None, personal=None):
             mid, name = escape(m['id']), escape(label['name_en'])
             paper_link = f'<a href="{escape(url, quote=True)}">{escape(label["venue"])}</a>' if url else escape(label['venue'])
             summary_row = f'<tr class="method-summary"><th scope="row" id="label-{mid}">{name}<small>{paper_link}</small></th><td data-label="Problem">{escape(label["model_en"])}</td><td data-label="Example">{escape(label["example_en"])}</td><td><button type="button" class="method-toggle" aria-expanded="false" aria-controls="panel-{mid}" aria-label="Run and details: {name}">Run &amp; details</button></td></tr>'
-            command = f"demo_reproductions( ...\n    '{m['id']}');"
-            training = ''
-            if m['id'] == 'pinn_infinite_horizon2025':
-                command = "demo_reproductions( ...\n    'pinn_infinite_horizon2025', ...\n    'smoke');"
-                training = '<p>The smoke mode runs a short neural-training workflow. Use <code>reduced</code> for the recorded reduced-scale procedure; the full paper training schedule is not bundled as a reproduced result.</p>'
-            elif m['id'] == 'safe_pinn_icml2025':
-                command = "outputDir = fullfile( ...\n    pwd, 'runs', 'safe_pinn_icml2025');\ndemo_reproductions( ...\n    'safe_pinn_icml2025', ...\n    outputDir, 5000);"
-                training = '<p>This command runs 5,000 neural-training updates and evaluates the boat example. Author-checkpoint evaluation uses a separately obtained asset.</p>'
+            examples = label.get('run_examples', [{
+                'label': 'Run from the repository root',
+                'command': f"demo_reproductions( ...\n    '{m['id']}');"
+            }])
+            code_blocks = []
+            for number, example in enumerate(examples, 1):
+                code_id = f'code-{mid}' + (f'-{number}' if number > 1 else '')
+                note = f'<p class="section-note">{escape(example["note"])}</p>' if example.get('note') else ''
+                code_blocks.append(f'''{note}<div class="code-block"><div class="code-toolbar"><span>{escape(example['label'])}</span><button type="button" data-copy="{code_id}">Copy</button></div><pre id="{code_id}"><code>{escape(example['command'])}</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>''')
+            guide_link = ''
+            if 'run_examples' in label:
+                guide_key = f"guides/{m['id']}.md"
+                materials[guide_key] = str(Path(m['directory']) / 'README.md')
+                guide_link = f'<a href="@@MATERIALS@@/{guide_key}" download>Run guide (.md)</a>'
             entry_source = Path(m['directory']) / (m['entry_point'] + '.m')
             if not (ROOT / entry_source).is_file():
                 raise ValueError(f'Missing native entry source: {entry_source}')
@@ -115,9 +123,9 @@ def build(check=False, preview=None, personal=None):
             record_key = f"records/{m['id']}{record_suffix}"
             materials[record_key] = label['record_path']
             content = f'''<div class="method-content" aria-labelledby="label-{mid}">
-<p>{escape(label['scope_en'])}</p><p class="method-outcome">{escape(label['outcome_en'])}</p><dl class="method-facts"><div><dt>Products</dt><dd>{escape(products)}</dd></div><div><dt>Native function</dt><dd><code>{escape(m['entry_point'])}</code></dd></div><div><dt>Local checks</dt><dd>{m['recorded_tests']} recorded passing tests</dd></div></dl>{training}
-<div class="code-block"><div class="code-toolbar"><span>Run from the repository root</span><button type="button" data-copy="code-{mid}">Copy</button></div><pre id="code-{mid}"><code>{escape(command)}</code></pre><p class="copy-status" role="status" aria-live="polite"></p></div>
-<p class="material-links"><a href="{source_url}">Entry source (.m)</a><a href="{card_url}" download>Equation notes (.md)</a><a href="@@MATERIALS@@/{record_key}" download>Experiment &amp; checks ({record_suffix})</a>{('<a href="' + escape(url, quote=True) + '">Original paper</a>') if url else ''}</p></div>'''
+<p>{escape(label['scope_en'])}</p><p class="method-outcome">{escape(label['outcome_en'])}</p><dl class="method-facts"><div><dt>Products</dt><dd>{escape(products)}</dd></div><div><dt>Native function</dt><dd><code>{escape(m['entry_point'])}</code></dd></div><div><dt>Local checks</dt><dd>{m['recorded_tests']} recorded passing tests</dd></div></dl>
+{''.join(code_blocks)}
+<p class="material-links"><a href="{source_url}">Entry source (.m)</a><a href="{card_url}" download>Equation notes (.md)</a><a href="@@MATERIALS@@/{record_key}" download>Experiment &amp; checks ({record_suffix})</a>{guide_link}{('<a href="' + escape(url, quote=True) + '">Original paper</a>') if url else ''}</p></div>'''
             html_rows.append(f'<tbody class="method-group" id="method-{mid}">{summary_row}<tr class="method-panel" id="panel-{mid}" hidden><td colspan="4">{content}</td></tr></tbody>')
             public_methods.append({'id':m['id'],'name':label['name_en'],'venue':label['venue'],'paper_url':url,'tests':m['recorded_tests'],'scope':label['scope_en'],'entry_point':m['entry_point']})
         tables[lang] = '\n'.join(table)
@@ -138,11 +146,17 @@ def build(check=False, preview=None, personal=None):
         methods_doc += f"| `{m['id']}` | `{m['entry_point']}` | {products} | [Method card](../{m['fulltext_card']}) |\n"
     methods_doc += '\nFull training, local mathematical tests and matching a paper’s figures are different records. See [VALIDATION](../VALIDATION.md).\n'
     generated['docs/METHODS.md'] = methods_doc
+    records_doc = '# Recorded experiments and checks\n\nThese entries describe preserved numerical variants. Settings differ across methods. Local tests, full training, and matching a paper figure are distinct records.\n\n| Method | Example | Recorded outcome or scope | Record |\n|---|---|---|---|\n'
+    for m in methods:
+        label = labels[m['id']]
+        records_doc += f"| {label['name_en']} | {label['example_en']} | {label['outcome_en']} | [Record](../{label['record_path']}) |\n"
+    generated['docs/EXPERIMENT_RECORDS.md'] = records_doc
     body = (ROOT/'website/body.html').read_text()
     values = {'TEST_COUNT':validation['passed'],'ENTRY_COUNT':len(methods),'PAPER_COUNT':len(registry['methods']), 'SOURCE_VERSION':project['matlab_source_version'],
               'PROJECT_VERSION':project['version'], 'LICENSE':project['license'],
               'RELEASE_STATUS':'Published' if project['repository_published'] else 'In preparation',
-              'METHOD_ROWS':'\n'.join(html_rows)}
+              'METHOD_ROWS':'\n'.join(html_rows),
+              'SAFE_PINN_OUTCOME':escape(labels['safe_pinn_icml2025']['outcome_en'])}
     for key, value in values.items():
         body = body.replace('@@' + key + '@@', str(value))
     layout = (ROOT/'website/layout.html').read_text()

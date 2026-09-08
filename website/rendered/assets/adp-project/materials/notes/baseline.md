@@ -115,7 +115,7 @@ P^\star=\begin{bmatrix}\sqrt{3}&1\\1&\sqrt{3}\end{bmatrix},\qquad
 K^\star=\begin{bmatrix}1&\sqrt{3}\end{bmatrix}.
 $$
 
-These matrices are defined in the demo after the learner returns. The learner uses known B in the greedy step; the example is not an unknown-B method. The complete function and data contracts are in the [implemented API](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/IMPLEMENTED_API.md#preserved-ct-integral-pi-baseline). For adding a different method, use the separate [method-extension contracts](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/METHOD_CONTRACTS.zh-CN.md).
+These matrices are defined in the demo after the learner returns. The learner uses known B in the greedy step; the example is not an unknown-B method. The complete function and data contracts are in the [implemented API](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/IMPLEMENTED_API.md#preserved-ct-integral-pi-baseline). For adding a different method, use the separate [method-extension contracts](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/METHOD_CONTRACTS.zh-CN.md).
 
 ## 6. Run and inspect the result
 
@@ -128,7 +128,7 @@ result.learning.P
 result.metrics
 ```
 
-See [Getting started](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/GETTING_STARTED.md) for setup. The default run creates a new folder under `runs/`; the saved files come from this execution.
+See [Getting started](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/GETTING_STARTED.md) for setup. The default run creates a new folder under `runs/`; the saved files come from this execution.
 
 | Inspect | Contents |
 |---|---|
@@ -149,4 +149,4 @@ The demo checks the numerical counterpart with its fitted P: `learnedFinitePlusT
 
 The saved [September 8 quickstart record](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/validation/quickstart-baseline.json) reports five rounds, gain error about $8.37\times10^{-14}$, eight-second cost $1.46410079898$ and tail value $8.16\times10^{-7}$. Their sum agrees numerically with the analytic initial value $2\sqrt{3}-2\approx1.46410161514$. These are recorded results, not prescribed values for every future environment.
 
-The project figure retains the earlier September 7 run: [summary](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/assets/data/baseline-summary.json), [trajectory CSV](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/assets/data/baseline-trajectory.csv) and [convergence CSV](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/assets/data/baseline-convergence.csv). Those CSVs are figure data already included in the repository; the baseline run itself saves MAT/JSON files. [Validation](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/VALIDATION.md) links the test records and source hashes, while [Artifacts](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/ARTIFACTS.md) describes figure bundles and separately preserved historical runs.
+The project figure retains the earlier September 7 run: [summary](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/assets/data/baseline-summary.json), [trajectory CSV](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/assets/data/baseline-trajectory.csv) and [convergence CSV](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/assets/data/baseline-convergence.csv). Those CSVs are figure data already included in the repository; the baseline run itself saves MAT/JSON files. [Validation](https://github.com/tanjunkai2001/adp-matlab/blob/main/VALIDATION.md) links the test records and source hashes, while [Artifacts](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md) describes figure bundles and separately preserved historical runs.

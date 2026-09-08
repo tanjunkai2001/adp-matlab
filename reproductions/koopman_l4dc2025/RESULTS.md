@@ -18,7 +18,17 @@
 | 真实动力学HJB残差RMS | 0.0033272774791102025 |
 | 第10轮策略变化RMS | 2.4586447412875464e-14 |
 
-曲线和50初值轨迹见 [实际生成图](results/validated-v03-isolated-20260907/trajectories_cost.png)。逐条原始轨迹、随机特征、配点、完整生成元与每轮奇异值均位于同目录 `result.mat`。终点成本差比整条曲线最大差小得多；上述两个指标分别报告，不能只选择终点数值解释论文图。
+曲线和50初值轨迹见 [实际生成图](results/validated-v03-isolated-20260907/trajectories_cost.png)。完整历史运行的 `result.mat` 包含逐条成本、随机特征、配点、完整生成元与每轮奇异值；它未随当前源码包发布，保留方式见 [历史归档说明](../../docs/ARTIFACTS.md)。
+
+令 `d_j(t)=J_data,j(t)-J_truth,j(t)`，两套策略从同一批50个初值出发。上表的曲线指标是 `max_t abs(mean_j d_j(t))`，终点指标是 `abs(mean_j d_j(10))`。**二者都先对初值求平均，再取绝对值**，因此可能发生正负抵消；它们不是 `mean_j abs(d_j(10))`，也不是某条轨迹的最大绝对成本差。3.1461e−5 与8.8030e−9应分别按整段曲线和终点解读。
+
+当前公开轨迹CSV保留了状态，没有两套逐初值成本；不能从这份CSV补出50个配对成本差或分位数。入口会在新运行中保存 `result.rollouts.learned.integratedCost`、`result.rollouts.oracle.integratedCost`，并计算 `result.metrics.maximumTrajectoryCostGap`；这里尚未取得对应冻结运行的原始MAT，故不增加历史逐轨迹最大值或分布数字。
+
+从仓库根目录运行现有配置，会创建新的数据模型辨识、PI和50初值闭环记录：
+
+```matlab
+[result,runDir] = demo_reproductions('koopman_l4dc2025');
+```
 
 8项测试涵盖：留出辨识与闭环；锚定特征梯度；解析Yosida矩阵与求积收敛；真实状态-输入耦合项；秩/NaN/执行标签拒绝；独立ode45；真值字段隔离；lambda及初始策略/迭代预算敏感性。最终状态和原始日志见 [CSV](evidence/isolated-test-results.csv)、[完整日志](../../docs/ARTIFACTS.md)。
 

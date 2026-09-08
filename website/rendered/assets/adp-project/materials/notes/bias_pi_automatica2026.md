@@ -2,7 +2,7 @@
 
 Ruiqing Zhang、Huaiyuan Jiang、Bin Zhou，*Adaptive dynamic programming for unknown continuous-time nonlinear systems via bias-policy iteration*，Automatica **185 (2026), 112821**，[DOI 10.1016/j.automatica.2026.112821](https://doi.org/10.1016/j.automatica.2026.112821)。正式稿首页记录：2024-07-26 收稿、2025-08-20 修回、2025-11-30 接受、**2026-01-09 在线发表**。
 
-本轮通读正式 PDF 全部13页，包括正文证明、p11 Appendix、参考文献和作者信息；p5、6、7、8、10另核PDF图像。不是此前的摘要/预览记录。[所读PDF](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/ARTIFACTS.md) SHA-256：`93ca24abebbe6a139457b32fa387f197ba54f76f7a3e17f07dbda72837df1e69`。下述均为正式PDF页码。全文未给代码下载地址，不据此断言作者没有代码。
+本轮通读正式 PDF 全部13页，包括正文证明、p11 Appendix、参考文献和作者信息；p5、6、7、8、10另核PDF图像。不是此前的摘要/预览记录。[所读PDF](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md) SHA-256：`93ca24abebbe6a139457b32fa387f197ba54f76f7a3e17f07dbda72837df1e69`。下述均为正式PDF页码。全文未给代码下载地址，不据此断言作者没有代码。
 
 ## 问题和主机制
 

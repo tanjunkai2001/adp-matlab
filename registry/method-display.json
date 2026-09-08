@@ -33,7 +33,19 @@
     "scope_zh": "有限样本社会优化，保留小样本失败。",
     "example_en": "Finite population LQG",
     "outcome_en": "The documented 4,000-path run reports gain errors of approximately 0.53% and 0.85%. Low-sample failures and independent training repeats are retained.",
-    "record_path": "docs/fulltext/meanfield_lqg2025.md"
+    "record_path": "docs/fulltext/meanfield_lqg2025.md",
+    "run_examples": [
+      {
+        "label": "Default: 100 training paths",
+        "command": "demo_reproductions( ...\n    'meanfield_lqg2025');",
+        "note": "The default example uses 100 training paths. The saved 0.53% / 0.85% gain errors come from a separate 4,000-path record."
+      },
+      {
+        "label": "Precision procedure: 40 × 100 paths",
+        "command": "addpath(fullfile(pwd, ...\n    'reproductions','meanfield_lqg2025'));\nrunId = char(datetime('now', ...\n    'Format','yyyyMMdd-HHmmss-SSS'));\noutputDir = fullfile(pwd,'runs', ...\n    ['meanfield-precision-' runId]);\nprecision = mf_precision_check( ...\n    outputDir,mf_config(),40);",
+        "note": "This existing procedure pools batches under a common probe and fits at 100, 400, 1,000 and 4,000 paths. A small-sample fit may stop it before 4,000. Exact replay of the historical numbers still needs the archived configuration and data; see the run guide."
+      }
+    ]
   },
   "qlearning_tac2023": {
     "name_en": "Off-policy Q-learning",
@@ -57,7 +69,19 @@
     "scope_zh": "缩小网络的LQR/摆训练，标明四次代价修正。",
     "example_en": "Scalar LQR & pendulum",
     "outcome_en": "The saved reduced pendulum experiment completes four closed-loop evaluations at each continuation horizon, from 1 through 4. The figure shows the trained value on the common grid at horizon 4.",
-    "record_path": "evidence/v0.3/pinn/reduced_20260907_110031_520/summary.json"
+    "record_path": "evidence/v0.3/pinn/reduced_20260907_110031_520/summary.json",
+    "run_examples": [
+      {
+        "label": "Short workflow: smoke",
+        "command": "demo_reproductions( ...\n    'pinn_infinite_horizon2025', ...\n    'smoke');",
+        "note": "Smoke trains scalar LQR at horizon 1 and pendulum at horizons 1–2 for 10 updates each, plus two 12-update prefix checks."
+      },
+      {
+        "label": "Figure configuration: reduced",
+        "command": "[result,runDir] = demo_reproductions( ...\n    'pinn_infinite_horizon2025', ...\n    'reduced');",
+        "note": "The horizon-4 figure uses reduced training: 2,000 LQR updates and 3,000 per pendulum horizon, 1–4. This is the smaller network experiment, not the full paper schedule."
+      }
+    ]
   },
   "safe_pinn_icml2025": {
     "name_en": "Safe epigraph PINN",
@@ -68,8 +92,15 @@
     "scope_en": "Boat example; collision and budget violations remain.",
     "scope_zh": "船舶场景，仍存在碰撞和预算违例。",
     "example_en": "Constrained boat navigation",
-    "outcome_en": "Reduced training: 19/64 collisions and 47/64 budget violations. Author-checkpoint evaluation: 1/64 and 9/64, respectively.",
-    "record_path": "evidence/v0.3/safe-pinn/RESULTS.md"
+    "outcome_en": "Of the same 64 candidates, reduced training executes 64: 19 collisions, 47 budget violations. The author checkpoint executes 63: 1 collision, 9 budget violations. Events may overlap.",
+    "record_path": "evidence/v0.3/safe-pinn/RESULTS.md",
+    "run_examples": [
+      {
+        "label": "Reduced training: 5,000 updates",
+        "command": "outputRoot = fullfile( ...\n    pwd,'runs','safe_pinn_icml2025');\n[result,runDir] = demo_reproductions( ...\n    'safe_pinn_icml2025', ...\n    outputRoot,5000);",
+        "note": "This trains and evaluates a new MATLAB network. The run guide below separately explains author-checkpoint inference using external converted weights and an existing result.mat with the comparison inputs."
+      }
+    ]
   },
   "robust_koopman2026": {
     "name_en": "Robust Koopman PI",
@@ -93,6 +124,17 @@
     "scope_zh": "摆/机械臂变体，臂成本比局部LQR高8.84%。",
     "example_en": "Pendulum & two-link arm",
     "outcome_en": "The recorded arm variant stabilizes, with cost 8.84% above the local LQR comparison.",
-    "record_path": "reproductions/bias_pi_automatica2026/RESULTS.md"
+    "record_path": "reproductions/bias_pi_automatica2026/RESULTS.md",
+    "run_examples": [
+      {
+        "label": "Default: pendulum",
+        "command": "demo_reproductions( ...\n    'bias_pi_automatica2026');"
+      },
+      {
+        "label": "Recorded arm variant",
+        "command": "[result,runDir] = demo_reproductions( ...\n    'bias_pi_automatica2026', ...\n    [],struct('example','arm'));",
+        "note": "The displayed 8.84% cost gap belongs to this local-multistart arm variant over five seconds. Its LQR comparison requires Control System Toolbox."
+      }
+    ]
   }
 }

@@ -12,7 +12,15 @@
 demo_reproductions('pinn_infinite_horizon2025','smoke');
 ```
 
-This entry performs actual neural training. Check the native configuration and training budget before running it.
+This short workflow trains scalar LQR for 10 updates and the pendulum for 10 updates at each of two horizons. It also runs two independent 12-update prefix replays. It does not produce the horizon-4 experiment shown on the project page.
+
+To run the reduced configuration used for that figure:
+
+```matlab
+[result,runDir] = demo_reproductions('pinn_infinite_horizon2025','reduced');
+```
+
+This trains scalar LQR for 2,000 updates, then the pendulum at horizons 1, 2, 3 and 4 for 3,000 updates each, followed by the same prefix checks. The pendulum network has three hidden layers of width 48. The saved [September 7 summary](../../evidence/v0.3/pinn/reduced_20260907_110031_520/summary.json) and the project figure belong to this reduced-scale experiment; the full paper training schedule is not a reproduced result. Each call creates a new directory containing its configuration, networks, loss histories and evaluations.
 
 Required products: MATLAB, Deep Learning Toolbox. The native entry is `run_pinn_reproduction`. The full API page lists its inputs and outputs; the shared selector forwards them directly.
 

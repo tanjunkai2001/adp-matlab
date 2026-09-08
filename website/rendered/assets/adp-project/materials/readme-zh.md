@@ -4,7 +4,7 @@
 
 **用于自适应动态规划控制的 MATLAB 参考实现与可复现实验。**
 
-[English](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/README.md) · [快速开始](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/QUICKSTART.zh-CN.md) · [方法表](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/METHODS.md) · [验证记录](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/VALIDATION.md) · [发展路线](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/ROADMAP.md)
+[English](https://github.com/tanjunkai2001/adp-matlab/blob/main/README.md) · [快速开始](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/QUICKSTART.zh-CN.md) · [方法表](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/METHODS.md) · [验证记录](https://github.com/tanjunkai2001/adp-matlab/blob/main/VALIDATION.md) · [发展路线](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ROADMAP.md)
 
 从一个积分策略迭代例子开始，逐步学习 Koopman、神经 HJB、平均场控制和控制期刊中的相关方法。每个实现都对应原始方程、MATLAB 函数、适用条件和实际结果。
 
@@ -40,7 +40,7 @@ run_tests;
 <!-- METHODS:START -->
 | 方法 / 来源 | 模型与学习机制 | 测试 | 实际复现范围 |
 |---|---|---:|---|
-| [积分策略迭代基线](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/GETTING_STARTED.md) · Reference baseline | 连续时间LQ，已知B | 46 | 双状态参考例子，解析LQR独立对照。 |
+| [积分策略迭代基线](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/GETTING_STARTED.md) · Reference baseline | 连续时间LQ，已知B | 46 | 双状态参考例子，解析LQR独立对照。 |
 | [Koopman生成元与PI](https://github.com/tanjunkai2001/adp-matlab/tree/v0.5.0/reproductions/koopman_l4dc2025) · [L4DC 2025](https://proceedings.mlr.press/v283/zeng25a.html) | 连续非线性，辨识生成元 | 8 | 归一化摆数值变体，未完整复刻原表。 |
 | [平均场LQG](https://github.com/tanjunkai2001/adp-matlab/tree/v0.5.0/reproductions/meanfield_lqg2025) · [Automatica 2025](https://doi.org/10.1016/j.automatica.2024.111924) | 连续随机系统，双增益PI | 7 | 有限样本社会优化，保留小样本失败。 |
 | [离策略Q-learning](https://github.com/tanjunkai2001/adp-matlab/tree/v0.5.0/reproductions/qlearning_tac2023) · [IEEE TAC 2023](https://doi.org/10.1109/TAC.2023.3235967) | 离散LQR，矩阵Bellman方程 | 7 | 数据驱动LQR，MIMO初始化为明确变体。 |
@@ -63,7 +63,7 @@ run_tests;
 | `templates` | 接入新方法、对应方程和记录实验的模板。 |
 | `.agents/skills` | 编码、复现、理论、安全、实验比较、Simulink六个可选工作流程。 |
 
-新实验进入`runs/`。大型历史数据以版本附件保存，源码仓库保持轻量。参见[贡献指南](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/CONTRIBUTING.md)、[数据附件说明](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/ARTIFACTS.md)和[公开版本计划](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/RELEASE_PLAN.zh-CN.md)。
+新实验进入`runs/`。大型历史数据以版本附件保存，源码仓库保持轻量。参见[贡献指南](https://github.com/tanjunkai2001/adp-matlab/blob/main/CONTRIBUTING.md)、[数据附件说明](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md)和[公开版本计划](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/RELEASE_PLAN.zh-CN.md)。
 
 下一步优先完整迁移FxT-CL-ACI，再增加一个约束执行例子和一个机器人/Simulink例子。43个算法条目中还有35个规划项，不能把登记目录视为已实现能力。
 
@@ -71,6 +71,6 @@ run_tests;
 
 使用[CITATION.cff](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/CITATION.cff)中的软件信息，并同时引用所使用方法的原论文。请记录软件版本或commit。当前尚未分配软件DOI。
 
-独立编写的软件和项目文档采用 [MIT 许可证](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/LICENSE)。原论文 PDF、上游源码压缩包和作者 checkpoint 不随源码分发，仍适用各自条款。来源及推理适配器的归属见 [THIRD_PARTY](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/THIRD_PARTY.md)。
+独立编写的软件和项目文档采用 [MIT 许可证](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/LICENSE)。原论文 PDF、上游源码压缩包和作者 checkpoint 不随源码分发，仍适用各自条款。来源及推理适配器的归属见 [THIRD_PARTY](https://github.com/tanjunkai2001/adp-matlab/blob/main/THIRD_PARTY.md)。
 
 维护者：[Junkai Tan / 谭浚楷](https://tanjunkai2001.github.io/)。

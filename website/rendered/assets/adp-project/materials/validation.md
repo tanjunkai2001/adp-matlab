@@ -26,11 +26,11 @@ One PINN replay test executes two single Adam updates to check determinism. They
 | Mean-field | 100/4000-path numerical records; finite-sample failures are retained. |
 | TAC Q-learning | Matrix Bellman implementation, with an explicitly identified MIMO initialization variant. |
 | Infinite-horizon PINN | Reduced LQR/pendulum neural training and held-out checks; quartic-cost mismatch identified and corrected variant distinguished. |
-| Safe PINN | Reduced boat run: 19/64 collisions, 47/64 budget violations. Author-checkpoint evaluation: 1/64 collision and 9/64 budget violations. |
+| Safe PINN | Same 64 candidate states: reduced model executes 64, with 19 collisions and 47 budget violations; author checkpoint executes 63, with 1 collision and 9 budget violations. Counts concern executed trajectories and may overlap. See the [two evaluation paths](https://github.com/tanjunkai2001/adp-matlab/blob/main/reproductions/safe_pinn_icml2025/README.md). |
 | Robust Koopman | Held-out model-error bound fails on 25.55% of points; the nominal comparator has slightly lower cost. |
 | Bias-PI | Local-multistart pendulum/arm variants. The arm stabilizes but costs 8.84% more than local LQR. Original single-trajectory failures and iteration mismatches are retained. |
 
-See the [method cards](https://github.com/tanjunkai2001/adp-matlab/tree/v0.5.0/docs/fulltext) for source versions, equations, configurations and each result’s scope. Historical records are described in [ARTIFACTS](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/ARTIFACTS.md).
+See the [method cards](https://github.com/tanjunkai2001/adp-matlab/tree/v0.5.0/docs/fulltext) for source versions, equations, configurations and each result’s scope. Historical records are described in [ARTIFACTS](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md).
 
 ## Publication infrastructure
 

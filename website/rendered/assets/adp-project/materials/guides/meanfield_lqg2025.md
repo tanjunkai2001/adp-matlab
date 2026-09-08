@@ -1,6 +1,6 @@
 # Mean-field LQG
 
-[中文说明](README.zh-CN.md) · [Equation and full-text notes](../../docs/fulltext/meanfield_lqg2025.md) · [All APIs](../../docs/IMPLEMENTED_API.md)
+[中文说明](https://github.com/tanjunkai2001/adp-matlab/blob/main/reproductions/meanfield_lqg2025/README.zh-CN.md) · [Equation and full-text notes](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/fulltext/meanfield_lqg2025.md) · [All APIs](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/IMPLEMENTED_API.md)
 
 **Source:** Zhenhui Xu, Bing-Chang Wang, Tielong Shen. [Mean field LQG social optimization: A reinforcement learning approach](https://doi.org/10.1016/j.automatica.2024.111924). Automatica 2025.
 
@@ -45,4 +45,4 @@ An error in the first 100-path fit stops the complete sequence before the precis
 
 The current suite records **7 local tests** for this method. Run `run_all_tests('list')` to inspect discovery, then `run_all_tests` for the combined suite. Independent equations and comparators are documented in the test functions and full-text notes.
 
-The [paper card](../../docs/fulltext/meanfield_lqg2025.md) records the earlier 100-path gain errors of 18.23% / 30.01%, one rejected fit among eight repeats, and the 4,000-path result above. These are historical results, not new measurements from the commands shown here. Their original MAT/CSV records are in the separately retained [artifact collection](../../docs/ARTIFACTS.md); the public source contains the summary. The current procedure is specified above, while an exact match to the historical run requires its saved configuration and data identities. The test count does not imply that every original figure or theoretical guarantee has been reproduced.
+The [paper card](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/fulltext/meanfield_lqg2025.md) records the earlier 100-path gain errors of 18.23% / 30.01%, one rejected fit among eight repeats, and the 4,000-path result above. These are historical results, not new measurements from the commands shown here. Their original MAT/CSV records are in the separately retained [artifact collection](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/ARTIFACTS.md); the public source contains the summary. The current procedure is specified above, while an exact match to the historical run requires its saved configuration and data identities. The test count does not imply that every original figure or theoretical guarantee has been reproduced.

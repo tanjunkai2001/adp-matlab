@@ -26,7 +26,7 @@ catalog = demo_reproductions();
 [r, folder] = demo_reproductions('baseline');
 ```
 
-The baseline is an undiscounted, two-state double integrator with Q=I, R=1 and known B. Its learned gain is compared with `[1, sqrt(3)]`. Inspect `r.learning`, `r.metrics` and `r.evaluation`; `folder` contains the saved run. See [implemented API](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/IMPLEMENTED_API.md) for exact fields and conventions.
+The baseline is an undiscounted, two-state double integrator with Q=I, R=1 and known B. Its learned gain is compared with `[1, sqrt(3)]`. Inspect `r.learning`, `r.metrics` and `r.evaluation`; `folder` contains the saved run. See [implemented API](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/IMPLEMENTED_API.md) for exact fields and conventions.
 
 ## Select a paper method
 
@@ -36,7 +36,7 @@ The baseline is an undiscounted, two-state double integrator with Q=I, R=1 and k
 [r, folder] = demo_reproductions('bias_pi_automatica2026');
 ```
 
-These execute numerical experiments. The [method table](https://github.com/tanjunkai2001/adp-matlab/blob/v0.5.0/docs/METHODS.md) links the paper, implementation and numerical scope. Native argument conventions are preserved; there is no common controller class to configure.
+These execute numerical experiments. The [method table](https://github.com/tanjunkai2001/adp-matlab/blob/main/docs/METHODS.md) links the paper, implementation and numerical scope. Native argument conventions are preserved; there is no common controller class to configure.
 
 To exercise the neural training workflow briefly:
 

@@ -1,6 +1,6 @@
 # Contributing to ADP-MATLAB
 
-Useful contributions include clearer explanations, reproducible bug reports, cross-version runs, and a complete numerical method. Start with an issue when the change adds a new algorithm or changes a mathematical contract.
+Useful contributions include clearer explanations, reproducible bug reports, cross-version runs, and a complete numerical method. Use the existing [bug report or method proposal templates](https://github.com/tanjunkai2001/adp-matlab/issues/new/choose) when opening an issue. Start with a proposal when the change adds a new algorithm or changes a mathematical contract.
 
 ## Run the current example
 
@@ -28,7 +28,7 @@ python3 tools/build_project_docs.py --check
 5. Register the method in `registry/reproductions.json`, its paper in `registry/papers.json`, and its human-readable labels in `registry/method-display.json`. Register the algorithm in `registry/algorithms.json`. Demo and test discovery read the registry automatically.
 6. Save a new run under `runs/`; record settings, source identity and results. Preserve failed runs when they explain a numerical limitation. Then update the method’s evidence and run `python3 tools/build_project_docs.py`.
 
-The display file contains labels only. Entry points, dependencies, training flags and test counts belong to the method registry and validation record. Do not maintain an extra method list inside README or the project page.
+The display file contains human-readable labels and copyable usage examples for existing functions. Entry points, dependencies, training flags and test counts belong to the method registry and validation record. Document a run variant in its method README before adding a matching website command; display examples do not define new MATLAB modes. Do not maintain an extra method list inside README or the project page.
 
 ## Prepare the pull request
 
