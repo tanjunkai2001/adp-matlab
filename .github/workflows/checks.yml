@@ -1,0 +1,45 @@
+name: Repository and MATLAB checks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  repository:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check source inventory and documentation
+        run: |
+          python3 tools/check_repository.py --source-only
+          python3 tools/build_project_docs.py --check
+  matlab:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - name: Set up MATLAB and required toolboxes
+        uses: matlab-actions/setup-matlab@v3
+        with:
+          release: R2025bU6
+          products: Control_System_Toolbox Deep_Learning_Toolbox
+      - name: Run every local test
+        uses: matlab-actions/run-command@v3
+        with:
+          command: >-
+            mkdir('reports');
+            diary(fullfile('reports','matlab.log'));
+            results = run_all_tests;
+            writetable(table(results),'reports/matlab-tests.csv');
+            diary off;
+      - name: Keep test results and failure logs
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: matlab-test-results
+          path: reports/
+          if-no-files-found: warn

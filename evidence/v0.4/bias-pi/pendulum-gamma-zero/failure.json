@@ -1,0 +1,60 @@
+{
+  "status": "failed",
+  "identifier": "biaspi:GammaSchedule",
+  "message": "A threshold violation cannot reduce nonpositive gamma/beta.",
+  "report": "错误使用 bp_learn (第 28 行)\nA threshold violation cannot reduce nonpositive gamma/beta.\n\n出错 demo_bias_pi_pendulum (第 43 行)\nlearning=bp_learn(data,spec,cfg);\n         ^^^^^^^^^^^^^^^^^^^^^^^\n出错 run_pendulum_variants (第 11 行)\n        result=demo_bias_pi_pendulum(fullfile(out,item.name),item.options);\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n出错 run (第 112 行)\nevalin('caller', strcat(scriptStem, ';'));\n^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+  "config": {
+    "example": "pendulum",
+    "seed": 20260907.0,
+    "initialization": "paper_table",
+    "behaviorMode": "exploration_only",
+    "sampleTime": 0.01,
+    "collectionTime": 5,
+    "substeps": 4,
+    "resetRadius": 3,
+    "maximumStateNorm": 10000,
+    "x0": [
+      0,
+      0.01
+    ],
+    "frequencyCount": 50,
+    "frequencyRange": [
+      -50,
+      50
+    ],
+    "explorationAmplitude": 0.01,
+    "critic0": [
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "actor0": [
+      -1,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "gamma0": 0,
+    "deltaBar": 8,
+    "deltaH": 30,
+    "tolerance": 1e-06,
+    "maxIterations": 1000,
+    "maxInnerIterations": 200,
+    "relativeRankTolerance": 1e-11,
+    "conditionLimit": 10000000000.0,
+    "checkRadius": 3,
+    "checkGridCount": 41,
+    "evaluationSeed": 1729,
+    "evaluationCount": 35,
+    "evaluationHorizon": 20,
+    "evaluationMaxStep": 0.02,
+    "variant": "Paper table basis/initial weights/gamma/sample period/data duration. Chosen seed, RK4/Simpson substeps, reset radius, beta restart, finite check grid and rollout horizon. Exploration-only behavior follows Sec4/Table1; Algorithm2 instead writes u0+e."
+  },
+  "bootstrap": [],
+  "rawData": "inputs.mat"
+}

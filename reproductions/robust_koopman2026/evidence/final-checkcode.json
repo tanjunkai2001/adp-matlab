@@ -1,0 +1,64 @@
+[
+  {
+    "file": "demo_robust_koopman.m",
+    "diagnostics": {
+      "id": "AGROW",
+      "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+      "fix": 0,
+      "line": 18,
+      "column": [
+        2,
+        2
+      ]
+    }
+  },
+  {
+    "file": "rk_basis.m",
+    "diagnostics": [
+      {
+        "id": "AGROW",
+        "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+        "fix": 0,
+        "line": 11,
+        "column": [
+          4,
+          8
+        ]
+      },
+      {
+        "id": "AGROW",
+        "message": "变量的大小似乎在每个循环迭代都会更改。请考虑进行预分配以提升速度。",
+        "fix": 0,
+        "line": 11,
+        "column": [
+          25,
+          28
+        ]
+      }
+    ]
+  },
+  {
+    "file": "rk_control.m",
+    "diagnostics": []
+  },
+  {
+    "file": "rk_identify.m",
+    "diagnostics": []
+  },
+  {
+    "file": "rk_lift.m",
+    "diagnostics": []
+  },
+  {
+    "file": "rk_rollout.m",
+    "diagnostics": []
+  },
+  {
+    "file": "rk_solve.m",
+    "diagnostics": []
+  },
+  {
+    "file": "test_robust_koopman.m",
+    "diagnostics": []
+  }
+]

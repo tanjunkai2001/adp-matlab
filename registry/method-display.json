@@ -1,0 +1,98 @@
+{
+  "baseline": {
+    "name_en": "Integral policy iteration",
+    "name_zh": "积分策略迭代基线",
+    "venue": "Reference baseline",
+    "model_en": "CT linear quadratic · known B",
+    "model_zh": "连续时间LQ，已知B",
+    "scope_en": "Analytic LQR comparator; two-state example.",
+    "scope_zh": "双状态参考例子，解析LQR独立对照。",
+    "example_en": "Double integrator",
+    "outcome_en": "The saved baseline reaches the analytic LQR gain in five policy-evaluation rounds; the final gain error is 8.37e-14.",
+    "record_path": "docs/assets/data/baseline-summary.json"
+  },
+  "koopman_l4dc2025": {
+    "name_en": "Koopman generator + PI",
+    "name_zh": "Koopman生成元与PI",
+    "venue": "L4DC 2025",
+    "model_en": "CT nonlinear · identified generator",
+    "model_zh": "连续非线性，辨识生成元",
+    "scope_en": "Normalized pendulum variant; not every paper table.",
+    "scope_zh": "归一化摆数值变体，未完整复刻原表。",
+    "example_en": "Normalized pendulum",
+    "outcome_en": "Fifty recorded closed-loop trajectories have a maximum terminal state norm of 1.23e-3. Average cumulative cost across the 50 initial states is compared with true-model PI: the maximum absolute difference over 0–10 s is 3.15e-5.",
+    "record_path": "reproductions/koopman_l4dc2025/RESULTS.md"
+  },
+  "meanfield_lqg2025": {
+    "name_en": "Mean-field LQG",
+    "name_zh": "平均场LQG",
+    "venue": "Automatica 2025",
+    "model_en": "Stochastic CT · two-gain PI",
+    "model_zh": "连续随机系统，双增益PI",
+    "scope_en": "Finite-sample social optimization; low-sample failures retained.",
+    "scope_zh": "有限样本社会优化，保留小样本失败。",
+    "example_en": "Finite population LQG",
+    "outcome_en": "The documented 4,000-path run reports gain errors of approximately 0.53% and 0.85%. Low-sample failures and independent training repeats are retained.",
+    "record_path": "docs/fulltext/meanfield_lqg2025.md"
+  },
+  "qlearning_tac2023": {
+    "name_en": "Off-policy Q-learning",
+    "name_zh": "离策略Q-learning",
+    "venue": "IEEE TAC 2023",
+    "model_en": "DT LQR · matrix Bellman equation",
+    "model_zh": "离散LQR，矩阵Bellman方程",
+    "scope_en": "Data-based LQR; explicit MIMO initialization variant.",
+    "scope_zh": "数据驱动LQR，MIMO初始化为明确变体。",
+    "example_en": "Data-based LQR",
+    "outcome_en": "The implementation documents a data-based stabilizing initialization, a discrete LQR comparison, and an explicit MIMO initialization variant. The linked record contains local checks.",
+    "record_path": "evidence/v0.3/root-peer-review/test-results.json"
+  },
+  "pinn_infinite_horizon2025": {
+    "name_en": "Infinite-horizon HJB PINN",
+    "name_zh": "无限时域HJB PINN",
+    "venue": "IJRNC 2025",
+    "model_en": "Neural HJB · horizon continuation",
+    "model_zh": "神经HJB，逐步延长时域",
+    "scope_en": "Reduced LQR/pendulum training; corrected quartic cost identified.",
+    "scope_zh": "缩小网络的LQR/摆训练，标明四次代价修正。",
+    "example_en": "Scalar LQR & pendulum",
+    "outcome_en": "The saved reduced pendulum experiment completes four closed-loop evaluations at each continuation horizon, from 1 through 4. The figure shows the trained value on the common grid at horizon 4.",
+    "record_path": "evidence/v0.3/pinn/reduced_20260907_110031_520/summary.json"
+  },
+  "safe_pinn_icml2025": {
+    "name_en": "Safe epigraph PINN",
+    "name_zh": "安全epigraph PINN",
+    "venue": "ICML 2025",
+    "model_en": "Epigraph HJB · neural value",
+    "model_zh": "Epigraph HJB神经值函数",
+    "scope_en": "Boat example; collision and budget violations remain.",
+    "scope_zh": "船舶场景，仍存在碰撞和预算违例。",
+    "example_en": "Constrained boat navigation",
+    "outcome_en": "Reduced training: 19/64 collisions and 47/64 budget violations. Author-checkpoint evaluation: 1/64 and 9/64, respectively.",
+    "record_path": "evidence/v0.3/safe-pinn/RESULTS.md"
+  },
+  "robust_koopman2026": {
+    "name_en": "Robust Koopman PI",
+    "name_zh": "鲁棒Koopman PI",
+    "venue": "Preprint 2026",
+    "model_en": "Lifted bilinear · robust PI",
+    "model_zh": "提升双线性模型，鲁棒PI",
+    "scope_en": "Held-out error bound fails on 25.55% of points.",
+    "scope_zh": "留出点中25.55%违反拟合误差界。",
+    "example_en": "Lifted bilinear control",
+    "outcome_en": "The fitted error bound fails on 25.55% of held-out points in the preserved evaluation.",
+    "record_path": "reproductions/robust_koopman2026/RESULTS.md"
+  },
+  "bias_pi_automatica2026": {
+    "name_en": "Bias-policy iteration",
+    "name_zh": "偏置策略迭代",
+    "venue": "Automatica 2026",
+    "model_en": "Unknown CT nonlinear · fixed data",
+    "model_zh": "未知连续非线性系统，固定数据",
+    "scope_en": "Pendulum/arm variants; arm cost is 8.84% above local LQR.",
+    "scope_zh": "摆/机械臂变体，臂成本比局部LQR高8.84%。",
+    "example_en": "Pendulum & two-link arm",
+    "outcome_en": "The recorded arm variant stabilizes, with cost 8.84% above the local LQR comparison.",
+    "record_path": "reproductions/bias_pi_automatica2026/RESULTS.md"
+  }
+}

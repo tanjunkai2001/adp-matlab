@@ -1,0 +1,66 @@
+{
+  "scope": "Original artifact targets from notes; numerical outcomes preserved in compact reports where available",
+  "links": [
+    {
+      "document": "docs/fulltext/bias_pi_automatica2026.md",
+      "original_target": "../../../adp-fulltexts-v0.4/bias-pi-automatica2026.pdf",
+      "reason": "Historical or external artifact not bundled in public source"
+    },
+    {
+      "document": "docs/fulltext/meanfield_lqg2025.md",
+      "original_target": "../../evidence/v0.3/meanfield/verified-20260907/",
+      "reason": "Historical or external artifact not bundled in public source"
+    },
+    {
+      "document": "reproductions/koopman_l4dc2025/RESULTS.md",
+      "original_target": "evidence/isolated-final.log",
+      "reason": "Historical or external artifact not bundled in public source"
+    },
+    {
+      "document": "reproductions/robust_koopman2026/RESULTS.md",
+      "original_target": "evidence/final.log",
+      "reason": "Historical or external artifact not bundled in public source"
+    },
+    {
+      "document": "reproductions/meanfield_lqg2025/README.md",
+      "original_target": "../../evidence/v0.3/meanfield/verified-20260907/",
+      "reason": "Historical or external artifact not bundled in public source"
+    },
+    {
+      "document": "registry/reproductions.json",
+      "field": "baseline.evidence",
+      "original_target": "evidence/history/v0.2/matlab-results.csv",
+      "reason": "Historical target belongs to the separately preserved archive; current checks are linked from the release registry."
+    },
+    {
+      "document": "registry/reproductions.json",
+      "field": "meanfield_lqg2025.evidence",
+      "original_target": "evidence/v0.3/meanfield/RESULTS.md",
+      "reason": "Historical target belongs to the separately preserved archive; current checks are linked from the release registry."
+    },
+    {
+      "document": "registry/reproductions.json",
+      "field": "integration_evidence",
+      "original_target": "evidence/v0.4.1/integration/all-tests.json",
+      "reason": "Historical target belongs to the separately preserved archive; current checks are linked from the release registry."
+    },
+    {
+      "document": "registry/reproductions.json",
+      "field": "integration_source_hashes",
+      "original_target": "evidence/v0.4.1/integration/tested-source-hashes.json",
+      "reason": "Historical target belongs to the separately preserved archive; current checks are linked from the release registry."
+    },
+    {
+      "document": "registry/reproductions.json",
+      "field": "entry_validation_evidence",
+      "original_target": "evidence/v0.4.1/integration/entry-smoke.json",
+      "reason": "Historical target belongs to the separately preserved archive; current checks are linked from the release registry."
+    },
+    {
+      "document": "registry/reproductions.json",
+      "field": "entry_validation_evidence",
+      "original_target": "evidence/v0.4.1/integration/koopman-entry-smoke.json",
+      "reason": "Historical target belongs to the separately preserved archive; current checks are linked from the release registry."
+    }
+  ]
+}

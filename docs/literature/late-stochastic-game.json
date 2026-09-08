@@ -1,0 +1,154 @@
+{
+  "id": "safety-2608.17940",
+  "title": "Policy Iteration for Linear-Quadratic Stochastic Differential Games with State- and Control-Dependent Noise",
+  "authors": [
+    "Karl Handwerker",
+    "Felix Thömmes",
+    "Lucas Günther",
+    "Balint Varga",
+    "Sören Hohmann"
+  ],
+  "year": 2026,
+  "publication_status": "arXiv preprint v1; no formal journal or conference acceptance verified",
+  "dates": {
+    "submitted": "2026-08-18",
+    "submitted_utc": "2026-08-18T16:00:34Z",
+    "version": "v1",
+    "reviewed": "2026-09-07"
+  },
+  "doi": "10.48550/arXiv.2608.17940",
+  "journal_doi": null,
+  "arxiv": "2608.17940",
+  "venue": null,
+  "metadata_url": "https://arxiv.org/abs/2608.17940",
+  "fulltext_url": "https://arxiv.org/pdf/2608.17940",
+  "versioned_fulltext_url": "https://arxiv.org/pdf/2608.17940v1",
+  "fulltext_sha256": "a697b284f7687f539d91b71208be9c479567adf3d4eafcf86edf38293bc13e4e",
+  "fulltext_bytes": 431176,
+  "pages": 16,
+  "evidence_level": "primary_fulltext_relevant_sections_read",
+  "fulltext_read": true,
+  "fulltext_read_definition": "取得整篇PDF并实际阅读下列实质正文与关键定理、算法；不是所有附录逐页精读或独立复证。",
+  "read_scope": {
+    "sections": [
+      "§II Problem Formulation",
+      "§III Sequential Policy Iteration",
+      "§IV.A local derivative and convergence",
+      "§IV.B-C update order",
+      "§IV Theorem 2 and Corollaries 1-2 statements",
+      "§V Homotopy Initialization"
+    ],
+    "pdf_pages": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "equations": [
+      "(1)-(16)",
+      "(19)-(30)",
+      "(38)-(46)",
+      "(53)-(56)",
+      "(75)-(76)",
+      "(88)-(93)",
+      "(94)-(128)"
+    ],
+    "theorems": [
+      "Assumption 1",
+      "Definitions 1-2",
+      "Lemma 1",
+      "Theorem 1",
+      "Proposition 1",
+      "Lemmas 3-6",
+      "Theorem 2",
+      "Corollaries 1-2",
+      "Lemmas 7-10",
+      "Theorem 3"
+    ],
+    "algorithms": [
+      "Algorithm 1 Sequential PI",
+      "Algorithm 2 Homotopy Initialization"
+    ],
+    "visual_verification": {
+      "pdf_page": 12,
+      "focus": "Algorithm 2 inner PI convergence, shifted dynamics, homotopy increment and Theorem 3 scope"
+    },
+    "not_read": "§IV.D full block-operator derivation, full numerical plots and appendices not exhaustively read; no algorithm execution or independent proof certification."
+  },
+  "mathematical_problem": {
+    "time_domain": "continuous",
+    "dynamics_kind": "Ito diffusion",
+    "model": "dx=(A*x+sum_i B_i*u_i)dt+(C*x+sum_i D_i*u_i)dW",
+    "noise_channels": "one shared scalar standard Brownian motion",
+    "cost": "J_i=E integral_0^infinity [x^T Q_i x+sum_j u_j^T R_ij u_j]dt",
+    "discount": "none",
+    "game": "finite N-player nonzero-sum LQ stochastic differential game",
+    "policy_class": "constant full-state linear feedback u_i=-K_i*x",
+    "equilibrium_target": "stabilizing linear feedback Nash equilibrium among unilateral constant-gain deviations whose joint profile remains mean-square stable",
+    "not_equivalent_to": [
+      "arbitrary nonlinear/Markov-policy Nash",
+      "zero-sum minimax",
+      "Stackelberg leader-follower",
+      "mean-field population game",
+      "neighbor-information-only distributed learning"
+    ]
+  },
+  "assumptions": [
+    "Constant known A,C,B_i,D_i; deterministic initial state; full physical state in linear feedback.",
+    "Q_i positive definite, own-input R_ii positive definite, cross-player control cost R_ij positive semidefinite.",
+    "Assumption 1: at least one constant joint gain profile makes the original system mean-square stable.",
+    "Algorithm 1 starts from an MSS joint profile; exact generalized Lyapunov evaluation and exact greedy update underpin Theorem 1.",
+    "Local convergence requires a stabilizing equilibrium and spectral radius rho(D T_seq(K*))<1; explicit weighted block-norm conditions are sufficient, not universal.",
+    "Homotopy uses positive auxiliary Q,R, positive shift margin and eta in (0,1); inner auxiliary PI is taken to its stabilizing optimum at each continuation level in Theorem 3."
+  ],
+  "method": [
+    "Algorithm 1 performs sequential player-wise updates. Each player evaluates the partly updated profile, including earlier players' new gains; it is not a simultaneous Jacobi sweep.",
+    "Evaluation solves A_cl^T P_i+P_i A_cl+C_cl^T P_i C_cl+Q_i+sum_j K_j^T R_ij K_j=0.",
+    "Greedy gain includes (R_ii+D_i^T P_i D_i)^(-1) and cross-player diffusion D_i^T P_i D_j; all channels share one Brownian motion in this model.",
+    "Algorithm 2 temporarily joins all control channels into an auxiliary single-controller LQ problem and shifts drift to A-beta*I+sigma*I; initial K=0 stabilizes the shifted problem. It is a feasibility initializer, not the game Nash solver."
+  ],
+  "guarantees_reported": [
+    "Theorem 1 preserves MSS at every intermediate player update; Proposition 1 identifies fixed points with the paper's stabilizing linear feedback Nash equilibria.",
+    "Lemma 4 gives local linear convergence under the derivative spectral-radius condition. Fixed-point set is order-invariant; for N>=3, update order can change local attraction (Lemma 6).",
+    "Theorem 2 compares sequential and simultaneous local contractions only under its weighted-norm condition. Corollary 1 gives rho_seq=rho_dec^2 for two-player games, with the same radius for either player order.",
+    "Theorem 3 gives finitely many outer continuation levels under joint MSS stabilizability. At sigma>=beta, the returned gain is MSS for the original unshifted dynamics."
+  ],
+  "limits": [
+    "MSS preservation is not global convergence of the game PI from every MSS initial gain, uniqueness of Nash equilibrium, or global optimality of a common social cost.",
+    "Intermediate homotopy gains are certified for the shifted auxiliary system. Before reaching the target level, they need not stabilize the original physical system and must not be labeled directly deployable there.",
+    "Finite termination refers to outer continuation steps; the theorem idealizes inner PI convergence and exact value solves. It is not a finite-precision end-to-end runtime or approximation-error guarantee.",
+    "The upper bound on continuation count uses the value of an existential stabilizing comparison gain; do not automatically label it an a priori computable online bound.",
+    "The method requires model matrices; the phrase data of the game means these model/cost data, not a proven model-free trajectory-learning algorithm.",
+    "No state/input constraints, partial observation, learning-model uncertainty, measured-data rank condition or hardware result are established in the read method."
+  ],
+  "code": {
+    "url": null,
+    "checked": true,
+    "scope": "Scanned obtained fulltext for GitHub/GitLab/code/software URLs and checked arXiv metadata; no author code URL located in these sources. No broader search by instruction.",
+    "executed": false
+  },
+  "gap": [
+    "A generic nonzero-sum-Nash entry does not specify stochastic linear feedback equilibrium class or mean-square admissibility.",
+    "Controlled diffusion needs per-player D_i, shared-noise structure and cross-channel terms.",
+    "Sequential versus simultaneous policy updates, partial-profile evaluation and player order are mathematical algorithm semantics.",
+    "Initialization needs its own shifted-versus-target-system certificate and exact/approximate inner-solver status."
+  ],
+  "module_action": [
+    "Keep a planned ct-stochastic-lq-nash-sequential-pi specialization under game modules; mark model_based and locally_convergent_under_conditions.",
+    "GameSpec records policy_class, unilateral_deviation_class, Q_i/R_ij, update_order, update_schedule and joint MSS initial-admissibility evidence.",
+    "Add generalizedLyapunov residual/MSS certificate interfaces and log all intermediate player profiles, not just sweep endpoints.",
+    "InitializationSpec records auxiliary objective, beta/sigma/eta, shifted dynamics, inner PI tolerance, residuals and separate target_system_MSS check.",
+    "Future reproduction should separately test stochastic Lyapunov identities, controlled-diffusion greedy maps, each intermediate MSS profile and local order effects; no frozen v0.2 core change requested."
+  ],
+  "priority": "P1 planned stochastic-game extension; useful near-term taxonomy refinement",
+  "implementation_status": "literature_reference_only",
+  "algorithm_executed": false,
+  "frozen_outputs_modified": false
+}

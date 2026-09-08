@@ -1,0 +1,30 @@
+name: Reproducible bug
+description: Report a failure, equation mismatch or unexpected numerical result.
+title: "[Bug] "
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Software and MATLAB version
+      placeholder: "Commit or tag, MATLAB release, OS, relevant toolboxes"
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps and configuration
+      description: Include the method ID, exact call, random seed and changed settings.
+    validations:
+      required: true
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Expected and actual outcome
+      description: For an equation mismatch, cite the paper version and equation number.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Minimal evidence
+      description: Paste a short error or numerical comparison. Remove personal paths and credentials.

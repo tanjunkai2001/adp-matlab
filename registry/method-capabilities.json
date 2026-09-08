@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "design_only": true,
+  "runtime_validation_implemented": false,
+  "axes": {
+    "dynamics_kind": [
+      "ct_ode",
+      "ct_ito_diffusion",
+      "ctmc_jump",
+      "dt_transition",
+      "hybrid"
+    ],
+    "objective_kind": [
+      "undiscounted_regulation",
+      "discounted",
+      "finite_horizon",
+      "ergodic_average"
+    ],
+    "learning_target": [
+      "V",
+      "Q",
+      "ct_q_advantage",
+      "actor_only",
+      "model_plus_value",
+      "return_distribution",
+      "certificate"
+    ],
+    "evaluation_operator": [
+      "PI",
+      "VI",
+      "GPI_partial_evaluation",
+      "LSTDQ",
+      "Bellman_residual_minimization",
+      "Bellman_inequality",
+      "HJB_PDE",
+      "HJB_variational_inequality"
+    ],
+    "stability_kind": [
+      "Hurwitz",
+      "Schur",
+      "mean_square",
+      "Lyapunov_on_domain",
+      "practical_neighborhood",
+      "not_established"
+    ],
+    "evidence_kind": [
+      "analytic_identity",
+      "exact_expectation_conditional",
+      "asymptotic",
+      "finite_sample_bound",
+      "empirical_only"
+    ],
+    "uncertainty_kind": [
+      "none",
+      "bounded_signal",
+      "fixed_parameter",
+      "parameter_distribution",
+      "Brownian_diffusion",
+      "measurement_noise"
+    ],
+    "initialization": [
+      "given_admissible_policy",
+      "data_driven_damping",
+      "stochastic_spectrum_assignment",
+      "finite_horizon",
+      "VI_specific"
+    ],
+    "integral_source": [
+      "ode_augmented_state",
+      "sampled_quadrature",
+      "exact_formula",
+      "expectation_estimator",
+      "not_applicable"
+    ]
+  },
+  "required_records": [
+    "learner_knowledge",
+    "target_behavior_relationship",
+    "informativity_object_and_rank",
+    "initialization_evidence",
+    "error_budget",
+    "execution_timing",
+    "guarantee_domain",
+    "source_version",
+    "implementation_status",
+    "batch_reuse_policy",
+    "cross_iteration_sample_dependence"
+  ],
+  "reference_profile": {
+    "algorithm": "ct-linear-on-policy-integral-pi",
+    "dynamics_kind": "ct_ode",
+    "objective_kind": "undiscounted_regulation",
+    "learning_target": "V",
+    "evaluation_operator": "PI",
+    "stability_kind": "Hurwitz",
+    "uncertainty_kind": "none",
+    "initialization": "given_admissible_policy",
+    "integral_source": "ode_augmented_state"
+  },
+  "learning_targets_contract": "Algorithm learning_targets is an array of axes.learning_target values."
+}

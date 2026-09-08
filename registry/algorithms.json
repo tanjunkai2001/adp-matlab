@@ -1,0 +1,614 @@
+{
+  "algorithms": [
+    {
+      "id": "ct-linear-on-policy-integral-pi",
+      "status": "implemented_reference",
+      "time_domain": "CT",
+      "learner_knowledge": "requires_known_B",
+      "execution": "continuous_feedback",
+      "benchmark": "double_integrator",
+      "priority": "implemented",
+      "initialization": "given_admissible_policy",
+      "integralSource": "ode_augmented_state",
+      "learning_representation": "V_quadratic",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "ct-model-based-pi",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "f_g",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "dt-pi",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "method_specific",
+      "execution": "discrete_transition",
+      "benchmark": "none"
+    },
+    {
+      "id": "dt-vi",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "method_specific",
+      "execution": "discrete_transition",
+      "benchmark": "none"
+    },
+    {
+      "id": "dt-quadratic-q-learning",
+      "status": "implemented_method_variant",
+      "time_domain": "DT",
+      "learner_knowledge": "state_input_data",
+      "execution": "method_specific_implemented_variant",
+      "benchmark": "qlearning_tac2023",
+      "implementation_directory": "reproductions/qlearning_tac2023",
+      "validation_status": "executed_variant",
+      "scope": "Matrix Bellman equation Algorithm 1; SISO deadbeat and explicit MIMO pole-placement variant",
+      "evidence": "evidence/v0.3/root-peer-review/test-results.json",
+      "priority": "implemented_variant",
+      "paper_ids": [
+        "lopez-alsalti-muller-tac2023"
+      ],
+      "fulltext_implementation_card": "docs/fulltext/qlearning_tac2023.md"
+    },
+    {
+      "id": "ct-off-policy-irl",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "derived_correction_contract",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "ct-actor-critic-identifier",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "observation_or_identified_model",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "concurrent-learning-fxt",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "rank_and_identifier_contract",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "integral-experience-replay",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "policy_data_contract",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "output-feedback-adp",
+      "status": "planned",
+      "time_domain": "CT_or_DT",
+      "learner_knowledge": "outputs_observer_or_lifting",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "nonaffine-parallel-control",
+      "status": "planned",
+      "time_domain": "CT_or_DT",
+      "learner_knowledge": "augmented_input_channel",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "robust-hinfinity-game",
+      "status": "planned",
+      "time_domain": "CT_or_DT",
+      "learner_knowledge": "disturbance_player_contract",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "nonzero-sum-nash",
+      "status": "planned",
+      "time_domain": "CT_or_DT",
+      "learner_knowledge": "player_information",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "stackelberg-level-k",
+      "status": "planned",
+      "time_domain": "CT_or_DT",
+      "learner_knowledge": "leader_follower_information",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "constrained-ppc-adp",
+      "status": "planned",
+      "time_domain": "CT_or_DT",
+      "learner_knowledge": "feasible_transform_contract",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "event-triggered-dual-clock",
+      "status": "planned",
+      "time_domain": "hybrid",
+      "learner_knowledge": "clock_and_received_input_contract",
+      "execution": "method_specific",
+      "benchmark": "none"
+    },
+    {
+      "id": "stochastic-shared-adp",
+      "status": "planned",
+      "time_domain": "CT_or_DT",
+      "learner_knowledge": "noise_and_human_model_contract",
+      "execution": "method_specific",
+      "benchmark": "none",
+      "note": "旧规划总类，现按Itô/平均成本/风险/分布/人机共享分开；没有通用stochastic开关。"
+    },
+    {
+      "id": "ct-eirl-reference-excitation",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "known_B_or_nonlinear_w_g_couplings",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "wallace-si-eirl-2025"
+      ],
+      "learning_representation": "value",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "dt-stabilizing-damping-pi",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "data_n_m_Q_R_and_stabilizability",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P0",
+      "paper_ids": [
+        "li-dong-damping-pi-2025"
+      ],
+      "learning_representation": "value_or_Q",
+      "learning_targets": [
+        "V",
+        "Q"
+      ]
+    },
+    {
+      "id": "dt-output-history-q-learning",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "input_output_data_n_lag",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P0",
+      "paper_ids": [
+        "alsalti-output-q-2024"
+      ],
+      "learning_representation": "Q",
+      "learning_targets": [
+        "Q"
+      ]
+    },
+    {
+      "id": "dt-stochastic-average-rlsvi",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "state_input_observed_cost_reset_data",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "cui-stochastic-rlsvi-2026"
+      ],
+      "learning_representation": "value_with_noise_intercept",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "dt-identification-based-pi",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "online_identified_A_B_and_error_conditions",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "song-iannelli-noisy-indirect-pi-2025"
+      ],
+      "learning_representation": "model_plus_value",
+      "learning_targets": [
+        "model_plus_value"
+      ]
+    },
+    {
+      "id": "ct-critic-free-pi",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "state_input_data_and_stable_anchor",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "wu-critic-free-ctpi-2026"
+      ],
+      "learning_representation": "actor_only",
+      "learning_targets": [
+        "actor_only"
+      ]
+    },
+    {
+      "id": "ct-filtered-output-pi-vi",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "input_output_data_and_filter_contract",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P0",
+      "paper_ids": [
+        "xie-ct-output-pivi-2026"
+      ],
+      "learning_representation": "value_on_lifted_coordinates",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "ct-stochastic-spectrum-initialization",
+      "status": "planned",
+      "time_domain": "CT_Ito",
+      "learner_knowledge": "expectation_data_rank_strict_feasibility",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "cao-stochastic-stabilizer-2026"
+      ],
+      "learning_representation": "value_and_diffusion_blocks",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "ct-stochastic-pi-vi",
+      "status": "planned",
+      "time_domain": "CT_Ito",
+      "learner_knowledge": "drift_diffusion_regular_derivatives",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "safety-2506.08121"
+      ],
+      "learning_representation": "value_and_policy_law",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "safe-actor-constrained-ac",
+      "status": "planned",
+      "time_domain": "sampled_ODE",
+      "learner_knowledge": "learned_NODE_and_certificates",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "safety-2401.13148"
+      ],
+      "learning_representation": "performance_and_certificate_critics",
+      "learning_targets": [
+        "V",
+        "certificate"
+      ]
+    },
+    {
+      "id": "ct-meanfield-lqg-social-pi",
+      "status": "implemented_method_variant",
+      "time_domain": "CT_Ito",
+      "learner_knowledge": "population_moments_stable_K_expectation_data",
+      "execution": "method_specific_implemented_variant",
+      "benchmark": "meanfield_lqg2025",
+      "priority": "implemented_variant",
+      "paper_ids": [
+        "safety-2410.15119"
+      ],
+      "learning_representation": "coupled_value_gains",
+      "learning_targets": [
+        "V"
+      ],
+      "implementation_directory": "reproductions/meanfield_lqg2025",
+      "validation_status": "executed_with_finite_sample_limitations",
+      "scope": "n=2,m=1 independent Ito paths; two gains, MC mean, finite-N costs; 100-path failures retained",
+      "evidence": "evidence/v0.3/meanfield/RESULTS.md",
+      "fulltext_implementation_card": "docs/fulltext/meanfield_lqg2025.md"
+    },
+    {
+      "id": "dt-offline-direct-lqr-sdp",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "one_batch_noise_model_rank_SDP",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "safety-2409.10703"
+      ],
+      "learning_representation": "Bellman_inequality",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "risk-constrained-lqr-primal-dual",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "model_covariance_moments_Slater",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P2",
+      "paper_ids": [
+        "safety-2409.10767"
+      ],
+      "learning_representation": "average_value_and_dual",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "dt-meanfield-team-game-mrnpg",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "team_state_conditional_mean_cost_oracle",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P2",
+      "paper_ids": [
+        "safety-2403.11345"
+      ],
+      "learning_representation": "policy_gradient",
+      "learning_targets": [
+        "actor_only"
+      ]
+    },
+    {
+      "id": "ctmc-entropy-robust-control",
+      "status": "planned",
+      "time_domain": "CTMC",
+      "learner_knowledge": "jump_rates_reward_reference_policy",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P2",
+      "paper_ids": [
+        "safety-2607.03168"
+      ],
+      "learning_representation": "regularized_value",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "distributionally-robust-certificate-learning",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "fixed_parameter_samples_known_parametric_dynamics",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "safety-2404.03017"
+      ],
+      "learning_representation": "policy_and_Lyapunov",
+      "learning_targets": [
+        "actor_only",
+        "certificate"
+      ]
+    },
+    {
+      "id": "ct-distributional-superiority",
+      "status": "planned",
+      "time_domain": "CT_Ito",
+      "learner_knowledge": "return_law_action_persistence_data",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P2",
+      "paper_ids": [
+        "safety-2410.11022"
+      ],
+      "learning_representation": "quantile_advantage",
+      "learning_targets": [
+        "return_distribution",
+        "ct_q_advantage"
+      ]
+    },
+    {
+      "id": "ct-quadrature-aware-irl",
+      "status": "planned",
+      "time_domain": "CT",
+      "learner_knowledge": "known_input_channel_and_quadrature_contract",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "quadrature-iclr2024"
+      ],
+      "learning_representation": "value",
+      "learning_targets": [
+        "V"
+      ]
+    },
+    {
+      "id": "safe-epigraph-hjb-pinn",
+      "status": "implemented_reduced_variant",
+      "time_domain": "CT",
+      "learner_knowledge": "known_dynamics_terminal_constraint_calibration",
+      "execution": "method_specific_implemented_variant",
+      "benchmark": "safe_pinn_icml2025",
+      "priority": "implemented_variant",
+      "paper_ids": [
+        "safe-hjb-icml2025"
+      ],
+      "learning_representation": "augmented_value",
+      "learning_targets": [
+        "V"
+      ],
+      "implementation_directory": "reproductions/safe_pinn_icml2025",
+      "validation_status": "executed_with_safety_violations",
+      "scope": "Reduced training and author checkpoint both evaluated; finite-rollout safety/budget violations retained; conditional numerical calibration bounds only",
+      "evidence": "docs/fulltext/safe_pinn_icml2025.md",
+      "fulltext_implementation_card": "docs/fulltext/safe_pinn_icml2025.md"
+    },
+    {
+      "id": "ct-koopman-model-pi",
+      "status": "implemented_method_variant",
+      "time_domain": "CT",
+      "learner_knowledge": "learned_generator_and_initial_admissible_policy",
+      "execution": "method_specific_implemented_variant",
+      "benchmark": "koopman_l4dc2025",
+      "priority": "implemented_variant",
+      "paper_ids": [
+        "koopman-l4dc2025"
+      ],
+      "learning_representation": "model_plus_value",
+      "learning_targets": [
+        "model_plus_value"
+      ],
+      "implementation_directory": "reproductions/koopman_l4dc2025",
+      "validation_status": "executed_variant",
+      "scope": "Yosida generator identification and PI; explicit numerical variant, not all original tables",
+      "evidence": "reproductions/koopman_l4dc2025/RESULTS.md",
+      "fulltext_implementation_card": "docs/fulltext/koopman_l4dc2025.md"
+    },
+    {
+      "id": "dt-kae-lspi",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "frozen_learned_features_transition_data",
+      "execution": "method_specific_not_implemented",
+      "benchmark": "none",
+      "priority": "P2",
+      "paper_ids": [
+        "kae-lspi-2026"
+      ],
+      "learning_representation": "Q",
+      "learning_targets": [
+        "Q"
+      ]
+    },
+    {
+      "id": "ct-robust-lifted-pi",
+      "status": "implemented_method_variant",
+      "time_domain": "CT",
+      "learner_knowledge": "bilinear_model_error_bounds_PDE",
+      "execution": "method_specific_implemented_variant",
+      "benchmark": "robust_koopman2026",
+      "priority": "implemented_variant",
+      "paper_ids": [
+        "robust-koopman-2026"
+      ],
+      "learning_representation": "model_plus_value",
+      "learning_targets": [
+        "model_plus_value"
+      ],
+      "implementation_directory": "reproductions/robust_koopman2026",
+      "validation_status": "executed_without_uniform_robust_certificate",
+      "scope": "Explicit excitation/basis variant; branch-complete policy, sample-fit error bounds invalid on 25.55% of heldout points; nominal cost slightly better",
+      "evidence": "reproductions/robust_koopman2026/RESULTS.md",
+      "fulltext_implementation_card": "docs/fulltext/robust_koopman2026.md"
+    },
+    {
+      "id": "finite-horizon-hjb-pinn",
+      "status": "implemented_method_variant",
+      "time_domain": "CT",
+      "learner_knowledge": "known_f_g_terminal_boundary",
+      "execution": "method_specific_implemented_variant",
+      "benchmark": "pinn_infinite_horizon2025",
+      "priority": "implemented_variant",
+      "paper_ids": [
+        "finite-horizon-pinn-2025"
+      ],
+      "learning_representation": "time_dependent_value",
+      "learning_targets": [
+        "V"
+      ],
+      "implementation_directory": "reproductions/pinn_infinite_horizon2025",
+      "validation_status": "executed_reduced_neural_training",
+      "scope": "Actual smaller-network scalar-LQR and pendulum horizon-extension training; no standalone unit-test file",
+      "evidence": "reproductions/pinn_infinite_horizon2025/README.md",
+      "fulltext_implementation_card": "docs/fulltext/pinn_infinite_horizon2025.md"
+    },
+    {
+      "id": "dt-lspi-lstdq",
+      "status": "planned",
+      "time_domain": "DT",
+      "learner_knowledge": "transition_cost_data_and_problem_specific_bias",
+      "learning_targets": [
+        "Q"
+      ],
+      "learning_representation": "LSTDQ_fixed_point",
+      "execution": "discrete_transition",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "krauth-tu-recht-finite-lspi-2019"
+      ],
+      "note": "Finite-sample guarantees depend on fresh batches, noise bias and precise problem assumptions; fixed-batch reuse not covered automatically."
+    },
+    {
+      "id": "ct-nonlinear-bias-pi",
+      "status": "implemented_method_variant",
+      "evidence_status": "fulltext_reviewed_and_numerically_executed",
+      "time_domain": "CT",
+      "learner_knowledge": "observed_state_actual_input_Q_R_and_basis_no_f_or_g",
+      "learning_targets": [
+        "V",
+        "actor"
+      ],
+      "learning_representation": "polynomial_linear_in_weights_critic_and_actor",
+      "execution": "fixed_batch_off_policy_bias_outer_discounted_inner",
+      "benchmark": "nonlinear_pendulum_and_two_joint_arm",
+      "priority": "implemented",
+      "paper_ids": [
+        "zhang-jiang-zhou-nonlinear-bias-pi-2026"
+      ],
+      "note": "Undiscounted objective; Eq43 outer includes gamma*Vprevious, Eq48 inner/bootstrap omits it. Printed Algorithm2 references corrected. Finite check-set/multistart variants; single-initial data failures and unmatched paper iteration counts retained.",
+      "entry_point": "demo_bias_pi",
+      "evidence": "reproductions/bias_pi_automatica2026/RESULTS.md"
+    },
+    {
+      "id": "ct-stochastic-lq-nash-sequential-pi",
+      "status": "planned",
+      "evidence_status": "fulltext_scoped_read",
+      "time_domain": "CT_Ito",
+      "learner_knowledge": "known_A_Bi_C_Di_Qi_Rij",
+      "learning_targets": [
+        "V"
+      ],
+      "learning_representation": "player_quadratic_values_and_constant_gains",
+      "execution": "sequential_partial_profile_updates_not_implemented",
+      "benchmark": "none",
+      "priority": "P1",
+      "paper_ids": [
+        "safety-2608.17940"
+      ],
+      "note": "Shared scalar Brownian channel; stabilizing linear-feedback Nash class; conditional local convergence; homotopy shifted/target MSS certificates separate."
+    }
+  ],
+  "version": "0.4.1",
+  "scope": "preserved_reference_six_specific_method_packages_and_planned_families",
+  "note": "家族登记并非彼此互斥；initializer、numerics和backend可组合，不以条目数表示算法能力。",
+  "learning_targets_contract": "Optional array using registry/method-capabilities.json axes.learning_target; learning_representation is descriptive detail, not an enum."
+}

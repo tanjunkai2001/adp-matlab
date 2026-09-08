@@ -1,0 +1,21 @@
+{
+  "retrieved": "2026-09-07",
+  "papers": [
+    {
+      "url": "https://proceedings.mlr.press/v283/zeng25a.html",
+      "version": "PMLR 283:1127-1139 (2025), 13 PDF pages",
+      "sha256": "93ac325b77e6fa5b65c160030b739a693d437a1032ab5c8f352cab0035f6e8a8"
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.01085v1",
+      "version": "arXiv 2412.01085v1, 16 PDF pages",
+      "sha256": "fc39445c97509ed9cd0dbf1eb3a0a4d4480fa6a89a8f82b27c4062eefd7158ff"
+    }
+  ],
+  "codeSearch": {
+    "paperLinkedCode": "No repository link found on PMLR or arXiv v1",
+    "relatedAuthorRepository": "https://git.uwaterloo.ca/hybrid-systems-lab/lyznet",
+    "accessResult": "git ls-remote required credentials; no code retrieved or executed",
+    "sourceCopied": false
+  }
+}

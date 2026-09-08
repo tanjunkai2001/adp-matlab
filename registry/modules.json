@@ -1,0 +1,150 @@
+{
+  "version": "0.4.1",
+  "scope": "minimal_shared_library_plus_seven_standalone_method_packages",
+  "modules": [
+    {
+      "id": "models",
+      "status": "implemented_reference",
+      "scope": "doubleIntegrator only"
+    },
+    {
+      "id": "basis",
+      "status": "implemented_reference",
+      "scope": "quadratic2 only"
+    },
+    {
+      "id": "learn",
+      "status": "implemented_reference",
+      "scope": "rank-checked least squares and CT on-policy integral PI only"
+    },
+    {
+      "id": "sim",
+      "status": "implemented_reference",
+      "scope": "continuous-feedback collection and frozen rollout only"
+    },
+    {
+      "id": "io",
+      "status": "implemented_reference",
+      "scope": "unique run storage, SHA-256 sealing and identity verification"
+    },
+    {
+      "id": "costs",
+      "status": "planned",
+      "scope": "standalone cost providers; current Q/R cost embedded in model"
+    },
+    {
+      "id": "identify",
+      "status": "planned",
+      "scope": "identifier and uncertainty estimation",
+      "standalone_examples": [
+        "koopman_l4dc2025",
+        "robust_koopman2026"
+      ]
+    },
+    {
+      "id": "data",
+      "status": "planned",
+      "scope": "CL/replay buffer; current batches are collected by sim"
+    },
+    {
+      "id": "policy",
+      "status": "planned",
+      "scope": "generic actor/greedy policy; current baseline has linear K"
+    },
+    {
+      "id": "games",
+      "status": "planned",
+      "scope": "Nash, Stackelberg, H-infinity, level-k"
+    },
+    {
+      "id": "constraints",
+      "status": "planned",
+      "scope": "PPC, transforms, bounded costs, CLF/CBF filters"
+    },
+    {
+      "id": "timing",
+      "status": "planned",
+      "scope": "sample-and-hold, events, clocks, network channels"
+    },
+    {
+      "id": "diagnostics",
+      "status": "planned",
+      "scope": "general metrics; current residual/rank diagnostics are local"
+    },
+    {
+      "id": "viz",
+      "status": "planned",
+      "scope": "paper figure reconstruction"
+    },
+    {
+      "id": "simulink",
+      "status": "planned",
+      "scope": "offline adaptation and replay"
+    },
+    {
+      "id": "initialize",
+      "status": "planned",
+      "scope": "deterministic/stochastic admissible-policy construction and candidate/certificate status",
+      "standalone_examples": [
+        "qlearning_tac2023",
+        "bias_pi_automatica2026"
+      ]
+    },
+    {
+      "id": "observation",
+      "status": "planned",
+      "scope": "DT history lifting, CT filtering, observer state and warmup"
+    },
+    {
+      "id": "stochastic",
+      "status": "planned",
+      "scope": "Ito generators, mean-square checks, expectation/reset sampling; CTMC separate optional backend",
+      "standalone_examples": [
+        "meanfield_lqg2025"
+      ]
+    },
+    {
+      "id": "numerics",
+      "status": "planned",
+      "scope": "sampled quadrature, error budgets, matrix equations; current LS diagnostics remain in learn"
+    },
+    {
+      "id": "representation",
+      "status": "planned",
+      "scope": "learned/lifted feature dictionaries and freeze/version policy",
+      "standalone_examples": [
+        "koopman_l4dc2025",
+        "robust_koopman2026"
+      ]
+    },
+    {
+      "id": "pde",
+      "status": "planned",
+      "scope": "finite-horizon HJB, epigraph VI and boundary-aware optional solvers",
+      "standalone_examples": [
+        "pinn_infinite_horizon2025",
+        "safe_pinn_icml2025"
+      ]
+    },
+    {
+      "id": "uncertainty",
+      "status": "planned",
+      "scope": "model sets/distributions, persistence, moment assumptions and certificate scope",
+      "standalone_examples": [
+        "robust_koopman2026"
+      ]
+    },
+    {
+      "id": "planning",
+      "status": "planned",
+      "scope": "optional MPC/rollout terminal-value adapter"
+    },
+    {
+      "id": "reproductions",
+      "status": "implemented_examples_with_mixed_validation",
+      "scope": "Seven independent paper-specific implementations; no universal controller framework",
+      "registry": "registry/reproductions.json"
+    }
+  ],
+  "note": "Generic modules remain planned unless their public src/+adp API exists; standalone examples are recorded separately."
+}

@@ -1,0 +1,175 @@
+{
+  "version": "0.4.1",
+  "updated_on": "2026-09-08",
+  "baseline": {
+    "id": "baseline",
+    "entry_point": "demo_integral_pi",
+    "recorded_tests": 46,
+    "status": "preserved_43_contract_tests_plus_3_repository_tests",
+    "evidence": "docs/validation/matlab-tests.csv",
+    "original_contract_tests": 43
+  },
+  "methods": [
+    {
+      "id": "koopman_l4dc2025",
+      "algorithm_id": "ct-koopman-model-pi",
+      "paper_id": "koopman-l4dc2025",
+      "entry_point": "demo_koopman",
+      "implementation_status": "implemented_method_variant",
+      "validation_status": "executed_variant",
+      "recorded_tests": 8,
+      "dependency": "MATLAB",
+      "evidence": "reproductions/koopman_l4dc2025/RESULTS.md",
+      "scope": "Yosida generator identification and PI; explicit numerical variant, not all original tables",
+      "directory": "reproductions/koopman_l4dc2025",
+      "fulltext_card": "docs/fulltext/koopman_l4dc2025.md",
+      "unified_id": "koopman_l4dc2025",
+      "runs_neural_training": false,
+      "required_products": [
+        "MATLAB"
+      ],
+      "optional_products": []
+    },
+    {
+      "id": "meanfield_lqg2025",
+      "algorithm_id": "ct-meanfield-lqg-social-pi",
+      "paper_id": "safety-2410.15119",
+      "entry_point": "demo_meanfield_lqg2025",
+      "implementation_status": "implemented_method_variant",
+      "validation_status": "executed_with_finite_sample_limitations",
+      "recorded_tests": 7,
+      "dependency": "MATLAB",
+      "evidence": "docs/fulltext/meanfield_lqg2025.md",
+      "scope": "n=2,m=1 independent Ito paths; two gains, MC mean, finite-N costs; 100-path failures retained",
+      "directory": "reproductions/meanfield_lqg2025",
+      "fulltext_card": "docs/fulltext/meanfield_lqg2025.md",
+      "unified_id": "meanfield_lqg2025",
+      "runs_neural_training": false,
+      "required_products": [
+        "MATLAB"
+      ],
+      "optional_products": []
+    },
+    {
+      "id": "qlearning_tac2023",
+      "algorithm_id": "dt-quadratic-q-learning",
+      "paper_id": "lopez-alsalti-muller-tac2023",
+      "entry_point": "demo_qlearning_tac2023",
+      "implementation_status": "implemented_method_variant",
+      "validation_status": "executed_variant",
+      "recorded_tests": 7,
+      "dependency": "Control System Toolbox",
+      "evidence": "evidence/v0.3/root-peer-review/test-results.json",
+      "scope": "Matrix Bellman equation Algorithm 1; SISO deadbeat and explicit MIMO pole-placement variant",
+      "directory": "reproductions/qlearning_tac2023",
+      "fulltext_card": "docs/fulltext/qlearning_tac2023.md",
+      "unified_id": "qlearning_tac2023",
+      "runs_neural_training": false,
+      "required_products": [
+        "MATLAB",
+        "Control System Toolbox"
+      ],
+      "optional_products": []
+    },
+    {
+      "id": "pinn_infinite_horizon2025",
+      "algorithm_id": "finite-horizon-hjb-pinn",
+      "paper_id": "finite-horizon-pinn-2025",
+      "entry_point": "run_pinn_reproduction",
+      "implementation_status": "implemented_method_variant",
+      "validation_status": "executed_reduced_neural_training",
+      "recorded_tests": 5,
+      "dependency": "Deep Learning Toolbox",
+      "evidence": "reproductions/pinn_infinite_horizon2025/README.md",
+      "scope": "Reduced scalar-LQR/pendulum training history retained; five independent equation/derivative/terminal tests, including two single-update replays.",
+      "directory": "reproductions/pinn_infinite_horizon2025",
+      "fulltext_card": "docs/fulltext/pinn_infinite_horizon2025.md",
+      "unified_id": "pinn_infinite_horizon2025",
+      "runs_neural_training": true,
+      "required_products": [
+        "MATLAB",
+        "Deep Learning Toolbox"
+      ],
+      "optional_products": []
+    },
+    {
+      "id": "safe_pinn_icml2025",
+      "algorithm_id": "safe-epigraph-hjb-pinn",
+      "paper_id": "safe-hjb-icml2025",
+      "entry_point": "demo_safe_pinn",
+      "implementation_status": "implemented_reduced_variant",
+      "validation_status": "executed_with_safety_violations",
+      "recorded_tests": 9,
+      "dependency": "Deep Learning Toolbox",
+      "evidence": "docs/fulltext/safe_pinn_icml2025.md",
+      "scope": "Reduced training and author checkpoint both evaluated; finite-rollout safety/budget violations retained; conditional numerical calibration bounds only",
+      "directory": "reproductions/safe_pinn_icml2025",
+      "fulltext_card": "docs/fulltext/safe_pinn_icml2025.md",
+      "unified_id": "safe_pinn_icml2025",
+      "author_asset": {
+        "bundled": false,
+        "provenance": "reproductions/safe_pinn_icml2025/SOURCE.json",
+        "usage": "reproductions/safe_pinn_icml2025/README.md"
+      },
+      "runs_neural_training": true,
+      "required_products": [
+        "MATLAB",
+        "Deep Learning Toolbox"
+      ],
+      "optional_products": []
+    },
+    {
+      "id": "robust_koopman2026",
+      "algorithm_id": "ct-robust-lifted-pi",
+      "paper_id": "robust-koopman-2026",
+      "entry_point": "demo_robust_koopman",
+      "implementation_status": "implemented_method_variant",
+      "validation_status": "executed_without_uniform_robust_certificate",
+      "recorded_tests": 8,
+      "dependency": "MATLAB",
+      "evidence": "reproductions/robust_koopman2026/RESULTS.md",
+      "scope": "Explicit excitation/basis variant; branch-complete policy, sample-fit error bounds invalid on 25.55% of heldout points; nominal cost slightly better",
+      "directory": "reproductions/robust_koopman2026",
+      "fulltext_card": "docs/fulltext/robust_koopman2026.md",
+      "unified_id": "robust_koopman2026",
+      "runs_neural_training": false,
+      "required_products": [
+        "MATLAB"
+      ],
+      "optional_products": []
+    },
+    {
+      "id": "bias_pi_automatica2026",
+      "algorithm_id": "ct-nonlinear-bias-pi",
+      "paper_id": "zhang-jiang-zhou-nonlinear-bias-pi-2026",
+      "entry_point": "demo_bias_pi",
+      "implementation_status": "implemented_method_variant",
+      "validation_status": "executed_variants_with_single_trajectory_failures_retained",
+      "recorded_tests": 12,
+      "dependency": "MATLAB; Control System Toolbox only for arm demo LQR comparison",
+      "evidence": "reproductions/bias_pi_automatica2026/RESULTS.md",
+      "scope": "Eq43/48 fixed-data Bias-PI; pendulum and arm local-multistart variants, not exact paper 54/45 iterations",
+      "directory": "reproductions/bias_pi_automatica2026",
+      "fulltext_card": "docs/fulltext/bias_pi_automatica2026.md",
+      "unified_id": "bias_pi_automatica2026",
+      "runs_neural_training": false,
+      "required_products": [
+        "MATLAB"
+      ],
+      "optional_products": [
+        "Control System Toolbox"
+      ]
+    }
+  ],
+  "integration_validation": "passed_102_of_102_in_relocated_source_only_checkout",
+  "note": "Seven method packages; exact paper tables and finite-data theoretical guarantees are separately assessed.",
+  "expected_current_test_count": 102,
+  "expected_test_count_note": "94 preserved + 3 repository entry checks + 5 PINN tests; MATLAB discovered and passed all 102 on 2026-09-07.",
+  "integration_evidence": "docs/validation/matlab-tests.json",
+  "integration_source_hashes": "docs/validation/matlab-source-hashes.json",
+  "integration_training_included": "two_single_update_PINN_unit_checks_only",
+  "integration_passed_tests": 102,
+  "entry_validation_evidence": [
+    "docs/validation/quickstart-baseline.json"
+  ]
+}

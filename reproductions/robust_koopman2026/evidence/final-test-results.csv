@@ -1,0 +1,9 @@
+Name,Passed,Failed,Incomplete,Duration
+test_robust_koopman/testAnalyticHalfCostHjbAndValue,1,0,0,4.77813620833333
+test_robust_koopman/testLiftAndAmbientValueDerivatives,1,0,0,0.0256602916666667
+test_robust_koopman/testBilinearDerivativeRegressionOnExactModel,1,0,0,0.0253507916666667
+test_robust_koopman/testSubgradientControlBothBranches,1,0,0,0.0216845416666667
+test_robust_koopman/testInvalidRegressionRejected,1,0,0,0.134420041666667
+test_robust_koopman/testBoundIsSampleFitAndNotCertificate,1,0,0,0.0285991666666667
+test_robust_koopman/testExecutedNonlinearScenario,1,0,0,0.0121780416666667
+test_robust_koopman/testViscosityAndZeroUncertaintyLimits,1,0,0,0.23813075

@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Cite this software version and the original paper for each method used."
+type: software
+title: "ADP-MATLAB: Reference Implementations for Adaptive Dynamic Programming Control"
+version: 0.5.0
+abstract: "MATLAB reference implementations, mathematical contracts and numerical reproduction records for adaptive dynamic programming control."
+authors:
+  - family-names: Tan
+    given-names: Junkai
+    orcid: "https://orcid.org/0009-0002-0558-6357"
+keywords:
+  - adaptive dynamic programming
+  - MATLAB
+  - optimal control
+  - reinforcement learning
+  - Koopman operator
+  - physics-informed neural networks
+license: MIT
+repository-code: "https://github.com/tanjunkai2001/adp-matlab"
+url: "https://tanjunkai2001.github.io/projects/adp-matlab/"

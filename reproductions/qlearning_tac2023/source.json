@@ -1,0 +1,20 @@
+{
+  "title": "Efficient Off-Policy Q-Learning for Data-Based Discrete-Time LQR Problems",
+  "authors": [
+    "Victor G. Lopez",
+    "Mohammad Alsalti",
+    "Matthias A. Müller"
+  ],
+  "journal": "IEEE Transactions on Automatic Control",
+  "year": 2023,
+  "volume": 68,
+  "issue": 5,
+  "pages": "2922-2933",
+  "doi": "10.1109/TAC.2023.3235967",
+  "fulltext": "https://arxiv.org/pdf/2105.07761v3",
+  "fulltext_sha256": "9dc6f6eddd94697607917033ce2026e5b2b9eb6288991bee883b8a52736aa54d",
+  "fulltext_pages": 12,
+  "read_sections": "I-IX and references; PDF p5 equation checked visually",
+  "implementation": "independent MATLAB; Algorithm1 Eq29; SISO Algorithm2; MIMO distinct-pole variant",
+  "author_code_status": "not_located"
+}

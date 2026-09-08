@@ -1,0 +1,23 @@
+{
+  "requiredFiles": [
+    "reproductions/robust_koopman2026/demo_robust_koopman.m",
+    "reproductions/robust_koopman2026/rk_basis.m",
+    "reproductions/robust_koopman2026/rk_control.m",
+    "reproductions/robust_koopman2026/rk_identify.m",
+    "reproductions/robust_koopman2026/rk_lift.m",
+    "reproductions/robust_koopman2026/rk_rollout.m",
+    "reproductions/robust_koopman2026/rk_solve.m",
+    "reproductions/robust_koopman2026/test_robust_koopman.m"
+  ],
+  "products": {
+    "Name": "MATLAB",
+    "Version": "25.2",
+    "ProductNumber": 1,
+    "Certain": true
+  },
+  "environment": {
+    "version": "25.2.0.3312555 (R2025b) Update 6",
+    "arch": "maca64"
+  },
+  "path_note": "Paths normalized relative to the repository root for public distribution. Dependency results are preserved from the historical v0.3 run."
+}

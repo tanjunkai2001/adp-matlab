@@ -1,0 +1,612 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-09-07",
+  "scope": "2023 至 2026-09-07 的选择性核心 ADP/control-RL 方法补漏；不声称穷尽。",
+  "fulltext_read_definition": "已取得完整主文 PDF，并实际阅读列出的正文方法/假设/定理；不是声称全篇逐字阅读或所有附录证明通过复核。",
+  "fulltext_scoped_read_count": 9,
+  "search_workflow": {
+    "skill": "nature-academic-search",
+    "backend": "对应 MCP 未挂载；主源 web、arXiv、PMLR、作者机构页、Crossref/Elsevier metadata 回退。",
+    "dedup": "按 DOI 与 arXiv 工作/版本合并；预印本和正式发表不重复计数。",
+    "exclusion": "一般 MDP actor-critic 论文未因使用 RL 一词直接计入 ADP；仅摘要/索引不算全文。"
+  },
+  "entries": [
+    {
+      "id": "wallace-si-eirl-2025",
+      "title": "Continuous-Time Reinforcement Learning: New Design Algorithms With Theoretical Insights and Performance Guarantees",
+      "authors": [
+        "Brent A. Wallace",
+        "Jennie Si"
+      ],
+      "year": 2025,
+      "publication_status": "IEEE TNNLS 36(4):6940–6954，2025-04；DOI 含 2024，所读文本为 2023 arXiv v1，未作版本逐字比较。",
+      "doi": "10.1109/TNNLS.2024.3392237",
+      "arxiv_id": "2307.08920",
+      "version": "v1",
+      "dates": {
+        "submitted": "2023-07-18",
+        "journal_issue": "2025-04"
+      },
+      "source_urls": [
+        "https://arxiv.org/abs/2307.08920",
+        "https://arxiv.org/pdf/2307.08920v1",
+        "https://doi.org/10.1109/TNNLS.2024.3392237"
+      ],
+      "fulltext_url": "https://arxiv.org/pdf/2307.08920v1",
+      "sha256": "396d5ec4c123ba723cce551f8619f05868866e9948d145a216db5ca49320c925",
+      "evidence_level": "primary_fulltext_scoped_read",
+      "fulltext_read": true,
+      "read_scope": [
+        "Table I、Remark 2.2；§III.A–D，Algorithm 1，式 (18)、(22)–(32)；Theorems 4.1–4.3、Remarks 4.1–4.2；§V.B 条件数讨论。"
+      ],
+      "proof_audit": "正文方法和所列定理/假设已读；不表示逐行复核全篇证明，未列出的附录未审计。",
+      "knowledge_assumptions": [
+        "连续时间、固定二次值函数/线性反馈；K0 使线性化闭环 Hurwitz。",
+        "非线性耦合 EIRL 需 x,u,w=f−Ax,g；线性版本需 B。分散耦合版本需对应输入行 B_j、非对角 A_jk；并非所有模型量都未知。"
+      ],
+      "residual": [
+        "积分线性回归 Θ_i v(P_i)=Ξ_i；非线性漂移校正项与输入/参考激励显式进入回归。",
+        "秩检查对象 I_B(x,x)，并记录回归奇异值、条件数及列缩放。"
+      ],
+      "guarantees": [
+        "精确、满秩数据及初始稳定条件下，与 Kleinman 迭代等价；P 单调、线性增益稳定并收敛。"
+      ],
+      "limitations": [
+        "非线性例子中的定理目标是线性化 CARE，不等于全局非线性最优性。",
+        "分散定理是各环路条件化结论；不能自动提升为任意耦合非线性整体安全。",
+        "参考端激励改善所示条件数，不自动构成 PE 证明；论文条件数为其报告结果，未复现。"
+      ],
+      "code": {
+        "url": "https://github.com/bawalla2/TNNLS-2023---dEIRL",
+        "checked": true,
+        "status": "论文参考文献报告链接，GitHub 仓库页面可打开；未审计源码、未运行。"
+      },
+      "core_gap": [
+        "现有 ct-off-policy-irl 标签未区分 EIRL 的漂移知识、参考激励和分散环路假设。"
+      ],
+      "module_action": [
+        "新增 learner.knowledge 的 w/g/B/off_diagonal_A 字段；exploration.port=input|reference；loop_partition 与耦合证据。",
+        "诊断记录原始/缩放回归的 singular_values、condition_number；保证对象记录 linearization|loop|full_system。"
+      ]
+    },
+    {
+      "id": "li-dong-damping-pi-2025",
+      "title": "Data-Based Efficient Off-Policy Stabilizing Optimal Control Algorithms for Discrete-Time Linear Systems via Damping Coefficients",
+      "authors": [
+        "Dongdong Li",
+        "Jiuxiang Dong"
+      ],
+      "year": 2025,
+      "publication_status": "arXiv 预印本；本轮未核得正式发表 DOI。",
+      "doi": null,
+      "arxiv_id": "2412.20845",
+      "version": "v2",
+      "dates": {
+        "submitted": "2024-12-30",
+        "revised": "2025-03-19"
+      },
+      "source_urls": [
+        "https://arxiv.org/abs/2412.20845",
+        "https://arxiv.org/pdf/2412.20845v2"
+      ],
+      "fulltext_url": "https://arxiv.org/pdf/2412.20845v2",
+      "sha256": "39efb4de289222475427e8518f27883b86fd17be6d90821830770b5ea645360e",
+      "evidence_level": "primary_fulltext_scoped_read",
+      "fulltext_read": true,
+      "read_scope": [
+        "§III–V；Theorems 1、3、4；Algorithms 1–2；式 (14)–(16)、(27)、(33)、(59)，Remarks 6–10。"
+      ],
+      "proof_audit": "正文方法和所列定理/假设已读；不表示逐行复核全篇证明，未列出的附录未审计。",
+      "knowledge_assumptions": [
+        "未知 A,B，已知 n,m,Q>0,R>0；系统可稳定；确定性且离线数据满足相应完整秩条件。",
+        "原系统初始稳定增益可未知；首先选择足够小阻尼，使辅助缩放系统可从零增益开始。"
+      ],
+      "residual": [
+        "辅助系统的 Lyapunov/二次 Q 参数回归；两种参数化有不同未知量维数与秩目标。",
+        "累计缩放 c 与每步阻尼增量共同决定迭代对象。"
+      ],
+      "guarantees": [
+        "文中条件下初始化阶段取得原系统稳定增益，再标准 PI 收敛。"
+      ],
+      "limitations": [
+        "辅助系统稳定不代表该步增益已稳定真实原系统；须等累计因子越过指定阈值。",
+        "无初始稳定策略要求不等于开放环采集安全；所读定理不提供噪声有限样本保证。"
+      ],
+      "code": {
+        "url": null,
+        "checked": false,
+        "status": "所读正文未发现代码链接；未据此断言代码不存在。"
+      },
+      "core_gap": [
+        "PI/VI 标签之外缺少独立初始化策略与辅助系统状态。"
+      ],
+      "module_action": [
+        "新增 initialize.damping/homotopy，记录 phase、cumulative_factor、auxiliary_dynamics、original_system_certificate。",
+        "policy_eval 参数化与 rank_target 分离；允许复用固定行为批次，不将每次目标增益误记成行为策略。"
+      ]
+    },
+    {
+      "id": "alsalti-output-q-2024",
+      "title": "An efficient data-based off-policy Q-learning algorithm for optimal output feedback control of linear systems",
+      "authors": [
+        "Mohammad Alsalti",
+        "Victor G. Lopez",
+        "Matthias A. Müller"
+      ],
+      "year": 2024,
+      "publication_status": "L4DC 2024，PMLR 242:312–323；所读为正式会议 PDF。",
+      "doi": null,
+      "arxiv_id": "2312.03451",
+      "version": "v2",
+      "dates": {
+        "submitted": "2023-12-06",
+        "arxiv_revised": "2024-08-20",
+        "conference_year": "2024"
+      },
+      "source_urls": [
+        "https://arxiv.org/abs/2312.03451",
+        "https://arxiv.org/pdf/2312.03451v2"
+      ],
+      "fulltext_url": "https://proceedings.mlr.press/v242/alsalti24a/alsalti24a.pdf",
+      "sha256": "871997bc531f9826245c36da013dae6358a1db376c5809fc06548f42749be434",
+      "evidence_level": "primary_fulltext_scoped_read",
+      "fulltext_read": true,
+      "read_scope": [
+        "§2–3；式 (5)–(7)、(20)、(28)；Lemma 3、Algorithm 1、Theorem 6、Remarks 5、7。"
+      ],
+      "proof_audit": "正文方法和所列定理/假设已读；不表示逐行复核全篇证明，未列出的附录未审计。",
+      "knowledge_assumptions": [
+        "未知最小实现 A,B,C；DT，状态不可测但 u,y 可测；可控、可观，已知系统阶 n 与 observability lag ℓ。",
+        "输入 PE 阶 ℓ+n+1；初始提升反馈 K0,z 必须稳定，可用数据 deadbeat/LMI 构造。"
+      ],
+      "residual": [
+        "由有限输入输出历史和 Γ 构造 z；rank[Z0;U0]=m(ℓ+1)+n。",
+        "选取线性无关数据列求广义离散 Lyapunov 方程 (28)，由 Θ_uu 与 Θ_uz 更新反馈。"
+      ],
+      "guarantees": [
+        "精确数据和上述条件下每次策略稳定、迭代二次收敛。"
+      ],
+      "limitations": [
+        "Remark 7 明确未完成噪声理论分析，不能把其有限噪声数值表现写成有噪输出反馈保证。"
+      ],
+      "code": {
+        "url": "https://doi.org/10.25835/zmlriehg",
+        "checked": true,
+        "status": "浏览工具失败后，经 DOI 直接请求读到 LUH 机构数据仓库落地页。页面有 MATLAB ZIP、comparison_QL_SDP.m 入口、CVX 依赖，标 CC BY-NC 3.0。仅核落地页，未解包或运行。",
+        "landing_sha256": "046f49346e158d79b056e72b6ae4eaed7072ee5f086530edd09c632c1bb55f18"
+      },
+      "core_gap": [
+        "generic output-feedback-adp 未定义 DT 历史状态、投影矩阵、部署内存和提升秩。"
+      ],
+      "module_action": [
+        "新增 observation.history_lift：n、lag、Γ、raw/lifted_dim、column_selection、warmup。",
+        "为提升后的 Q 回归给独立 rank_target 和状态内存更新契约；稳定初始化成为前置组件。"
+      ],
+      "proceedings_url": "https://proceedings.mlr.press/v242/alsalti24a.html"
+    },
+    {
+      "id": "cui-stochastic-rlsvi-2026",
+      "title": "A Fully Data-Driven Value Iteration for Stochastic LQR: Convergence, Robustness, and Stability",
+      "authors": [
+        "Leilei Cui",
+        "Zhong-Ping Jiang",
+        "Petter N. Kolm",
+        "Grégoire G. Macqueron"
+      ],
+      "year": 2026,
+      "publication_status": "IEEE TNNLS Early Access，2026；所读为 arXiv v4。Crossref 仅给年份及页 1–10。",
+      "doi": "10.1109/TNNLS.2026.3675892",
+      "arxiv_id": "2505.02970",
+      "version": "v4",
+      "dates": {
+        "submitted": "2025-05-05",
+        "v2": "2026-01-07",
+        "v3": "2026-03-17",
+        "v4": "2026-05-04"
+      },
+      "source_urls": [
+        "https://arxiv.org/abs/2505.02970",
+        "https://arxiv.org/pdf/2505.02970v4",
+        "https://doi.org/10.1109/TNNLS.2026.3675892"
+      ],
+      "fulltext_url": "https://arxiv.org/pdf/2505.02970v4",
+      "sha256": "4ce5c077f679cf9a122b90c2fe3efbaec73faa1caa120912873241907c8e192a",
+      "evidence_level": "primary_fulltext_scoped_read",
+      "fulltext_read": true,
+      "read_scope": [
+        "§2.1–2.4、§3、§4.2–4.3；Algorithm 1；Assumptions 1–2；Theorems 3–4、Propositions 1、4、5；式 (9)–(10)、(22)–(29)。"
+      ],
+      "proof_audit": "正文方法和所列定理/假设已读；不表示逐行复核全篇证明，未列出的附录未审计。",
+      "knowledge_assumptions": [
+        "DT 加性 iid 高斯过程噪声；未知 A,B,S,R，但观测逐步成本；v4 假设 S>0,R>0 及可稳定。",
+        "平均成本目标，存在常数噪声偏置；行为采样可重置状态，采样 Kc 不必稳定。",
+        "重置诱导不变分布下总体特征 Gram 正定；不是仅要求一批经验矩阵满秩。"
+      ],
+      "residual": [
+        "归一化二次特征附加截距，条件期望 Bellman 关系含 μ(P)=tr(C′PC)。",
+        "缓存 Θ_T、Ψ_T、Ξ_T 并构造值迭代映射；Schur complement 更新。"
+      ],
+      "guarantees": [
+        "小评估扰动下值迭代 ISS；固定有限误差通常只收敛到邻域。",
+        "足够长数据使最终误差任意小的渐近/存在性结论（Theorem 4）。"
+      ],
+      "limitations": [
+        "Theorem 4 的 T0 存在性不是给定置信度的可计算非渐近样本复杂度。",
+        "原始 x_next 与 reset 后状态不得混写；物理实验是否可重置另需满足。",
+        "未稳定行为策略在无重置真实系统上的安全不由此证明。"
+      ],
+      "code": {
+        "url": null,
+        "checked": false,
+        "status": "所读正文未发现代码链接；未据此断言代码不存在。"
+      },
+      "core_gap": [
+        "stochastic-shared-adp 标签不足以表达平均成本、截距、数据重置及总体/经验激励差别。"
+      ],
+      "module_action": [
+        "新增 cost.objective=average；bias/intercept 参数块；noise.class 与 reset_before/after 数据。",
+        "新增 empirical_rank 与 population_informativity 分开的证据，inexact_eval_budget、PSD/Schur/Q_uu 检查。",
+        "VI 初始化不沿用 PI 稳定 K0 契约，显式记录 reset_sampling 依赖。"
+      ]
+    },
+    {
+      "id": "song-iannelli-noisy-indirect-pi-2025",
+      "title": "Robustness of Online Identification-based Policy Iteration to Noisy Data",
+      "authors": [
+        "Bowen Song",
+        "Andrea Iannelli"
+      ],
+      "year": 2025,
+      "publication_status": "at – Automatisierungstechnik 73(6):398–412，2025-05-28；Crossref DOI/卷页已核。所读为 arXiv v2/作者稿。",
+      "doi": "10.1515/auto-2024-0164",
+      "arxiv_id": "2504.07627",
+      "version": "v2",
+      "dates": {
+        "submitted": "2025-04-10",
+        "revised": "2025-04-11",
+        "published": "2025-05-28"
+      },
+      "source_urls": [
+        "https://arxiv.org/abs/2504.07627",
+        "https://arxiv.org/pdf/2504.07627v2",
+        "https://doi.org/10.1515/auto-2024-0164"
+      ],
+      "fulltext_url": "https://arxiv.org/pdf/2504.07627v2",
+      "sha256": "fe2ff66ad924fa4f87a5302ce751d2b15d6ffd54ab5d7f4d463f7e0cbf05a1c5",
+      "evidence_level": "primary_fulltext_scoped_read",
+      "fulltext_read": true,
+      "read_scope": [
+        "§2、§3、§4；Algorithms 2–3；Assumptions 1–4；Theorems 3–5。"
+      ],
+      "proof_audit": "正文方法和所列定理/假设已读；不表示逐行复核全篇证明，未列出的附录未审计。",
+      "knowledge_assumptions": [
+        "未知可稳定 DT A,B；先 RLS 估计模型再 PI，属于间接数据驱动控制。",
+        "区分逐点有界噪声与有限能量噪声；目标是无噪名义系统最优增益。",
+        "局部持续激励、数据有界；某些结论另要求估计模型始终可稳定或初始估计误差足够小。"
+      ],
+      "residual": [
+        "RLS 参数误差/协方差，结合估计模型下 Lyapunov 评估与策略改善。",
+        "Alg.3 的评估、采样、辨识和改善时序必须保留。"
+      ],
+      "guarantees": [
+        "RLS 误差对有界噪声 ISS；减弱/有限能量噪声条件下进一步收敛。",
+        "附加定量初始化条件可保证真实闭环稳定。"
+      ],
+      "limitations": [
+        "估计模型稳定不保证真实 A+BK 稳定；文中明确 on-policy 数据有界不能自动获得。",
+        "固定有界噪声通常留偏差/误差界，不能写成精确最优收敛。"
+      ],
+      "code": {
+        "url": "https://github.com/col-tasas/2024-SysIDbasedPIwithNoisyData",
+        "checked": true,
+        "status": "正文给出链接；实际打开仓库页、README 和目录，页面标 MIT。未审计源代码或运行。"
+      },
+      "core_gap": [
+        "现有 identify 模块尚未把在线模型误差、模型稳定证据与真实闭环证据接入学习循环。"
+      ],
+      "module_action": [
+        "新增 indirect_rl 分支及 model_estimate 的 timestamp、covariance、excitation、error_bound。",
+        "分开 estimated_model_stability/plant_stability，控制采集策略和模型/策略更新时序。"
+      ],
+      "author_fulltext_url": "https://andreaian.github.io/pub/At_automatisierung_25_OnlinePI.pdf"
+    },
+    {
+      "id": "wu-critic-free-ctpi-2026",
+      "title": "Data-Driven Critic-Free Policy Iteration for Continuous-Time Linear Quadratic Regulation",
+      "authors": [
+        "Jiacheng Wu",
+        "Yang Zhu",
+        "Hongye Su"
+      ],
+      "year": 2026,
+      "publication_status": "arXiv v1 预印本，未核得正式发表。",
+      "doi": null,
+      "arxiv_id": "2607.08204",
+      "version": "v1",
+      "dates": {
+        "submitted": "2026-07-09"
+      },
+      "source_urls": [
+        "https://arxiv.org/abs/2607.08204",
+        "https://arxiv.org/pdf/2607.08204v1"
+      ],
+      "fulltext_url": "https://arxiv.org/pdf/2607.08204v1",
+      "sha256": "acc9aeac1d797393a81f55fc2b088ec0027ee99a2d26d3d7e271dfbe5d0a5c9e",
+      "evidence_level": "primary_fulltext_scoped_read",
+      "fulltext_read": true,
+      "read_scope": [
+        "§II–III；式 (6)–(26)、(31)–(36)；Assumptions 1、3；Lemma 1、Proposition 1、Theorems 1–3、Corollary 1、Algorithm 1。"
+      ],
+      "proof_audit": "正文方法和所列定理/假设已读；不表示逐行复核全篇证明，未列出的附录未审计。",
+      "knowledge_assumptions": [
+        "未知 CT A,B，已知 Q,R，状态和输入可测；已知稳定 anchor F。",
+        "可稳定及 (A,Q^(1/2)) 可检测；数据 u=−Fx+v。",
+        "端点矩阵 D 的核投影消去 critic；投影后 actor 回归秩必须等于 mn。"
+      ],
+      "residual": [
+        "D 由端点 xx′ 差，X,Z 由区间 ∫xx′、∫vx′；W 为 ker(D) 的正交基。",
+        "式 (25) 只求 mn 个增益参数；critic P 无需显式估计。"
+      ],
+      "guarantees": [
+        "精确投影秩条件下 actor 更新与 Kleinman 等价，继承稳定与收敛结论。"
+      ],
+      "limitations": [
+        "输入 PE 不能直接替代投影后 actor informativity；仍需稳定 anchor。",
+        "定理不是带噪端点投影的误差保证。",
+        "Algorithm 1 的正规方程求逆不能直接当作通用数值实现规范。"
+      ],
+      "code": {
+        "url": null,
+        "checked": false,
+        "status": "所读正文未发现代码链接；未据此断言代码不存在。"
+      },
+      "core_gap": [
+        "所有 learner 都强制 critic 会排除合法的 actor-only PI；统一完整 Bellman 秩门槛会过强。"
+      ],
+      "module_action": [
+        "learner.critic 可空；增加 endpoint_annihilator 的构造、SVD 容差与 rank_target=mn。",
+        "记录 anchor_policy 和 actor_map 证据；实现用 QR/SVD 并记数值实现差异。"
+      ]
+    },
+    {
+      "id": "xie-ct-output-pivi-2026",
+      "title": "Data-Enabled Policy and Value Iteration for Continuous-Time Linear Quadratic Output Feedback Control",
+      "authors": [
+        "Jun Xie",
+        "Yuan-Hua Ni",
+        "Yiqin Yang",
+        "Bo Xu"
+      ],
+      "year": 2026,
+      "publication_status": "arXiv v1 预印本，未核得正式发表。",
+      "doi": null,
+      "arxiv_id": "2603.14386",
+      "version": "v1",
+      "dates": {
+        "submitted": "2026-03-15"
+      },
+      "source_urls": [
+        "https://arxiv.org/abs/2603.14386",
+        "https://arxiv.org/pdf/2603.14386v1"
+      ],
+      "fulltext_url": "https://arxiv.org/pdf/2603.14386v1",
+      "sha256": "965d92dc841e46282a60c29d9b1974e960d1f5a2d301fdf7437324acbdbdf09f",
+      "evidence_level": "primary_fulltext_scoped_read",
+      "fulltext_read": true,
+      "read_scope": [
+        "§2、§3 的提升秩/投影构造、§4.2–4.3、§5 的系统阶讨论；Theorem 3.1、Lemma 3.4、Propositions 4.5–4.6、Algorithms 1–2、Remarks 4.4、4.7；式 (16)、(30)、(32)–(33)。"
+      ],
+      "proof_audit": "正文方法和所列定理/假设已读；不表示逐行复核全篇证明，未列出的附录未审计。",
+      "knowledge_assumptions": [
+        "未知 CT A,B,C，x 不可测，u,y 可测；假设 (A,B) 可控、(A,C) 与 (A,Qx^(1/2)) 可观。",
+        "已知稳定滤波器与自治初值通道，需满足文中光滑 PE 条件；一般 ZOH 探索不自动满足。",
+        "PI 需要稳定初始提升反馈；VI 使用半正定初值、递减步长与扩展集合。"
+      ],
+      "residual": [
+        "输入/输出滤波状态有冗余，通过 QR 投影取有效坐标；广义 Sylvester 方程评估。",
+        "滤波状态导数由已知滤波器方程得到，并非数值差分原始 y。",
+        "VI 的步长、投影及越界后内部重置是算法组成部分。"
+      ],
+      "guarantees": [
+        "在文中精确数据及结构条件下，提升坐标中的 PI/VI 与目标 CT 输出反馈 LQ 解相连。"
+      ],
+      "limitations": [
+        "滤波器结构表述使用 n，文中又以数据秩推出 n；自动阶数获取/滤波器阶选择的采集闭环仍需复现澄清。",
+        "未读到噪声下稳健秩判定/端到端有限样本证书。",
+        "PI 内部或 VI 集合重置不是物理系统重置。"
+      ],
+      "code": {
+        "url": null,
+        "checked": false,
+        "status": "所读正文未发现代码链接；未据此断言代码不存在。"
+      },
+      "core_gap": [
+        "CT 输出滤波提升与 DT 输入输出历史不可共用一个无区分观察器接口。"
+      ],
+      "module_action": [
+        "新增 observation.filtered_lift：filter_coefficients、initial_state_channel、QR_basis、rank_tolerance、derivative_provenance。",
+        "新增 VI stepsize/projection/algorithm_reset；矩阵方程求解器独立于数据采集。"
+      ]
+    },
+    {
+      "id": "cao-stochastic-stabilizer-2026",
+      "title": "Stabilizer Design for Policy Iteration in Stochastic Linear Quadratic Control: A Spectrum-Assignment Approach",
+      "authors": [
+        "Xinyu Cao",
+        "Bing-Chang Wang",
+        "Ying Cao"
+      ],
+      "year": 2026,
+      "publication_status": "arXiv v1 预印本，未核得正式发表。",
+      "doi": null,
+      "arxiv_id": "2608.05953",
+      "version": "v1",
+      "dates": {
+        "submitted": "2026-08-06"
+      },
+      "source_urls": [
+        "https://arxiv.org/abs/2608.05953",
+        "https://arxiv.org/pdf/2608.05953v1"
+      ],
+      "fulltext_url": "https://arxiv.org/pdf/2608.05953v1",
+      "sha256": "739518f7f288425aeedb6357baeaa24759d1f568274aaefc618ac8d52f7b465e",
+      "evidence_level": "primary_fulltext_scoped_read",
+      "fulltext_read": true,
+      "read_scope": [
+        "§II；§III 的谱平移解释；§IV.A–E；Assumptions 1–2、4–5；Theorem 1、Theorem 2、Corollary 1、Algorithm 2；式 (2)–(4)、(10)–(17)、(39)–(41)、(63)、(83)、(85)。附录证明未逐项读。"
+      ],
+      "proof_audit": "正文方法和所列定理/假设已读；不表示逐行复核全篇证明，未列出的附录未审计。",
+      "knowledge_assumptions": [
+        "CT 状态/控制相关乘性 Wiener 噪声；未知 A,B,C,D；均方可稳定。",
+        "不定 Q,R，但要求严格可行的 SARE/LMI 集合非空，且 R+D′PD>0。",
+        "理论数据回归使用精确期望、对应阶段满秩；有限数据用样本均值估计。"
+      ],
+      "residual": [
+        "Phase I 用辅助正定 Qa,Ra 和 Lyapunov 算子谱平移找稳定增益；Phase II 恢复原不定代价。",
+        "回归同时估计 P 与漂移/扩散耦合参数；秩、最小奇异值、拟合残差及 R+Γ 正定为数值诊断。"
+      ],
+      "guarantees": [
+        "Theorem 2 是条件证书：精确期望、步长/秩成立，且累计因子达到阈值时才保证原系统均方稳定。",
+        "Corollary 1 在这些条件下恢复不定 SLQ PI 单调收敛。"
+      ],
+      "limitations": [
+        "Algorithm 2 明确输出有限数据候选 stabilizer；残差小和样本矩阵满秩不能提升为 Theorem 2 的精确期望证书。",
+        "条件 if Phase I reaches 不等于证明任意有限数据运行必定有限步到达。",
+        "Hurwitz(A−BK) 不足以证明有乘性扩散的均方稳定。"
+      ],
+      "code": {
+        "url": null,
+        "checked": false,
+        "status": "所读正文未发现代码链接；未据此断言代码不存在。"
+      },
+      "core_gap": [
+        "单一 deterministic 稳定检查、强制 Q≥0/R>0 与一般 stochastic 标记无法覆盖本类。"
+      ],
+      "module_action": [
+        "新增 stability.kind=mean_square 与 Lyapunov_operator；噪声 drift/diffusion 参数化。",
+        "cost 允许带严格可行性证据的不定权重；原目标与辅助初始化代价分开。",
+        "initializer 输出 candidate|certified 和期望估计来源，严禁经验诊断自动变成均方稳定证明。"
+      ]
+    },
+    {
+      "id": "lin-huang-irl-overview-2026",
+      "title": "Data-driven control for continuous-time linear systems via integral reinforcement learning: An overview",
+      "authors": [
+        "Liquan Lin",
+        "Jie Huang"
+      ],
+      "year": 2026,
+      "doi": "10.1016/j.jai.2026.08.004",
+      "publication_status": "Journal of Automation and Intelligence，journal pre-proof / available online 2026-08-22（出版社索引）；Crossref 年月 2026-08。",
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S2949855426000560",
+        "https://doi.org/10.1016/j.jai.2026.08.004"
+      ],
+      "evidence_level": "primary_metadata_and_indexed_excerpts_only",
+      "fulltext_read": false,
+      "read_scope": [
+        "Crossref 书目；Elsevier coredata XML；出版社搜索索引可见节段。"
+      ],
+      "fulltext_url": "https://www.sciencedirect.com/science/article/pii/S2949855426000560",
+      "sha256": null,
+      "access_limitation": "出版社正文与 PDF 直接请求被拒绝；Elsevier XML 仅 coredata，不是全文。不能计入全文阅读数量。",
+      "core_gap": [
+        "提示 CT IRL 应另外调查输出调节、协同输出调节、内模/调节方程路线；本条只作检索线索。"
+      ],
+      "module_action": [
+        "父级可据全文补读决定 regulation/exosystem/regulator_equation 模块，本条不单独支撑新定理承诺。"
+      ],
+      "code": {
+        "checked": false,
+        "url": null,
+        "status": "未核查。"
+      }
+    },
+    {
+      "id": "2401.06721",
+      "title": "The Role of Identification in Data-driven Policy Iteration: A System Theoretic Study",
+      "authors": [
+        "Bowen Song",
+        "Andrea Iannelli"
+      ],
+      "year": 2024,
+      "arxiv_id": "2401.06721",
+      "version": "v2",
+      "source_urls": [
+        "https://arxiv.org/abs/2401.06721"
+      ],
+      "sha256": "e4e0df631b621966336a272cf49a1ba2500eb0b4e63d08a85cbfee0abb1a3dca",
+      "evidence_level": "downloaded_not_read",
+      "fulltext_read": false,
+      "read_scope": [
+        "仅书目和摘要，未纳入方法结论。"
+      ],
+      "core_gap": [],
+      "module_action": [],
+      "code": {
+        "checked": false,
+        "url": null
+      }
+    },
+    {
+      "id": "krauth-tu-recht-finite-lspi-2019",
+      "title": "Finite-time Analysis of Approximate Policy Iteration for the Linear Quadratic Regulator",
+      "authors": [
+        "Karl Krauth",
+        "Stephen Tu",
+        "Benjamin Recht"
+      ],
+      "year": 2019,
+      "publication_status": "NeurIPS 2019 正式会议正文 PDF；历史核心补充，不计入 2023–2026 的 8 篇。",
+      "arxiv_id": "1905.12842",
+      "doi": null,
+      "version": "NeurIPS proceedings",
+      "dates": {
+        "publication_year": "2019"
+      },
+      "source_urls": [
+        "https://papers.neurips.cc/paper/9058-finite-time-analysis-of-approximate-policy-iteration-for-the-linear-quadratic-regulator.pdf",
+        "https://arxiv.org/abs/1905.12842"
+      ],
+      "fulltext_url": "https://papers.neurips.cc/paper/9058-finite-time-analysis-of-approximate-policy-iteration-for-the-linear-quadratic-regulator.pdf",
+      "sha256": "57e87b66448363f035752084e5efb7832361e69dff76f6e32962a8655157c8ad",
+      "evidence_level": "primary_fulltext_scoped_read_historical",
+      "fulltext_read": true,
+      "read_scope": [
+        "§2.1–2.2，Theorems 2.1–2.2，Algorithms 1–2，式 (2.3)–(2.14)；未读取 extended-version 证明。"
+      ],
+      "proof_audit": "会议文将证明放 extended version；本轮仅核定理及算法条件，不声称复核证明。",
+      "knowledge_assumptions": [
+        "DT 加性 iid 高斯噪声、平均成本、未知 A,B，已知正定 S,R；LSTD-Q 公式用到过程噪声方差。",
+        "行为与评估策略均稳定，(τ,ρ)-稳定控制暂态；高斯探索方差及初始状态协方差进入界。"
+      ],
+      "residual": [
+        "off-policy LSTD-Q 采用 φ_t(φ_t−ψ_(t+1)+f)′ 的矩矩阵；f 是噪声偏置修正，不能省略。",
+        "投影 Q 到下特征值界 μ 后贪婪改善。"
+      ],
+      "guarantees": [
+        "Theorem 2.1 给定置信度 1−δ 的 Q 参数误差界；Theorem 2.2 在样本长度满足条件时保证各策略稳定并得到 ε 精度。"
+      ],
+      "limitations": [
+        "Theorem 2.2 分析 Algorithm 2 每轮新数据版本；Algorithm 1 固定数据反复复用被明确留待后续，不能互换。",
+        "简写维数/ε 复杂度隐藏巨大稳定性、探索方差、代价及 burn-in 依赖，不应照摘要作为默认自动样本数。",
+        "过程噪声方差与所需稳定性常数是否已知，必须如实记录；定理样本界不一定可从无模型日志直接计算。"
+      ],
+      "core_gap": [
+        "当前 data.replay/PI 没有声明样本复用是否被其统计定理允许；统计保证所需量不一定是 learner 可见量。"
+      ],
+      "module_action": [
+        "新增 finite_sample_contract：delta、target_error、burn_in、stability_envelope、noise_covariance_knowledge、exploration_variance。",
+        "新增 batch_reuse=single_batch|fresh_batch_per_iteration 并绑定定理版本；矩估计与 Bellman 残差/最小二乘残差区别记录。"
+      ],
+      "code": {
+        "url": null,
+        "checked": false,
+        "status": "所读部分未核得代码链接。"
+      },
+      "corpus_role": "historical_required"
+    }
+  ],
+  "recent_fulltext_scoped_read_count": 8,
+  "historical_fulltext_scoped_read_count": 1
+}

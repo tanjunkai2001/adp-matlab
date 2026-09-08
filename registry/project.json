@@ -1,0 +1,21 @@
+{
+  "name": "ADP-MATLAB",
+  "slug": "adp-matlab",
+  "owner": "tanjunkai2001",
+  "maintainer": {
+    "name": "Junkai Tan",
+    "given_name": "Junkai",
+    "family_name": "Tan",
+    "orcid": "https://orcid.org/0009-0002-0558-6357",
+    "homepage": "https://tanjunkai2001.github.io/"
+  },
+  "version": "0.5.0",
+  "matlab_source_version": "0.4.1",
+  "description": "MATLAB reference implementations and reproducible experiments for adaptive dynamic programming control.",
+  "repository_url": "https://github.com/tanjunkai2001/adp-matlab",
+  "project_url": "https://tanjunkai2001.github.io/projects/adp-matlab/",
+  "repository_published": false,
+  "license": "MIT",
+  "release_stage": "candidate",
+  "checked_on": "2026-09-08"
+}

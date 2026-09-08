@@ -1,0 +1,25 @@
+{
+  "repository": "https://github.com/tayalmanan28/piml-soc",
+  "commit": "b3fcda0873046fca67112b5289ba7b1261b41ac3",
+  "source": "runs/Boat2DAug/training/checkpoints/model_final.pth",
+  "checkpoint_epoch": 250000,
+  "source_sha256": "adec2f2b435062ba8888bd69466c30e4d5e6b46092043364e28692391e7698a2",
+  "converted_sha256": "c2c55f9e6f18547fde661df7a70f633c299d9d57cc36d03ff778076ab5e26f97",
+  "layers": [
+    4,
+    256,
+    256,
+    256,
+    256,
+    1
+  ],
+  "activation": "sin(30*x)",
+  "normalization": "(S-[0,-.5,0,7.38])/[1,2.5,2,7.48]",
+  "physical_value": "50*network_output+0.5",
+  "loading": "torch.load(weights_only=True); no author Python modules executed",
+  "torch": "2.14.0",
+  "license": "No repository LICENSE found; external model kept separate from code archive.",
+  "paper": "https://proceedings.mlr.press/v267/tayal25a.html",
+  "fulltext": "https://proceedings.mlr.press/v267/tayal25a/tayal25a.pdf",
+  "implementation": "Original MATLAB reduced trainer; separate author checkpoint inference; public-source loss and calibration differences documented."
+}

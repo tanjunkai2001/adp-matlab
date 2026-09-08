@@ -1,0 +1,16 @@
+{
+  "bundles": [
+    {
+      "path": "docs/assets/example-figures.zip",
+      "bytes": 2914418,
+      "sha256": "9a013068b035f42234c16e8e59af7afe206487a163b02fa25cf52f5a689aff03",
+      "contents": "Three recorded examples: editable FIG/PDF/PNG/SVG, redraw script and CSV/JSON data"
+    },
+    {
+      "path": "docs/assets/adp-control-hero-source.zip",
+      "bytes": 848288,
+      "sha256": "0a654ef1cd56e830d3a70bb8ad7adf859d51db0e62a3b3ac30dbf3f4abaed29a",
+      "contents": "Complete integral-PI figure: editable figure, redraw script and CSV/JSON data"
+    }
+  ]
+}

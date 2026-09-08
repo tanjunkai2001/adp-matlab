@@ -1,0 +1,13 @@
+{
+  "paper": {
+    "title": "Optimality Robustness in Koopman-Based Control",
+    "url": "https://arxiv.org/abs/2604.05633v2",
+    "version": "v2",
+    "revisionDate": "2026-08-04",
+    "status": "preprint submitted to Automatica; not confirmed published",
+    "pages": 16,
+    "sha256": "db8599960b7c4ff4978a0b251ee5982dc7b6b754b8a2f0d144df1f0afb9aae13"
+  },
+  "codeProvenance": "Original MATLAB implementation from full text; no author source code copied",
+  "reproductionLevel": "method variant, not exact Algorithm 1 boundary PDE or Table 1 replication"
+}

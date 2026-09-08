@@ -1,0 +1,120 @@
+{
+  "matlabVersion": "25.2.0.3312555 (R2025b) Update 6",
+  "executedAt": "2026-09-07 11:27:14",
+  "qlTestCount": 7,
+  "safeTestCount": 9,
+  "records": [
+    {
+      "name": "testQL/testIndependentDARE",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.923264125
+    },
+    {
+      "name": "testQL/testReturnedPolicyValuePair",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.21088120833333335
+    },
+    {
+      "name": "testQL/testRankDeficientInput",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.11881141666666667
+    },
+    {
+      "name": "testQL/testUnstableInitialPolicy",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.017713208333333338
+    },
+    {
+      "name": "testQL/testScalarEquationsAreInsufficient",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.0084737500000000021
+    },
+    {
+      "name": "testQL/testBellmanOnUnselectedData",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.01736379166666667
+    },
+    {
+      "name": "testQL/testMIMODataStabilizerKeepsInputDimension",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.064539041666666658
+    },
+    {
+      "name": "testSafePinn/testGeometry",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 2.5074350416666671
+    },
+    {
+      "name": "testSafePinn/testTerminalCondition",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 1.0680395416666666
+    },
+    {
+      "name": "testSafePinn/testPhysicalDerivatives",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 1.0316283333333334
+    },
+    {
+      "name": "testSafePinn/testHamiltonianMinimization",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.026955916666666666
+    },
+    {
+      "name": "testSafePinn/testBinomialZeroViolations",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.043378666666666663
+    },
+    {
+      "name": "testSafePinn/testEmptyCalibrationSetReturnsWithoutRollout",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.86676245833333332
+    },
+    {
+      "name": "testSafePinn/testNonfiniteCalibrationPredictionsAreNotCandidates",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.18144679166666666
+    },
+    {
+      "name": "testSafePinn/testNonfiniteRolloutIsInvalid",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 0.64822625000000011
+    },
+    {
+      "name": "testSafePinn/testAugmentedRK4AgainstHeldInputOracle",
+      "passed": true,
+      "failed": false,
+      "incomplete": false,
+      "durationSeconds": 1.5286697916666667
+    }
+  ]
+}

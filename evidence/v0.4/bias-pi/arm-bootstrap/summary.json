@@ -1,0 +1,22 @@
+{
+  "example": "two_joint_arm",
+  "initialization": "discounted_bootstrap",
+  "status": "converged",
+  "iterations": 47,
+  "innerIterations": 0,
+  "finalGamma": 15,
+  "dataWindows": 200,
+  "resets": 99,
+  "regressionRank": 26,
+  "unknownWeights": 26,
+  "criticMinEigenvalue": -257.31824164691034,
+  "initialCriticMinEigenvalue": 1.1288858094089709,
+  "closedLoopSpectralAbscissa": 6.555809067994826,
+  "learnedCost": 27069.29260159684,
+  "lqrCost": 430.4349518957987,
+  "finalStateNorm": 100.00000000001012,
+  "criticRelativeToPublished": 1.426549795456554,
+  "actorRelativeToPublished": 0.28094275347735964,
+  "paperIterationCount": 45,
+  "paperTableInitialCriticPositiveDefinite": false
+}

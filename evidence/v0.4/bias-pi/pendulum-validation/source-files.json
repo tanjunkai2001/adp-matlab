@@ -1,0 +1,36 @@
+{
+  "status": "frozen after targeted runs",
+  "files": [
+    {
+      "path": "reproductions/bias_pi_automatica2026/bp_collect.m",
+      "bytes": 3044,
+      "sha256": "ba8be33e93f5d716ddb4175bb229db35b87d2d987dcce6d9e92f1a081c976aa5"
+    },
+    {
+      "path": "reproductions/bias_pi_automatica2026/bp_learn.m",
+      "bytes": 4616,
+      "sha256": "64eb93e0e714d07613acb66db5a0fedc2fcc61376ef554b7e6964df360eb17a2"
+    },
+    {
+      "path": "reproductions/bias_pi_automatica2026/bp_regression.m",
+      "bytes": 3429,
+      "sha256": "6a7c29055da0b2352056983d866ac1222de7f8d9fcc744c0d9de507b6be58e69"
+    },
+    {
+      "path": "reproductions/bias_pi_automatica2026/bp_solve.m",
+      "bytes": 1891,
+      "sha256": "ecedc08f1674df21821c7c2612500fc45d768166e9f8bfb067383f59085e0ff1"
+    },
+    {
+      "path": "reproductions/bias_pi_automatica2026/bp_pendulum_config.m",
+      "bytes": 1873,
+      "sha256": "11b3e119ded8d4902a0f1e06a83638f937ae59a2fa718fb82cac08c66da93b52"
+    },
+    {
+      "path": "reproductions/bias_pi_automatica2026/demo_bias_pi_pendulum.m",
+      "bytes": 11530,
+      "sha256": "c27122e80d34ea0434fb7b01b8d0a9d704772d4290b1bcc761d5ed7b40c35802"
+    }
+  ],
+  "scope": "Final source identity, not a cryptographic run attestation. After numerical runs, defaults were switched to the explicitly executed local_multistart/discounted_bootstrap settings, and the plot cost label was made horizon-dependent. Numerical kernels unchanged."
+}

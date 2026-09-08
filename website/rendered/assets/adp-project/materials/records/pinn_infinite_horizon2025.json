@@ -1,0 +1,365 @@
+{
+  "mode": "reduced",
+  "matlabVersion": "25.2.0.3312555 (R2025b) Update 6",
+  "toolboxes": [
+    {
+      "Name": "Aerospace Blockset",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Aerospace Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Computer Vision Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Control System Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "DSP System Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Deep Learning Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Fuzzy Logic Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Image Processing Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "MATLAB",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Model Predictive Control Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Motor Control Blockset",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Optimization Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "ROS Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Reinforcement Learning Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Robotics System Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Robotics Toolbox for MATLAB",
+      "Version": "10.4",
+      "Release": "",
+      "Date": "24-Sep-2020"
+    },
+    {
+      "Name": "Robust Control Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Signal Processing Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Simulink",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Symbolic Math Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "System Identification Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "UAV Toolbox",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    },
+    {
+      "Name": "Vehicle Dynamics Blockset",
+      "Version": "25.2",
+      "Release": "(R2025b)",
+      "Date": "28-Jul-2025"
+    }
+  ],
+  "sourceVersion": "arXiv:2505.21842v1",
+  "started": "2026-09-07 11:00:31",
+  "diagnostics": {
+    "lqrADMaxError": 0,
+    "lqrHJBMax": 1.1102230246251565e-16,
+    "quarticPaperHJBMax": 0.9816425338830994,
+    "quarticPaperResidualIdentityMax": 9.992007221626409e-16,
+    "quarticCorrectedHJBMax": 1.1102230246251565e-15,
+    "seedReplayParameterMaxError": 0,
+    "seedReplayLossMaxError": 0,
+    "seedReplayDataEqual": true,
+    "seedReplayScope": "12-update independent deterministic prefix, not full second training"
+  },
+  "finished": "2026-09-07 11:06:14",
+  "sourceHashes": {
+    "analyze_pinn_run_m": "5ec755c9b57f7d90e5c7536fa5959aa60e3dc3d5c2858dbd58db81fc57694e64",
+    "evaluate_hjb_pinn_m": "f288e44e100936ba7825fb2bcac6d915c8c234a36147a7e2b1644c831c96ac5c",
+    "pinn_loss_m": "7a0efab64a2bf74ecad21513abc803d621da507a56cdd60b01f5d9ce0f5c3d42",
+    "pinn_problem_m": "f9ae0da9fb6a8441cd218d79c4c578776509c7ee41cb78938c81eda4a78dc519",
+    "pinn_value_m": "ad7fc3890da9a722a847fa5b733a3072807fa1062ba333070051a00c2bfb95f4",
+    "run_pinn_reproduction_m": "21a0876b84eb554ac8a3177780ba2d5aa5c47f726fdcad964a6b88ff79afb612",
+    "train_hjb_pinn_m": "21bab156d5b0e67e8a3466ed788e7ca409b9f217b04c5b5b47bdc4e0e4eadf74"
+  },
+  "experiments": [
+    {
+      "problem": "scalar_lqr",
+      "stages": {
+        "flowMSE": 3.7151113830375576e-06,
+        "flowMaxAbs": 0.004838075140865372,
+        "terminalMSE": 7.000474475602796e-07,
+        "terminalMaxAbs": 0.0013168010112112327,
+        "steadyMSE": 0.037249396476229546,
+        "steadyMaxAbs": 0.42240645571924595,
+        "minimumValue": 3.046821159813362e-07,
+        "originValue": 0,
+        "totalHorizon": 1,
+        "valueOracleRMSE": 0.10875427933681008,
+        "policyOracleRMSE": 0.14078012970247414,
+        "finiteValueOracleRMSE": 0.001170023148786167,
+        "derivativeFDMaxError": 9.820588092734894e-11,
+        "trainingSeconds": 20.493626125,
+        "closedLoopFinalNorm": [
+          0.0021631522800503182,
+          0.0010700380543346793,
+          0.0010700380543346793,
+          0.0021631522800503182
+        ],
+        "closedLoopCost": [
+          1.0382334799040274,
+          0.25909965451313344,
+          0.25909965451313344,
+          1.0382334799040274
+        ],
+        "closedLoopCompleted": [
+          true,
+          true,
+          true,
+          true
+        ],
+        "leftTrainingDomain": [
+          false,
+          false,
+          false,
+          false
+        ]
+      }
+    },
+    {
+      "problem": "pendulum",
+      "stages": [
+        {
+          "flowMSE": 0.0007985023809108209,
+          "flowMaxAbs": 0.13744679821162645,
+          "terminalMSE": 0.00011813129630179885,
+          "terminalMaxAbs": 0.02479568979582506,
+          "steadyMSE": 0.02444518838213801,
+          "steadyMaxAbs": 0.7459952161756125,
+          "minimumValue": 0.0012667895365687798,
+          "originValue": 0,
+          "totalHorizon": 1,
+          "derivativeFDMaxError": 5.338689490486104e-10,
+          "trainingSeconds": 60.63233379166667,
+          "closedLoopFinalNorm": [
+            3.2918666742821444e-09,
+            6.815969889695757e-10,
+            3.2918666742821444e-09,
+            6.815969889695757e-10
+          ],
+          "closedLoopCost": [
+            1.2921968074728107,
+            0.41493733698076213,
+            1.2921968074728107,
+            0.41493733698076213
+          ],
+          "closedLoopCompleted": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "leftTrainingDomain": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "flowMSE": 8.166912348837834e-05,
+          "flowMaxAbs": 0.04446333770171185,
+          "terminalMSE": 1.3133149214523988e-05,
+          "terminalMaxAbs": 0.014709452273813817,
+          "steadyMSE": 0.0001159404475951074,
+          "steadyMaxAbs": 0.02767034226215004,
+          "minimumValue": 0.0004191554920378593,
+          "originValue": 0,
+          "totalHorizon": 2,
+          "derivativeFDMaxError": 1.8850165869953132e-10,
+          "trainingSeconds": 65.21395808333334,
+          "closedLoopFinalNorm": [
+            2.6784454935471233e-09,
+            5.521041383867454e-10,
+            2.6784454935471233e-09,
+            5.521041383867454e-10
+          ],
+          "closedLoopCost": [
+            1.292271305547234,
+            0.41498342889178363,
+            1.292271305547234,
+            0.41498342889178363
+          ],
+          "closedLoopCompleted": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "leftTrainingDomain": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "flowMSE": 3.075734427830296e-05,
+          "flowMaxAbs": 0.018506000567974114,
+          "terminalMSE": 2.8630369294381134e-06,
+          "terminalMaxAbs": 0.004063806119417812,
+          "steadyMSE": 2.6146024102223767e-05,
+          "steadyMaxAbs": 0.01623140641812648,
+          "minimumValue": 0.0004248871370648999,
+          "originValue": 0,
+          "totalHorizon": 3,
+          "derivativeFDMaxError": 2.176114852550648e-10,
+          "trainingSeconds": 24.145415458333332,
+          "closedLoopFinalNorm": [
+            2.3080205733095313e-09,
+            2.9329690861308513e-10,
+            2.3080205733095313e-09,
+            2.9329690861308513e-10
+          ],
+          "closedLoopCost": [
+            1.2921924370701112,
+            0.41493985387682236,
+            1.2921924370701112,
+            0.41493985387682236
+          ],
+          "closedLoopCompleted": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "leftTrainingDomain": [
+            false,
+            false,
+            false,
+            false
+          ]
+        },
+        {
+          "flowMSE": 1.698471049265225e-05,
+          "flowMaxAbs": 0.01212771305759009,
+          "terminalMSE": 6.623577780370843e-07,
+          "terminalMaxAbs": 0.0021807734566419157,
+          "steadyMSE": 2.73847058771723e-05,
+          "steadyMaxAbs": 0.011177774840077093,
+          "minimumValue": 0.0002745858031936166,
+          "originValue": 0,
+          "totalHorizon": 4,
+          "derivativeFDMaxError": 2.0464296967073747e-10,
+          "trainingSeconds": 23.421047291666667,
+          "closedLoopFinalNorm": [
+            2.2798104927521483e-09,
+            2.4225323558604067e-10,
+            2.2798104927521483e-09,
+            2.4225323558604067e-10
+          ],
+          "closedLoopCost": [
+            1.2921781034499087,
+            0.4149366671894791,
+            1.2921781034499087,
+            0.4149366671894791
+          ],
+          "closedLoopCompleted": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "leftTrainingDomain": [
+            false,
+            false,
+            false,
+            false
+          ]
+        }
+      ]
+    }
+  ]
+}

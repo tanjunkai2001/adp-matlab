@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "entry": "demo_reproductions('baseline')",
+  "runDirectory": "runs/run-20260908T005952643Z",
+  "learnedK": [
+    1.0000000000000526,
+    1.7320508075689423
+  ],
+  "referenceK": [
+    1,
+    1.7320508075688772
+  ],
+  "metrics": {
+    "gainErrorFro": 8.367812140789762e-14,
+    "valueErrorFro": 1.080725559403311e-13,
+    "finalRelativeBellmanResidual": 5.872110637179919e-16,
+    "finalRegressionCondition": 4.940290300236411,
+    "finiteHorizonSeconds": 8,
+    "learnedFiniteHorizonCost": 1.4641007989772794,
+    "referenceFiniteHorizonCost": 1.4641007989772787,
+    "referenceInfiniteHorizonValue": 1.4641016151377544,
+    "learnedValueAtInitialState": 1.464101615137753,
+    "learnedTailValue": 8.161604742012262e-07,
+    "learnedFinitePlusTail": 1.4641016151377535,
+    "valueIdentityError": 4.440892098500626e-16
+  },
+  "polesReal": [
+    -0.8660254037844711,
+    -0.8660254037844711
+  ],
+  "polesImag": [
+    0.4999999999999963,
+    -0.4999999999999963
+  ],
+  "finalState": [
+    -0.0004417334775881888,
+    0.0008390938655933832
+  ],
+  "finalStateNorm": 0.0009482652479652524,
+  "maximumAbsoluteAppliedInput": 0.7320508075688896,
+  "iterations": 5,
+  "converged": true,
+  "baselineTests": {
+    "executed": 46,
+    "passed": 46,
+    "failed": 0,
+    "incomplete": 0
+  },
+  "startedUTC": "2026-09-08T00:59:52.176Z",
+  "endedUTC": "2026-09-08T01:00:00.459Z",
+  "elapsedSeconds": 8.282904
+}

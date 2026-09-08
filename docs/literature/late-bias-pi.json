@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "as_of": "2026-09-07",
+  "scope": "打包前单篇有界补查；未修改 core-papers.json 或 outputs。",
+  "fulltext_scoped_read_count": 0,
+  "entries": [
+    {
+      "id": "zhang-jiang-zhou-nonlinear-bias-pi-2026",
+      "title": "Adaptive dynamic programming for unknown continuous-time nonlinear systems via bias-policy iteration",
+      "authors": [
+        "Ruiqing Zhang",
+        "Huaiyuan Jiang",
+        "Bin Zhou"
+      ],
+      "year": 2026,
+      "doi": "10.1016/j.automatica.2026.112821",
+      "arxiv_id": null,
+      "publication_status": "Automatica 185 (March 2026), article 112821；正式发表书目已由 Crossref 与出版社核对。",
+      "dates": {
+        "issue_month": "2026-03",
+        "elsevier_cover_date": "2026-03-31",
+        "first_online_date": null,
+        "date_note": "coverDate 是期刊封面日期，不作为首次在线发表日；本轮未核得具体 online 日。"
+      },
+      "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0005109826000051",
+      "source_urls": [
+        "https://www.sciencedirect.com/science/article/pii/S0005109826000051",
+        "https://doi.org/10.1016/j.automatica.2026.112821",
+        "https://api.crossref.org/works/10.1016/j.automatica.2026.112821",
+        "https://homepage.hit.edu.cn/binzhou"
+      ],
+      "source_version": "publisher article preview plus VoR bibliographic metadata; no complete manuscript acquired",
+      "fulltext_read": false,
+      "fulltext_url": null,
+      "fulltext_path": null,
+      "fulltext_sha256": null,
+      "evidence_level": "primary_abstract_introduction_preview_and_verified_metadata",
+      "read_scope": [
+        "出版社搜索索引可见的 Abstract 与 Introduction；包括论文组织说明。",
+        "Crossref 正式书目和 Elsevier coredata XML。",
+        "作者 Bin Zhou 的 HIT 主页仅显示基本资料，本次可读页面没有论文正文链接。"
+      ],
+      "not_read": [
+        "§II problem formulation",
+        "§III Bias-PI 的算法、数据驱动回归与收敛证明",
+        "§IV 两个仿真算例",
+        "完整参考文献与任何附录证明"
+      ],
+      "equations_or_theorems_read": [],
+      "verified_from_primary_preview": [
+        "这是面向未知连续时间非线性系统的 Bias-PI 工作，目标是放宽 PI 对初始可容许控制的要求。",
+        "摘要说明通过 bias value function 处理初始化，并给出模型型与数据型方法；引言指出指数折扣性能指标思路，以及受 2022 年线性 Bias-PI 的 Fréchet 导数偏置思路启发。"
+      ],
+      "author_claims_not_independently_verified": [
+        "bias value function 的有界性、算法收敛和较快迭代性质；具体成立条件未取得。",
+        "不依赖先验系统信息的数据驱动实现；不能据摘要代填已知 f/g、可观测量、秩条件或逼近误差假设。"
+      ],
+      "core_gap": [
+        "provisional：当前已登记 CT 非线性 PI、VI/混合评价与初始化框架，但尚未显式记录非线性 CT Bias-PI 的偏置值函数/评价算子与初始化关系。",
+        "该路线不能直接视作 DT damping 的已核同义实现；bias 也不能仅因同名而与平均成本相对值函数的 bias 合并。"
+      ],
+      "module_action": [
+        "可加入待全文核对的 ct-nonlinear-bias-pi 检索/规划条目，learning_targets 暂按 V 的候选分类，正文核对后再冻结数学契约。",
+        "复用 initialization、evaluation_operator、objective/error_budget 接口；偏置值函数、偏置参数与策略/价值更新顺序均先标 unknown，不造新算法桩。",
+        "全文取得后核对目标成本与辅助折扣/偏置的关系、参数调度/消除条件、原闭环可容许性、积分回归校正、学习器知识/激励与近似误差。"
+      ],
+      "required_before_implementation": [
+        "精确 bias value function 定义和与原/折扣目标的关系",
+        "初始策略放宽到哪一类及其有效域",
+        "偏置参数、算子可逆性及停止/过渡条件",
+        "模型型与数据型算法逐行公式映射",
+        "未知模型项、可观测变量、数据激励/秩条件",
+        "精确与函数逼近/求积/噪声条件下各自保证对象"
+      ],
+      "implementation_status": "not_implemented",
+      "suggested_registry_status": "discovered_pending_fulltext",
+      "code": {
+        "url": null,
+        "checked": false,
+        "status": "本次可读预览未发现代码链接；未获取/运行源码，不断言代码不存在。"
+      },
+      "access_attempts": {
+        "publisher_html": "直接请求失败；搜索索引可读出版社摘要/引言预览。",
+        "publisher_pdf": "403 Forbidden",
+        "elsevier_full_vor": "401 Unauthorized",
+        "elsevier_default_xml": "取得 1844-byte coredata；无正文，openaccess=false。",
+        "arxiv": "精确主题/题名定向搜索未发现可核稿；export API 单次请求超时，不据此断言不存在。",
+        "author": "HIT 作者主页打开，无该文 PDF 可见；未给作者发信或申请全文。",
+        "openalex_discovery": "单次辅助 OA 链接检索 429，未重试；不用于方法内容证据。"
+      },
+      "related_historical_lead": {
+        "title": "Bias-policy iteration based adaptive dynamic programming for unknown continuous-time linear systems",
+        "authors": [
+          "Huaiyuan Jiang",
+          "Bin Zhou"
+        ],
+        "year": 2022,
+        "doi": "10.1016/j.automatica.2021.110058",
+        "journal": "Automatica 136:110058",
+        "fulltext_read": false,
+        "status": "Crossref 书目已核，且 2026 引言指出关联；本轮未补读。"
+      },
+      "local_artifacts": [
+        {
+          "path": "Local provenance path omitted from public-source copy.",
+          "sha256": "a638200aa51ecbba100cfa3b8173e81017888e094324b8de76436db40bd977dd",
+          "bytes": 770,
+          "artifact_kind": "retrieval_attempt_log"
+        },
+        {
+          "path": "Local provenance path omitted from public-source copy.",
+          "sha256": "9d2c09c392101b4557cc8bb943c80147d3931a436adac2988eaa67e40ec4416a",
+          "bytes": 42603,
+          "artifact_kind": "metadata_not_fulltext"
+        },
+        {
+          "path": "Local provenance path omitted from public-source copy.",
+          "sha256": "a575ec639a2492adf6d8a0a62ca4cccddb6736234e240caa86d6e4fbaaddebe1",
+          "bytes": 1844,
+          "artifact_kind": "metadata_not_fulltext"
+        }
+      ]
+    }
+  ],
+  "historical_record": true,
+  "superseded_by": "../fulltext/bias_pi_automatica2026.md",
+  "current_status": "Formal fulltext acquired and reviewed in v0.4; old failed attempts below retained as history."
+}

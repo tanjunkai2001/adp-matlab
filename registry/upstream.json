@@ -1,0 +1,90 @@
+{
+  "checked_on": "2026-09-07",
+  "sources": [
+    {
+      "id": "fxt-cl-aci",
+      "url": "https://github.com/tanjunkai2001/FxT-CL-ACI",
+      "commit": "e6fd86390f6895a588390c01957a3e4393ffe432",
+      "branch": "main",
+      "review_status": "source_reviewed",
+      "executed": false,
+      "license_status": "no_license_file_found",
+      "bundled_code": false
+    },
+    {
+      "id": "adp-algorithms",
+      "url": "https://github.com/lujingweihh/Adaptive-dynamic-programming-algorithms",
+      "commit": "ac4ceb3d2607a5e69960c84ac2aef53e4757bc9f",
+      "branch": "main",
+      "review_status": "source_reviewed",
+      "matlab_files": 38,
+      "algorithm_families": 11,
+      "executed": false,
+      "license_status": "no_license_file_found",
+      "bundled_code": false
+    },
+    {
+      "url": "https://lewisgroup.uta.edu/code/ADP%20code.zip",
+      "filename": "ADP code.zip",
+      "bytes": 165843,
+      "sha256": "ab24deff7c82d5a752952571c4232cf1d1bfbebe91807e0a494d4c30675592cf",
+      "entries": [
+        "ADHDP.m",
+        "ADDHP.m",
+        "HDP.m",
+        "Landelius.pdf",
+        "DHP.m"
+      ],
+      "id": "lewis-ADP-code",
+      "review_status": "source_reviewed",
+      "executed": false,
+      "bundled_code": false,
+      "license_status": "no_explicit_code_license_found"
+    },
+    {
+      "url": "https://lewisgroup.uta.edu/code/vrabie.zip",
+      "filename": "vrabie.zip",
+      "bytes": 2901,
+      "sha256": "bb874daa3cc59723dbc6ce46fa747653af3e4d131610cf6212809ce2f22aa880",
+      "entries": [
+        "ONLINEpolicyiteration_nonlin.m",
+        "ONLINEpolicyiteration_lin.m"
+      ],
+      "id": "lewis-vrabie",
+      "review_status": "source_reviewed",
+      "executed": false,
+      "bundled_code": false,
+      "license_status": "no_explicit_code_license_found"
+    },
+    {
+      "url": "https://lewisgroup.uta.edu/code/reza%20experience%20replay.zip",
+      "filename": "reza experience replay.zip",
+      "bytes": 936476,
+      "sha256": "a9accd1480f888125136300db4b84456ae0b896292afbe53fb26a3e63c130819",
+      "entries": [
+        "experience replay/IRL_ExpReplay.pdf",
+        "experience replay/My_IRL7.m"
+      ],
+      "id": "lewis-reza-experience-replay",
+      "review_status": "source_reviewed",
+      "executed": false,
+      "bundled_code": false,
+      "license_status": "no_explicit_code_license_found"
+    },
+    {
+      "url": "https://lewisgroup.uta.edu/code/online%20synch%20opt%20ctrl.zip",
+      "filename": "online synch opt ctrl.zip",
+      "bytes": 2480,
+      "sha256": "973a8ece7f0886d803d02b61eb26d16ffc575447ab12377652ad0d6c261169dc",
+      "entries": [
+        "dynamicsnew3.m",
+        "prob3.m"
+      ],
+      "id": "lewis-online-synch-opt-ctrl",
+      "review_status": "source_reviewed",
+      "executed": false,
+      "bundled_code": false,
+      "license_status": "all_rights_reserved_notice"
+    }
+  ]
+}

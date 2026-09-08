@@ -1,0 +1,25 @@
+{
+  "source": "demo_reproductions baseline, independently executed from publication-preparation directory",
+  "system": "double integrator, Q=I, R=1, known B, x0=[1;-1]",
+  "iterations": 5,
+  "matlab": "25.2.0.3312555 (R2025b) Update 6",
+  "metrics": {
+    "gainErrorFro": 8.367812140789762e-14,
+    "valueErrorFro": 1.080725559403311e-13,
+    "finalRelativeBellmanResidual": 5.872110637179919e-16,
+    "finalRegressionCondition": 4.940290300236411,
+    "finalClosedLoopPoles": [],
+    "finiteHorizonSeconds": 8,
+    "learnedFiniteHorizonCost": 1.4641007989772794,
+    "referenceFiniteHorizonCost": 1.4641007989772787,
+    "referenceInfiniteHorizonValue": 1.4641016151377544,
+    "learnedValueAtInitialState": 1.464101615137753,
+    "learnedTailValue": 8.161604742012262e-07,
+    "learnedFinitePlusTail": 1.4641016151377535,
+    "valueIdentityError": 4.440892098500626e-16
+  },
+  "referenceK": [
+    1,
+    1.7320508075688772
+  ]
+}

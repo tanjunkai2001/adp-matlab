@@ -1,0 +1,90 @@
+{
+  "paper": {
+    "title": "Mean field LQG social optimization: A reinforcement learning approach",
+    "authors": [
+      "Zhenhui Xu",
+      "Bing-Chang Wang",
+      "Tielong Shen"
+    ],
+    "journal": "Automatica",
+    "volume": "172",
+    "article": "111924",
+    "year": 2025,
+    "doi": "10.1016/j.automatica.2024.111924"
+  },
+  "fulltext": {
+    "url": "https://arxiv.org/pdf/2410.15119v1",
+    "version": "arXiv v1 author preprint",
+    "submitted": "2024-10-19",
+    "pages": 16,
+    "sha256": "a50e13845db320f9a8575b8cead71ac9be3f3a1004fa120ccbcc06a44947db6f",
+    "read_all_pages": true,
+    "critical_visual_checks": [
+      9,
+      13
+    ],
+    "publisher_typeset_fulltext_read": false,
+    "license_url": "https://arxiv.org/licenses/nonexclusive-distrib/1.0/license.html",
+    "redistributed_in_output": false
+  },
+  "code": {
+    "implementation": "independent original MATLAB from equations",
+    "author_code_link": null,
+    "bounded_code_search": "full text plus arXiv links plus exact-title GitHub-domain search, 2026-09-07",
+    "imported_third_party_source": false,
+    "new_code_license_selected": false
+  },
+  "evidence_level": "fulltext_read_and_MATLAB_executed",
+  "method_status": "executed_with_finite_sample_limitations",
+  "source_snapshotted_at_utc": "2026-09-07T03:17:35.438818+00:00",
+  "source_files": [
+    {
+      "path": "reproductions/meanfield_lqg2025/demo_meanfield_lqg2025.m",
+      "sha256": "fa7493c254bc6d9941159a833917075097d1f2c1a1ba1bb3d2845f0b3ed0822d"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/mf_build_data.m",
+      "sha256": "75e13e0f3fc5eeff394cecc876aead260ddc85add8a7a1887085482d5564b971"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/mf_collect.m",
+      "sha256": "cc785c480134371a099fc2055ec6aa5a3bd8642191fa280dd8951bc333b08985"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/mf_config.m",
+      "sha256": "7b8ae13635951d7614fb254ff463dff1e7b758af53050d744f277db3690c7bcb"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/mf_evaluate.m",
+      "sha256": "35ac3abc4e1834f9cadcec65d25f72b4aeefadbabbba929bd06f61135570142a"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/mf_learn.m",
+      "sha256": "4f19f2872c7dc3bc2ed2818922990924608d0d935b13e9b5e1a70288f09ccb79"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/mf_mean_trajectory.m",
+      "sha256": "26249ee31c50f9f13f474811d6ef02445e5c4b92861bf940343847c86c596768"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/mf_precision_check.m",
+      "sha256": "1d35fb35f511661292952fc3a486202b1fa6653aa3e056a5de8dfffc50ae8e90"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/mf_reference.m",
+      "sha256": "7d62d0d7025e5146e97f076b112645ce164c75f3c3e44b86acc1c555449e2069"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/mf_window_moments.m",
+      "sha256": "c86f2eee77fd951fccc4751bc2fcc53d589380f7d277a2dbde42758d28ce817a"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/run_verified_meanfield.m",
+      "sha256": "ae26ff0581390342e91fc02742c81ddb4792d24d8eafa5a66637f391f709c170"
+    },
+    {
+      "path": "reproductions/meanfield_lqg2025/test_meanfield_lqg2025.m",
+      "sha256": "418d8368bec5297df78f3f3a6420dadef38adf46f3837e4f81527651afa6b54c"
+    }
+  ]
+}

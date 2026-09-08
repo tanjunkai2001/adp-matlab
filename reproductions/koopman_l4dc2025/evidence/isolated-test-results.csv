@@ -1,0 +1,9 @@
+Name,Passed,Failed,Incomplete,Duration
+test_koopman/testHeldOutIdentificationAndFrozenControl,1,0,0,64.09553875
+test_koopman/testAnchoredFeatureGradient,1,0,0,0.10773375
+test_koopman/testAnalyticYosidaGeneratorAndQuadrature,1,0,0,0.332555583333333
+test_koopman/testStateInputCouplingIsActuallyIdentified,1,0,0,0.107076958333333
+test_koopman/testRankAndNonfiniteFailure,1,0,0,1.28463158333333
+test_koopman/testIndependentOde45AgainstRK4,1,0,0,0.950143041666667
+test_koopman/testKnownTruthFieldsAreNotLearnerInputs,1,0,0,1.09428916666667
+test_koopman/testDomainAndPolicyIterationSensitivity,1,0,0,12.4705620833333

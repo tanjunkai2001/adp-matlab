@@ -1,0 +1,32 @@
+{
+  "matlab_source_version": "0.4.1",
+  "original_experiments": "2026-09-07",
+  "new_training_or_simulation": false,
+  "figure_generator": "redraw_examples.m",
+  "records": [
+    {
+      "id": "linear",
+      "source": "docs/assets/data/baseline-trajectory.csv",
+      "display": "Recorded x1(t) and x2(t)",
+      "data_file": "baseline-trajectory.csv",
+      "data_sha256": "f577b06e61a16f9efa969e95f941b3f2892bbe376ec11df313c1b053f69e2018"
+    },
+    {
+      "id": "koopman",
+      "source": "reproductions/koopman_l4dc2025/results/validated-v03-isolated-20260907/result.mat",
+      "display": "All 50 recorded learned-policy phase trajectories",
+      "data_file": "koopman-trajectories.csv",
+      "data_sha256": "d774df07d17cc65a91b7c604a9bc142cc47f3adfd3414f89e82e2618c9995d28"
+    },
+    {
+      "id": "pinn",
+      "source": "evidence/v0.3/pinn/reduced_20260907_110031_520/pendulum_T4_common_grid.csv",
+      "display": "Trained neural V(x,0) on the common grid at the final continuation stage T=4 s; reduced training",
+      "data_file": "pinn-value-grid.csv",
+      "data_sha256": "ced6523e40fc4f4306571099b6735dd92ea592ddd668c1bedad5bd18f4e43013"
+    }
+  ],
+  "scope": "Illustrative views of three distinct experiments, not a shared method ranking",
+  "data_bundle": "example-figures.zip",
+  "bundle_data_directory": "data/"
+}

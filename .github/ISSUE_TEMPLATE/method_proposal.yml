@@ -1,0 +1,30 @@
+name: Method proposal
+description: Propose one paper, comparator or complete experiment.
+title: "[Method] "
+body:
+  - type: input
+    id: paper
+    attributes:
+      label: Source paper and version
+      description: Link a DOI, publisher page or versioned preprint.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Intended implementation
+      description: State the model, learning mechanism and first numerical example.
+    validations:
+      required: true
+  - type: textarea
+    id: validation
+    attributes:
+      label: Independent validation
+      description: Name the analytic comparator, paper result or equation identity to check.
+    validations:
+      required: true
+  - type: textarea
+    id: source_code
+    attributes:
+      label: Existing code and license
+      description: Link any upstream source and its redistribution terms, if known.
